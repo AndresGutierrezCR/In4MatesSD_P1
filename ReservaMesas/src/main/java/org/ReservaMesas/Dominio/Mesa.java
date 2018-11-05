@@ -45,6 +45,9 @@ public class Mesa {
 		this.estado = estado;
 	}
 	
+	public GestorMesa getGestorMesa() {
+		return gestorMesa;
+	}
 	
 	
 	public void eliminar() {
@@ -64,7 +67,7 @@ public class Mesa {
 	}
 	
 	public void leerTodo() {
-		
+		gestorMesa.readAll();
 	}
 	
 
