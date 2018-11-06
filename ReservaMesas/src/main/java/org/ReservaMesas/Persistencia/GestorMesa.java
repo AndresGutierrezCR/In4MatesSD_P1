@@ -64,7 +64,7 @@ public class GestorMesa {
 	public void read(Mesa mesa) {
 		ResultSet resultado;
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM mesas WHERE idmesa="+mesa.getIdMesa()+";");
+			resultado = Agente.getAgente().leer("SELECT * FROM mesas WHERE idmesa="+mesa.getIdMesa()+"");
 			while(resultado.next()) {
 				mesa.setComensales(resultado.getInt(2));
 				Estados estado=Estados.valueOf(resultado.getString(3));

@@ -25,7 +25,7 @@ private ArrayList <Reserva> listaReserva;
 	
 	public void delete(Reserva reserva) {
 		try {
-			Agente.getAgente().modificar("DELETE FROM reserva WHERE idReserva = "+reserva.getIdReserva()+";");
+			Agente.getAgente().modificar("DELETE FROM reserva WHERE idReserva = "+reserva.getIdReserva()+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,7 +39,7 @@ private ArrayList <Reserva> listaReserva;
 		try {
 			Agente.getAgente().modificar("UPDATE reserva SET nombrecliente='"+reserva.getNombreCliente()+"', "
 					+ "comensales="+reserva.getComensales()+", turnocomcen ='"+reserva.getTurnoComCen()+"'"
-							+ ", turno="+reserva.getTurno()+", idMesa="+reserva.getMesa().getIdMesa()+" WHERE idReserva = "+reserva.getIdReserva()+";");
+							+ ", turno="+reserva.getTurno()+", idMesa="+reserva.getMesa().getIdMesa()+" WHERE idReserva = "+reserva.getIdReserva()+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,7 +53,7 @@ private ArrayList <Reserva> listaReserva;
 		try {
 			Agente.getAgente().modificar("INSERT INTO reserva VALUES("+reserva.getIdReserva()+",'"+reserva.getNombreCliente()+
 					"',"+reserva.getComensales()+",'"+reserva.getTurnoComCen()+"',"+
-					reserva.getTurno()+","+reserva.getMesa().getIdMesa()+");");
+					reserva.getTurno()+","+reserva.getMesa().getIdMesa()+")");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,7 +66,7 @@ private ArrayList <Reserva> listaReserva;
 	public void read(Reserva reserva) {
 		ResultSet resultado;
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM reserva WHERE idReserva="+reserva.getIdReserva()+";");
+			resultado = Agente.getAgente().leer("SELECT * FROM reserva WHERE idReserva="+reserva.getIdReserva()+"");
 			while(resultado.next()) {
 				
 				reserva.setNombreCliente(resultado.getString(2));
@@ -89,6 +89,28 @@ private ArrayList <Reserva> listaReserva;
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void lastID(Reserva reserva) {
+		ResultSet resultado;
+		try {
+			
+			resultado = Agente.getAgente().leer("SELECT MAX(idReserva) FROM reserva");
+			//resultado = Agente.getAgente().leer("SELECT * FROM reserva;");
+			
+			while(resultado.next()) {
+				reserva.setIdReserva(resultado.getInt(1)+1);
+			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Excepcion SQL");
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Excepcion general");
+			//e.printStackTrace();
+		}
 	}
 	
 	public void readAll() {
