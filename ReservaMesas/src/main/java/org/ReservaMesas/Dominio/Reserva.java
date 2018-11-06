@@ -28,6 +28,9 @@ public class Reserva {
 		this.gestorReserva=new GestorReserva();
 	}
 	
+	public void asignarIDUltimo() {
+		gestorReserva.lastID(this);
+	}
 	
 	public void eliminar() {
 		gestorReserva.delete(this);
