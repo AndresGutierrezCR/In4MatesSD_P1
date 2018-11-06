@@ -1,5 +1,7 @@
 package org.ReservaMesas.Dominio;
 
+import org.ReservaMesas.Persistencia.GestorReserva;
+
 public class Reserva {
 	
 	private int idReserva;
