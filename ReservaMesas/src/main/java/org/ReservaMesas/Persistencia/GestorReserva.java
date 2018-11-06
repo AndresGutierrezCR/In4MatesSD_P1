@@ -66,11 +66,20 @@ private ArrayList <Reserva> listaReserva;
 	public void read(Reserva reserva) {
 		ResultSet resultado;
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM mesas WHERE idmesa="+mesa.getIdMesa()+";");
+			resultado = Agente.getAgente().leer("SELECT * FROM reserva WHERE idReserva="+reserva.getIdReserva()+";");
 			while(resultado.next()) {
-				mesa.setComensales(resultado.getInt(2));
-				Estados estado=Estados.valueOf(resultado.getString(3));
-				mesa.setEstado(estado);
+				
+				reserva.setNombreCliente(resultado.getString(2));
+				reserva.setComensales(resultado.getInt(3));
+				reserva.setTurnoComCen(resultado.getString(4));
+				reserva.setTurno(resultado.getInt(5));
+				
+				Mesa m = new Mesa();
+				m.setIdMesa(resultado.getInt(6));
+				
+				m.leer();
+				
+				reserva.setMesa(m);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -86,12 +95,15 @@ private ArrayList <Reserva> listaReserva;
 		ResultSet resultado;
 		
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM mesas ORDER BY idMesa");
+			resultado = Agente.getAgente().leer("SELECT * FROM reserva ORDER BY idReserva");
 			Reserva reserva;
 			
 			while (resultado.next()){
+				Mesa m = new Mesa();
+				m.setIdMesa(resultado.getInt(6));
+				reserva=new Reserva(resultado.getInt(1),resultado.getString(2),resultado.getInt(3),
+						resultado.getString(4),resultado.getInt(5),m);
 				
-				reserva=new Reserva(resultado.getInt(1),resultado.getInt(2),estado);
 				listaReserva.add(reserva);
 			}
 		} catch (SQLException e) {
