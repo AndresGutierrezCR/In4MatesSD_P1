@@ -44,11 +44,11 @@ public class Reserva {
 		gestorReserva.read(this);
 	}
 	public void leerTodo() {
-		gestorReserva.readAll(this);
+		gestorReserva.readAll();
 	}
 	
 	public GestorReserva getGestorReserva() {
-		return this.gestorReserva();
+		return this.gestorReserva;
 	}
 
 	
