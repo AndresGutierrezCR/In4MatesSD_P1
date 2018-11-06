@@ -1,6 +1,6 @@
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Persistencia/Agente.java
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Dominio/Estados.java
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Persistencia/GestorMesa.java
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Dominio/Mesa.java
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Presentacion/IU_VerConfMesas.java
-/home/in4mates/eclipse-workspace/Proyecto_Restaurante/ReservaMesas/src/main/java/org/ReservaMesas/Presentacion/VentanaPrincipal.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Persistencia/Agente.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Persistencia/GestorMesa.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Presentacion/VentanaPrincipal.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Presentacion/IU_VerConfMesas.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Dominio/Estados.java
+/home/in4mates/git/In4MatesSD_P1/ReservaMesas/src/main/java/org/ReservaMesas/Dominio/Mesa.java
