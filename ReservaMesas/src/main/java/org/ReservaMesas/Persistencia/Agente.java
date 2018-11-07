@@ -41,7 +41,7 @@ public class Agente {
         PreparedStatement stmt = mBD.prepareStatement(SQL);
         int res = stmt.executeUpdate();
         stmt.close();
-        desconectar();
+     //   desconectar();
         return res;
     }
 

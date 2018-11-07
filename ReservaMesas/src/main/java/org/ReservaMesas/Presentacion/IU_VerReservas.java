@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -65,18 +66,29 @@ public class IU_VerReservas extends JPanel {
 	}
 
 	public void RecargarReservas() {
-		reserva = new Reserva();
-		reserva.leerTodo();
-		tableReservas.removeAll();
-		for (int i = 0; i < reserva.getGestorReserva().getListaReserva().size(); i++) {
+		Reserva reserva1 = new Reserva();
+	//	tableReservas.removeAll();
+		if(tableReservas.getRowCount()>0) {
+		
+			DefaultTableModel modelo = (DefaultTableModel)tableReservas.getModel();
+			int Limite = tableReservas.getRowCount()-1;
+			
+			for(int i=Limite;i>=0;i--) {
+				modelo.removeRow(i);
+			}
+			
+		}
+		reserva1.leerTodo();
+		for (int i = 0; i < reserva1.getGestorReserva().getListaReserva().size(); i++) {
 
-			Reserva aux = reserva.getGestorReserva().getListaReserva().get(i);
+			Reserva aux = reserva1.getGestorReserva().getListaReserva().get(i);
 
 			DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
 			Object filaNueva[] = { aux.getIdReserva(), aux.getNombreCliente(), aux.getComensales(),
 					aux.getTurnoComCen(), aux.getTurno(), aux.getMesa().getIdMesa() };
 			modelo.addRow(filaNueva);
 		}
+	
 	}
 		public boolean isSelectedReserva() {
 			return this.selectedReserva;
@@ -89,7 +101,7 @@ public class IU_VerReservas extends JPanel {
 	private class TableReservasMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			System.out.println(tableReservas.getSelectedRow());
+	
 			reserva = new Reserva();
 			int filaReserva = tableReservas.getSelectedRow();
 			int idReserva=Integer.parseInt(tableReservas.getValueAt(filaReserva, 0).toString());
@@ -104,11 +116,13 @@ public class IU_VerReservas extends JPanel {
 			if(isSelectedReserva()) {
 				reserva.eliminar();
 				setSelectedReserva(false);
-				
 				RecargarReservas();
+				JOptionPane.showMessageDialog(null, "Reserva eliminada correctamente", "Reserva eliminada",JOptionPane.INFORMATION_MESSAGE);
 			}
 			else {
-				System.out.println("No ha seleccionado ninguna reserva");
+				
+				JOptionPane.showMessageDialog(null, "No ha selecionado ninguna reserva", "Error al cancelar reserva",JOptionPane.ERROR_MESSAGE);
+
 			}
 		}
 	}
