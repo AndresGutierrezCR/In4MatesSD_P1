@@ -8,11 +8,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+
+import org.ReservaMesas.Dominio.Reserva;
+
 public class IU_VerReservas extends JPanel {
 	private JPanel panelBotones;
 	private JButton btnCancelar;
 	private JScrollPane scrollPane;
-	private JTable table;
+	private JTable tableReservas;
+	private Reserva reserva;
 
 	/**
 	 * Create the panel.
@@ -32,22 +36,34 @@ public class IU_VerReservas extends JPanel {
 			scrollPane = new JScrollPane();
 			add(scrollPane, BorderLayout.CENTER);
 			{
-				table = new JTable();
-				table.setModel(new DefaultTableModel(
+				tableReservas = new JTable();
+				tableReservas.setModel(new DefaultTableModel(
 					new Object[][] {
 					},
 					new String[] {
 						"ID reserva","NombreCliente", "Comensales", "Turno comida/cena", "Turno", "ID Mesa",
 					}
 				));
-				scrollPane.setViewportView(table);
+				scrollPane.setViewportView(tableReservas);
 			}
 		}
-
+		RecargarReservas();
 	}
 
 	public void RecargarReservas() {
+		reserva=new Reserva();
+		reserva.leerTodo();
+		
+		for(int i=0;i<reserva.getGestorReserva().getListaReserva().size();i++) {
+			
+			Reserva aux=reserva.getGestorReserva().getListaReserva().get(i);
+			
+			DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
+			Object filaNueva[] = {aux.getIdReserva(),aux.getNombreCliente(),aux.getComensales(),aux.getTurnoComCen(),aux.getTurno(),aux.getMesa().getIdMesa()};
+			modelo.addRow(filaNueva);
+		}
 		
 	}
+	
 	
 }
