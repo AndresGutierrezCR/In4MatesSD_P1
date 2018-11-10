@@ -3,9 +3,14 @@ package org.ReservaMesas.Presentacion;
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.TitledBorder;
+
+import org.ReservaMesas.Dominio.Estados;
+import org.ReservaMesas.Dominio.Mesa;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -20,7 +25,11 @@ public class IU_P_estadoMesa extends JPanel {
 	private JButton btnPagando;
 	private JButton btnPreparacion;
 	
+	private Color colorSelecionado = new Color(200,200,250);
+	private Color colorDefecto;
+	
 	private int idMesa;
+	private Mesa mesa;
 
 	/**
 	 * Create the panel.
@@ -41,6 +50,7 @@ public class IU_P_estadoMesa extends JPanel {
 			gbc_btnLibre.gridx = 0;
 			gbc_btnLibre.gridy = 1;
 			add(btnLibre, gbc_btnLibre);
+			colorDefecto=btnLibre.getBackground();
 		}
 		{
 			btnReservada = new JButton("Reservada");
@@ -115,6 +125,26 @@ public class IU_P_estadoMesa extends JPanel {
 			add(btnPreparacion, gbc_btnPreparacion);
 		}
 
+	}
+	
+	public void estadoInicial() {
+		mesa=new Mesa();
+		mesa.setIdMesa(idMesa);
+		mesa.leer();
+		Estados estado;
+		estado = mesa.getEstado();
+		estadoBotones(estado);
+	}
+	
+	public void estadoBotones(Estados estado) {
+		
+		switch(estado) {
+		
+		case LIBRE:
+			btnLibre.setBackground(colorSelecionado);
+		
+		}
+		
 	}
 	
 	public void setIdMesa(int idMesa) {
