@@ -25,7 +25,7 @@ public class GestorMesa {
 	
 	public void delete(Mesa mesa) {
 		try {
-			Agente.getAgente().modificar("DELETE FROM mesas WHERE idMesa = "+mesa.getIdMesa()+";");
+			Agente.getAgente().modificar("DELETE FROM mesas WHERE idMesa = "+mesa.getIdMesa()+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class GestorMesa {
 	public void update(Mesa mesa) {
 		try {
 			Agente.getAgente().modificar("UPDATE mesas SET comensales="+mesa.getComensales()+", "
-					+ "estado='"+mesa.getEstado()+"' WHERE idMesa = "+mesa.getIdMesa()+";");
+					+ "estado='"+mesa.getEstado()+"' WHERE idMesa = "+mesa.getIdMesa()+"");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class GestorMesa {
 	public void insert(Mesa mesa) {
 		try {
 			Agente.getAgente().modificar("INSERT INTO mesas VALUES("+mesa.getIdMesa()+","+mesa.getComensales()+
-					",'"+mesa.getEstado()+"');");
+					",'"+mesa.getEstado()+"')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
