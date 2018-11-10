@@ -6,6 +6,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.TitledBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IU_P_estadoMesa extends JPanel {
 	private JButton btnLibre;
@@ -17,6 +19,8 @@ public class IU_P_estadoMesa extends JPanel {
 	private JButton btnEsperaCuenta;
 	private JButton btnPagando;
 	private JButton btnPreparacion;
+	
+	private int idMesa;
 
 	/**
 	 * Create the panel.
@@ -112,5 +116,13 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 
 	}
+	
+	public void setIdMesa(int idMesa) {
+		this.idMesa=idMesa;
+	}
 
+	private class BtnActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }

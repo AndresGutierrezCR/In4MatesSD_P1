@@ -44,7 +44,8 @@ public class VentanaPrincipal {
 		{
 		//	panel = new IU_VerConfMesas();
 		//	panel = new IU_AsigMesa();
-			panel = new IU_VerReservas();
+		//	panel = new IU_VerReservas();
+			panel = new IU_EstadosMesas();
 			frame.getContentPane().add(panel, BorderLayout.CENTER);
 		}
 	}
