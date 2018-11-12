@@ -7,6 +7,7 @@ public class Mesa {
 	private int idMesa;
 	private int comensales;
 	private Estados estado;
+	private String horaEstado;
 	
 	private GestorMesa gestorMesa;
 	
@@ -14,13 +15,22 @@ public class Mesa {
 		this.gestorMesa= new GestorMesa();
 	}
 	
-	public Mesa(int idMesa, int comensales, Estados estado) {
+	public Mesa(int idMesa, int comensales, Estados estado,String horaEstado) {
 		this.idMesa=idMesa;
 		this.comensales=comensales;
 		this.estado=estado;
+		this.horaEstado=horaEstado;
 		this.gestorMesa= new GestorMesa();
 	}
 
+	public String getHoraEstado() {
+		return horaEstado;
+	}
+	
+	public void setHoraEstado(String horaEstado) {
+		this.horaEstado=horaEstado;
+	}
+	
 	public int getIdMesa() {
 		return idMesa;
 	}

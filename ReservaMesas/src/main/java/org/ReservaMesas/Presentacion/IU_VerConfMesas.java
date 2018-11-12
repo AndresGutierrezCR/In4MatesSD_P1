@@ -36,16 +36,18 @@ public class IU_VerConfMesas extends JPanel {
 					new Object[][] {
 					},
 					new String[] {
-						"IdMesas", "Comensales", "Estado"
+						"IdMesas", "Comensales", "Estado", "Hora ultimo estado"
 					}
 				) {
 					boolean[] columnEditables = new boolean[] {
-						false, false, false
+						false, false, false, false
 					};
 					public boolean isCellEditable(int row, int column) {
 						return columnEditables[column];
 					}
 				});
+				tableMesas.getColumnModel().getColumn(0).setPreferredWidth(100);
+				tableMesas.getColumnModel().getColumn(1).setPreferredWidth(96);
 				scrollPane.setViewportView(tableMesas);
 			}
 		}
@@ -59,7 +61,7 @@ public class IU_VerConfMesas extends JPanel {
 		for(int i=0;i<mesa.getGestorMesa().getListaMesas().size();i++) {
 			Mesa aux=mesa.getGestorMesa().getListaMesas().get(i);
 			DefaultTableModel modelo = (DefaultTableModel) tableMesas.getModel();
-			Object filaNueva[] = {aux.getIdMesa(),aux.getComensales(),aux.getEstado().toString()};
+			Object filaNueva[] = {aux.getIdMesa(),aux.getComensales(),aux.getEstado().toString(),aux.getHoraEstado()};
 			modelo.addRow(filaNueva);
 		}
 		

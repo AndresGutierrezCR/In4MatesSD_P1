@@ -12,6 +12,8 @@ import org.ReservaMesas.Dominio.Estados;
 import org.ReservaMesas.Dominio.Mesa;
 
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
 public class IU_P_estadoMesa extends JPanel {
@@ -34,7 +36,7 @@ public class IU_P_estadoMesa extends JPanel {
 	private Mesa mesa;
 	
 
-
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 	/**
 	 * Create the panel.
 	 */
@@ -257,6 +259,8 @@ public class IU_P_estadoMesa extends JPanel {
 			else if (boton.equals("Preparación")) {
 				estado=Estados.PREPARACION;
 			}
+			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+			mesa.setHoraEstado(sdf.format(timestamp));
 			mesa.setEstado(estado);
 			mesa.modificar();
 			volverColorInicial();
