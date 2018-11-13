@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Ventana_Principal {
 
@@ -49,10 +51,12 @@ public class Ventana_Principal {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		
 		frame.setBounds(200, 200, 1200, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		{
 			tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+			tabbedPane.addMouseListener(new TabbedPaneMouseListener());
 			frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 			{
 				tabReservaMesas = new JPanel();
@@ -84,7 +88,7 @@ public class Ventana_Principal {
 					tabReservaMesas.add(panel_VerReservas, gbc_panel_VerReservas);
 				}
 				{
-					panel_HacerReservas = new IU_AsigMesa();
+					panel_HacerReservas = new IU_AsigMesa(panel_VerReservas);
 					GridBagConstraints gbc_panel_HacerReservas = new GridBagConstraints();
 					gbc_panel_HacerReservas.insets = new Insets(0, 0, 5, 5);
 					gbc_panel_HacerReservas.fill = GridBagConstraints.BOTH;
@@ -105,4 +109,18 @@ public class Ventana_Principal {
 		}
 	}
 
+	
+	private class TabbedPaneMouseListener extends MouseAdapter {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+			if (tabbedPane.getSelectedIndex() == 0){
+				panel_VerConfMesas.cargarMesas();
+			}else{
+				panelEstados.recargar();
+			}
+		}
+	
+		
+	}
 }

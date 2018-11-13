@@ -58,6 +58,17 @@ public class IU_VerConfMesas extends JPanel {
 		mesa=new Mesa();
 		mesa.leerTodo();
 		
+		if(tableMesas.getRowCount()>0) {
+			
+			DefaultTableModel modelo = (DefaultTableModel)tableMesas.getModel();
+			int Limite = tableMesas.getRowCount()-1;
+			
+			for(int i=Limite;i>=0;i--) {
+				modelo.removeRow(i);
+			}
+			
+		}
+		
 		for(int i=0;i<mesa.getGestorMesa().getListaMesas().size();i++) {
 			Mesa aux=mesa.getGestorMesa().getListaMesas().get(i);
 			DefaultTableModel modelo = (DefaultTableModel) tableMesas.getModel();

@@ -17,6 +17,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 
+import org.ReservaMesas.Dominio.Estados;
 import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
 
@@ -24,6 +25,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
@@ -44,12 +47,17 @@ public class IU_AsigMesa extends JPanel {
 	private JLabel lblComensales;
 	private JSpinner spnComensales;
 
+	private IU_VerReservas reservas;
 	
 	private Color colorOriginal;
 	/**
 	 * Create the panel.
 	 */
-	public IU_AsigMesa() {
+	
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+	
+	public IU_AsigMesa(IU_VerReservas reservas) {
+		this.reservas=reservas;
 		setBorder(new TitledBorder(null, "Asignar mesa", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 156, 101, 0, 0};
@@ -215,9 +223,13 @@ public class IU_AsigMesa extends JPanel {
 				Mesa m = new Mesa();
 				m.setIdMesa(Integer.parseInt(cmbMesas.getSelectedItem().toString()));
 				m.leer();
+				m.setEstado(Estados.RESERVADA);
+				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+				m.setHoraEstado(sdf.format(timestamp));
+				m.modificar();
 				res.setMesa(m);
-				
 				res.insertar();
+				reservas.RecargarReservas();
 				
 			}catch (Exception arg0) {
 				System.out.println(arg0.getStackTrace());

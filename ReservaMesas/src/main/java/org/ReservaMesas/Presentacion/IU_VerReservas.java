@@ -9,11 +9,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import org.ReservaMesas.Dominio.Estados;
+import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -28,6 +32,9 @@ public class IU_VerReservas extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+	
 	public IU_VerReservas() {
 		selectedReserva=false;
 		setBorder(new TitledBorder(null, "Reservas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -114,7 +121,13 @@ public class IU_VerReservas extends JPanel {
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if(isSelectedReserva()) {
+				Mesa mesa = reserva.getMesa();
+				mesa.setEstado(Estados.LIBRE);
+				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+				mesa.setHoraEstado(sdf.format(timestamp));
+				mesa.modificar();
 				reserva.eliminar();
+				
 				setSelectedReserva(false);
 				RecargarReservas();
 				JOptionPane.showMessageDialog(null, "Reserva eliminada correctamente", "Reserva eliminada",JOptionPane.INFORMATION_MESSAGE);
