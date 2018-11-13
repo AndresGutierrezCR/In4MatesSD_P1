@@ -261,6 +261,7 @@ public class IU_P_estadoMesa extends JPanel {
 			}
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			mesa.setHoraEstado(sdf.format(timestamp));
+			
 			mesa.setEstado(estado);
 			mesa.modificar();
 			volverColorInicial();
