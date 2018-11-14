@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import org.Autenticacion.Persistencia.Agente;
 import org.ReservaMesas.Dominio.Estados;
 import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;

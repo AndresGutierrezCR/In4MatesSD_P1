@@ -1,9 +1,10 @@
-package org.ReservaMesas.Persistencia;
+package org.Autenticacion.Persistencia;
 
 import java.awt.List;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.Vector;
+
 
 public class Agente {
 
@@ -12,7 +13,7 @@ public class Agente {
     private static String url = "jdbc:oracle:thin:in4mates@//localhost:1521/xe";
     private static String driver = "oracle.jdbc.driver.OracleDriver";
 
-
+    
     private Agente() throws Exception {
         conectar();
 
