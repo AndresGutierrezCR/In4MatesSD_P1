@@ -50,6 +50,26 @@ public class Usuario {
 	}
 	
 	
+	public void eliminar () {
+		gestorUsuario.delete(this);
+	}
+	
+	public void leer() {
+		gestorUsuario.read(this);
+	}
+	
+	public void leerTodo() {
+		gestorUsuario.readAll();
+	}
+	
+	public void modificar() {
+		gestorUsuario.update(this);
+	}
+	
+	public void insertar() {
+		gestorUsuario.insert(this);
+	}
+	
 	
 	
 }
