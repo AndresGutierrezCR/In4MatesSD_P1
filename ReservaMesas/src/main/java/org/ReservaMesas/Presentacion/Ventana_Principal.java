@@ -1,5 +1,6 @@
 package org.ReservaMesas.Presentacion;
 
+import org.Autenticacion.Presentacion.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,6 +23,10 @@ public class Ventana_Principal {
 	private IU_VerConfMesas panel_VerConfMesas;
 	private IU_VerReservas panel_VerReservas;
 	private IU_AsigMesa panel_HacerReservas;
+	private JPanel tabAutenticacion;
+
+
+	private JPanel panel_Autenticacion;
 
 	/**
 	 * Launch the application.
@@ -59,8 +64,19 @@ public class Ventana_Principal {
 			tabbedPane.addMouseListener(new TabbedPaneMouseListener());
 			frame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 			{
+				tabAutenticacion = new JPanel();
+				tabbedPane.addTab("Autenticacion", null, tabAutenticacion, null);
+				tabAutenticacion.setLayout(new BorderLayout(0, 0));
+				{
+					panel_Autenticacion = new IU_Autenticacion();
+					tabAutenticacion.add(panel_Autenticacion, BorderLayout.CENTER);
+				}
+				
+			}
+			{
 				tabReservaMesas = new JPanel();
 				tabbedPane.addTab("Reserva", null, tabReservaMesas, null);
+				tabbedPane.setEnabledAt(1, false);
 				GridBagLayout gbl_tabReservaMesas = new GridBagLayout();
 				gbl_tabReservaMesas.columnWidths = new int[]{0, 0, 0, 0, 0, 0};
 				gbl_tabReservaMesas.rowHeights = new int[]{0, 0, 0, 0, 0};
@@ -100,6 +116,7 @@ public class Ventana_Principal {
 			{
 				tabEstados = new JPanel();
 				tabbedPane.addTab("Estados", null, tabEstados, null);
+				tabbedPane.setEnabledAt(2, false);
 				tabEstados.setLayout(new BorderLayout(0, 0));
 				{
 					panelEstados = new IU_EstadosMesas();
