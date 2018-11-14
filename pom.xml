@@ -3,9 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.in4mates</groupId>
   <artifactId>Proyecto_Restaurante</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.9.0</version>
   <packaging>pom</packaging>
   <modules>
     <module>ReservaMesas</module>
+    <module>ModuloDeAutenticacion</module>
+    <module>Autenticacion</module>
   </modules>
 </project>
