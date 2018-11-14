@@ -1,7 +1,5 @@
 package org.Autenticacion.Presentacion;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -18,7 +16,7 @@ import javax.swing.JButton;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
-public class IU_Autentificacion {
+public class IU_Autenticacion extends JPanel{
 
 	private JFrame frame;
 	private JPanel panelAutenticacion;
@@ -31,26 +29,11 @@ public class IU_Autentificacion {
 	private Color colorOriginal;
 	private Color colorSeleccion = new Color(250,250,200);
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					IU_Autentificacion window = new IU_Autentificacion();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the application.
 	 */
-	public IU_Autentificacion() {
+	public IU_Autenticacion() {
 		initialize();
 	}
 
