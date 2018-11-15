@@ -6,12 +6,17 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.BorderLayout;
+import java.awt.Component;
+
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ventana_Principal {
 
@@ -24,9 +29,8 @@ public class Ventana_Principal {
 	private IU_VerReservas panel_VerReservas;
 	private IU_AsigMesa panel_HacerReservas;
 	private JPanel tabAutenticacion;
-
-
-	private JPanel panel_Autenticacion;
+	private IU_Autenticacion panel_Autenticacion;
+	private JButton btnEntrar;
 
 	/**
 	 * Launch the application.
@@ -66,10 +70,29 @@ public class Ventana_Principal {
 			{
 				tabAutenticacion = new JPanel();
 				tabbedPane.addTab("Autenticacion", null, tabAutenticacion, null);
-				tabAutenticacion.setLayout(new BorderLayout(0, 0));
+				GridBagLayout gbl_tabAutenticacion = new GridBagLayout();
+				gbl_tabAutenticacion.columnWidths = new int[]{411, 405, 0, 0};
+				gbl_tabAutenticacion.rowHeights = new int[]{83, 0, 0, 0};
+				gbl_tabAutenticacion.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+				gbl_tabAutenticacion.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+				tabAutenticacion.setLayout(gbl_tabAutenticacion);
 				{
 					panel_Autenticacion = new IU_Autenticacion();
-					tabAutenticacion.add(panel_Autenticacion, BorderLayout.CENTER);
+					GridBagConstraints gbc_panel = new GridBagConstraints();
+					gbc_panel.insets = new Insets(0, 0, 5, 5);
+					gbc_panel.fill = GridBagConstraints.BOTH;
+					gbc_panel.gridx = 1;
+					gbc_panel.gridy = 1;
+					tabAutenticacion.add(panel_Autenticacion, gbc_panel);
+				}
+				{
+					btnEntrar = new JButton("Entrar");
+					btnEntrar.addActionListener(new BtnEntrarActionListener());
+					GridBagConstraints gbc_btnEntrar = new GridBagConstraints();
+					gbc_btnEntrar.insets = new Insets(0, 0, 0, 5);
+					gbc_btnEntrar.gridx = 1;
+					gbc_btnEntrar.gridy = 2;
+					tabAutenticacion.add(btnEntrar, gbc_btnEntrar);
 				}
 				
 			}
@@ -131,13 +154,34 @@ public class Ventana_Principal {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			
-			if (tabbedPane.getSelectedIndex() == 0){
+			if (tabbedPane.getSelectedIndex() == 1){
 				panel_VerConfMesas.cargarMesas();
-			}else{
+			}else if (tabbedPane.getSelectedIndex() == 2){
 				panelEstados.recargar();
 			}
+			
 		}
 	
 		
+	}
+	private class BtnEntrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if(panel_Autenticacion.aceptar()) {
+				tabbedPane.setEnabledAt(2,true);
+				tabbedPane.setEnabledAt(1,true);
+				tabbedPane.setEnabledAt(0,false);
+				Component[] componentes= panel_Autenticacion.getComponents();
+				for(int i=0;i<componentes.length;i++) {
+					componentes[i].setEnabled(false);
+				}
+				panel_Autenticacion.setEnabled(false);
+				btnEntrar.setEnabled(false);
+		
+			}else {
+				
+			}
+			
+			
+		}
 	}
 }
