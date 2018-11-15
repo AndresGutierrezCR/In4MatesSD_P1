@@ -61,13 +61,17 @@ public class GestorUsuario {
 	}
 
 	
-	public void read(Usuario usuario) {
+	public boolean read(Usuario usuario) {
 		ResultSet resultado;
+		boolean existe=false;
 		try {
 			resultado=Agente.getAgente().leer("SELECT * FROM usuarios WHERE nombre='"+usuario.getNombre()+"'"
 					+ " AND pass='"+usuario.getPassword()+"'");
 			
+			
+			
 			while(resultado.next()) {
+				existe=true;
 				usuario.setNombre(resultado.getString(1));
 				usuario.setPassword(resultado.getString(2));
 				usuario.setTipo(resultado.getString(3));
@@ -81,6 +85,7 @@ public class GestorUsuario {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return existe;
 	}
 	
 	public void readAll() {

@@ -54,8 +54,8 @@ public class Usuario {
 		gestorUsuario.delete(this);
 	}
 	
-	public void leer() {
-		gestorUsuario.read(this);
+	public boolean leer() {
+		return gestorUsuario.read(this);
 	}
 	
 	public void leerTodo() {

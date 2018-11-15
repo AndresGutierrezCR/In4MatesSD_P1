@@ -2,8 +2,12 @@ package org.Autenticacion.Presentacion;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import org.Autenticacion.Dominio.Usuario;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -11,8 +15,12 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class IU_Autenticacion extends JPanel {
 	private JLabel lblNombreDeUsuario;
@@ -20,10 +28,13 @@ public class IU_Autenticacion extends JPanel {
 	private JTextField txtNombre;
 	private JPasswordField passwordField;
 	private JButton btnEntrar;
+	
+	private boolean autenticado = false;
 
 	private Color colorOriginal;
 	private Color colorSeleccion=new Color(250,250,200);
 	
+	private JFrame frame;
 	
 	/**
 	 * Create the panel.
@@ -76,6 +87,8 @@ public class IU_Autenticacion extends JPanel {
 		}
 		{
 			btnEntrar = new JButton("Entrar");
+			btnEntrar.setVisible(false);
+			btnEntrar.addActionListener(new BtnEntrarActionListener());
 			GridBagConstraints gbc_btnEntrar = new GridBagConstraints();
 			gbc_btnEntrar.insets = new Insets(0, 0, 5, 5);
 			gbc_btnEntrar.gridx = 3;
@@ -83,6 +96,14 @@ public class IU_Autenticacion extends JPanel {
 			add(btnEntrar, gbc_btnEntrar);
 		}
 
+	}
+	
+	public void setFrame(JFrame frame) {
+		this.frame=frame;
+	}
+	
+	public boolean getAutenticado() {
+		return autenticado;
 	}
 
 	private class TxtFocusListener extends FocusAdapter {
@@ -93,6 +114,39 @@ public class IU_Autenticacion extends JPanel {
 		@Override
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorOriginal);
+		}
+	}
+	public boolean aceptar() {
+		boolean autenticado=false;
+		try {
+			if(txtNombre.getText().equals("") && passwordField.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "No ha introducido usuario y contraseña", "Autenticación",JOptionPane.WARNING_MESSAGE);
+			}
+			else {
+				String nombre=txtNombre.getText();
+				String pass = passwordField.getText();
+				Usuario usuario = new Usuario();
+				usuario.setNombre(nombre);
+				usuario.setPassword(pass);
+				
+				if(!usuario.leer()) {
+					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Autenticación",JOptionPane.WARNING_MESSAGE);
+				}
+				else {
+					autenticado=true;
+					
+					JOptionPane.showMessageDialog(null, "Autenticacion correcta", "Autenticación",JOptionPane.DEFAULT_OPTION);
+					
+				}
+			}
+		}catch(Exception arg0){
+			autenticado=false;
+		}
+		return autenticado;
+	}
+	private class BtnEntrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			aceptar();
 		}
 	}
 }
