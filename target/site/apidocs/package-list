@@ -1,0 +1,6 @@
+org.Autenticacion.Dominio
+org.Autenticacion.Persistencia
+org.Autenticacion.Presentacion
+org.ReservaMesas.Dominio
+org.ReservaMesas.Persistencia
+org.ReservaMesas.Presentacion
