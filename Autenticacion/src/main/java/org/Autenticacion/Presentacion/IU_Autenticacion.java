@@ -116,6 +116,14 @@ public class IU_Autenticacion extends JPanel {
 			e.getComponent().setBackground(colorOriginal);
 		}
 	}
+	
+	public void setTxtNombre(String nombre) {
+		txtNombre.setText(nombre);
+	}
+	public void setPassword(String pass) {
+		passwordField.setText(pass);
+	}
+	
 	public boolean aceptar() {
 		boolean autenticado=false;
 		try {
@@ -129,7 +137,7 @@ public class IU_Autenticacion extends JPanel {
 				usuario.setNombre(nombre);
 				usuario.setPassword(pass);
 				
-				if(!usuario.leer()) {
+				if(!usuario.autenticarse()) {
 					JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Autenticación",JOptionPane.WARNING_MESSAGE);
 				}
 				else {

@@ -10,8 +10,8 @@ public class Agente {
 
     protected static Agente mInstancia = null;
     protected static Connection mBD;
-    private static String url = "jdbc:oracle:thin:in4mates@//localhost:1521/xe";
-    private static String driver = "oracle.jdbc.driver.OracleDriver";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/in4mates";
+    private static String driver = "com.mysql.jdbc.Driver";
 
     
     private Agente() throws Exception {

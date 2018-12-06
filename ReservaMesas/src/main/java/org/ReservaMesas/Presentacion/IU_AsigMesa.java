@@ -3,6 +3,7 @@ package org.ReservaMesas.Presentacion;
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -216,23 +217,28 @@ public class IU_AsigMesa extends JPanel {
 			Reserva res = new Reserva();
 			res.asignarIDUltimo();
 			try {
+				Mesa m = new Mesa();
+				m.setIdMesa(Integer.parseInt(cmbMesas.getSelectedItem().toString()));
+				m.leer();
+				res.setMesa(m);
 				res.setNombreCliente(txtNombreCliente.getText());
 				res.setComensales(Integer.parseInt(spnComensales.getValue().toString()));
 				res.setTurnoComCen(rdbtnComida.isSelected() ? "comida":"cena");
 				res.setTurno(Integer.parseInt(cmbTurnos.getSelectedItem().toString()));
-				Mesa m = new Mesa();
-				m.setIdMesa(Integer.parseInt(cmbMesas.getSelectedItem().toString()));
-				m.leer();
 				m.setEstado(Estados.RESERVADA);
 				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 				m.setHoraEstado(sdf.format(timestamp));
-				m.modificar();
-				res.setMesa(m);
-				res.insertar();
+				if(!res.insertar()) {
+					throw new Exception("Error al insertar la reserva");
+				}
+				
+				if(!m.modificar()) {
+					throw new Exception("Error al modificar el estado de la mesa");
+				}
 				reservas.RecargarReservas();
 				
 			}catch (Exception arg0) {
-				System.out.println(arg0.getStackTrace());
+				JOptionPane.showMessageDialog(null,arg0.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
 			}
 			
 		}

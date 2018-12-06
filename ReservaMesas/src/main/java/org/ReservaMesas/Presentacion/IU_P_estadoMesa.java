@@ -2,6 +2,8 @@ package org.ReservaMesas.Presentacion;
 
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -40,7 +42,12 @@ public class IU_P_estadoMesa extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public IU_P_estadoMesa(int idMesa) {
+	public IU_P_estadoMesa(int idMesa) throws Exception{
+		
+		if(idMesa <1) {
+			throw new Exception("Id de mesa no posible");
+		}
+		
 		setBorder(new TitledBorder(null, "Estados mesa X", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{69, 105, 94, 94, 154, 93, 131, 94, 116, 0};
@@ -139,10 +146,13 @@ public class IU_P_estadoMesa extends JPanel {
 			gbc_btnPreparacion.gridy = 1;
 			add(btnPreparacion, gbc_btnPreparacion);
 		}
-		
+		try {
 		mesa = new Mesa();
 		mesa.setIdMesa(idMesa);
 		mesa.leer();
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+		}
 		
 	}
 	
@@ -159,33 +169,56 @@ public class IU_P_estadoMesa extends JPanel {
 		
 		case LIBRE:
 			btnLibre.setBackground(colorSelecionado);
+			btnLibre.setSelected(true);
+			btnLibre.setForeground(Color.white);
 		break;
 		case RESERVADA:
 			btnReservada.setBackground(colorSelecionado);
+			btnReservada.setSelected(true);
+			btnReservada.setForeground(Color.white);
 			break;
 		case OCUPADA:
 			btnOcupada.setBackground(colorSelecionado);
+			btnOcupada.setSelected(true);
+			btnOcupada.setForeground(Color.white);
 			break;
 		case PIDIENDO:
 			btnPidiendo.setBackground(colorSelecionado);
+			btnPidiendo.setSelected(true);
+			btnPidiendo.setForeground(Color.white);
 			break;
 		case ESPERA_COMIDA:
 			btnEsperaDeComida.setBackground(colorSelecionado);
+			btnEsperaDeComida.setSelected(true);
+			btnEsperaDeComida.setForeground(Color.white);
+			
 			break;
 		case SERVIDOS:
 			btnServidos.setBackground(colorSelecionado);
+			btnServidos.setSelected(true);
+			btnServidos.setForeground(Color.white);
 			break;
 		case ESPERA_CUENTA:
 			btnEsperaCuenta.setBackground(colorSelecionado);
+			btnEsperaCuenta.setSelected(true);
+			btnEsperaCuenta.setForeground(Color.white);
 			break;
 		case PAGANDO:
 			btnPagando.setBackground(colorSelecionado);
+			btnPagando.setSelected(true);
+			btnPagando.setForeground(Color.white);
 			break;
 		case PREPARACION:
 			btnPreparacion.setBackground(colorSelecionado);
+			btnPreparacion.setSelected(true);
+			btnPreparacion.setForeground(Color.white);
 			break;
 		}
 		estadoUltimo=estado;
+	}
+	
+	public Estados getEstadoUltimo() {
+		return this.estadoUltimo;
 	}
 	
 	public void volverColorInicial() {
@@ -193,30 +226,48 @@ public class IU_P_estadoMesa extends JPanel {
 		switch (estadoUltimo) {
 		case LIBRE:
 			btnLibre.setBackground(colorDefecto);
+			btnLibre.setSelected(false);
+			btnLibre.setForeground(Color.black);
 		break;
 		case RESERVADA:
 			btnReservada.setBackground(colorDefecto);
+			btnReservada.setSelected(false);
+			btnReservada.setForeground(Color.black);
 			break;
 		case OCUPADA:
 			btnOcupada.setBackground(colorDefecto);
+			btnOcupada.setSelected(false);
+			btnOcupada.setForeground(Color.black);
 			break;
 		case PIDIENDO:
 			btnPidiendo.setBackground(colorDefecto);
+			btnPidiendo.setSelected(false);
+			btnPidiendo.setForeground(Color.black);
 			break;
 		case ESPERA_COMIDA:
 			btnEsperaDeComida.setBackground(colorDefecto);
+			btnEsperaDeComida.setSelected(false);
+			btnEsperaDeComida.setForeground(Color.black);
 			break;
 		case SERVIDOS:
 			btnServidos.setBackground(colorDefecto);
+			btnServidos.setSelected(false);
+			btnServidos.setForeground(Color.black);
 			break;
 		case ESPERA_CUENTA:
 			btnEsperaCuenta.setBackground(colorDefecto);
+			btnEsperaCuenta.setSelected(false);
+			btnEsperaCuenta.setForeground(Color.black);
 			break;
 		case PAGANDO:
 			btnPagando.setBackground(colorDefecto);
+			btnPagando.setSelected(false);
+			btnPagando.setForeground(Color.black);
 			break;
 		case PREPARACION:
 			btnPreparacion.setBackground(colorDefecto);
+			btnPreparacion.setSelected(false);
+			btnPreparacion.setForeground(Color.black);
 			break;
 		}
 	}
@@ -259,6 +310,7 @@ public class IU_P_estadoMesa extends JPanel {
 			else if (boton.equals("Preparación")) {
 				estado=Estados.PREPARACION;
 			}
+			try {
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 			mesa.setHoraEstado(sdf.format(timestamp));
 			
@@ -267,7 +319,9 @@ public class IU_P_estadoMesa extends JPanel {
 			volverColorInicial();
 			estadoBotones(estado);
 			
-			
+			}catch(Exception arg0) {
+				
+			}
 	
 		}
 	}

@@ -24,9 +24,11 @@ private ArrayList <Reserva> listaReserva;
 		this.listaReserva = listaReserva;
 	}
 	
-	public void delete(Reserva reserva) {
+	public boolean delete(Reserva reserva) {
+		boolean correcto=false;
 		try {
-			Agente.getAgente().modificar("DELETE FROM reserva WHERE idReserva = "+reserva.getIdReserva()+"");
+			Agente.getAgente().modificar("DELETE FROM reserva WHERE idReserva = "+reserva.getIdReserva()+";");
+			correcto = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -34,13 +36,18 @@ private ArrayList <Reserva> listaReserva;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return correcto;
 	}
 	
-	public void update(Reserva reserva) {
+	public boolean update(Reserva reserva) {
+		boolean correcto=false;
+		
 		try {
 			Agente.getAgente().modificar("UPDATE reserva SET nombrecliente='"+reserva.getNombreCliente()+"', "
 					+ "comensales="+reserva.getComensales()+", turnocomcen ='"+reserva.getTurnoComCen()+"'"
-							+ ", turno="+reserva.getTurno()+", idMesa="+reserva.getMesa().getIdMesa()+" WHERE idReserva = "+reserva.getIdReserva()+"");
+							+ ", turno="+reserva.getTurno()+", idMesa="+reserva.getMesa().getIdMesa()+" WHERE idReserva = "+reserva.getIdReserva()+";");
+		correcto=true;
+		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,13 +55,16 @@ private ArrayList <Reserva> listaReserva;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return correcto;
 	}
 	
-	public void insert(Reserva reserva) {
+	public boolean insert(Reserva reserva) {
+		boolean correcto = false;
 		try {
 			Agente.getAgente().modificar("INSERT INTO reserva VALUES("+reserva.getIdReserva()+",'"+reserva.getNombreCliente()+
 					"',"+reserva.getComensales()+",'"+reserva.getTurnoComCen()+"',"+
-					reserva.getTurno()+","+reserva.getMesa().getIdMesa()+")");
+					reserva.getTurno()+","+reserva.getMesa().getIdMesa()+");");
+			correcto=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -62,25 +72,28 @@ private ArrayList <Reserva> listaReserva;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return correcto;
 	}
 	
-	public void read(Reserva reserva) {
+	public boolean read(Reserva reserva) {
 		ResultSet resultado;
+		boolean correcto=false;
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM reserva WHERE idReserva="+reserva.getIdReserva()+"");
+			resultado = Agente.getAgente().leer("SELECT * FROM reserva WHERE idReserva="+reserva.getIdReserva()+";");
 			while(resultado.next()) {
-				
+				correcto=true;
+				Mesa m = new Mesa();
+				m.setIdMesa(resultado.getInt(6));
+				m.leer();	
+				reserva.setMesa(m);
 				reserva.setNombreCliente(resultado.getString(2));
 				reserva.setComensales(resultado.getInt(3));
 				reserva.setTurnoComCen(resultado.getString(4));
 				reserva.setTurno(resultado.getInt(5));
 				
-				Mesa m = new Mesa();
-				m.setIdMesa(resultado.getInt(6));
 				
-				m.leer();
 				
-				reserva.setMesa(m);
+			
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -89,17 +102,19 @@ private ArrayList <Reserva> listaReserva;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return correcto;
 	}
 	
-	public void lastID(Reserva reserva) {
+	public boolean lastID(Reserva reserva) {
 		ResultSet resultado;
+		boolean correcto = false;
 		try {
 			
-			resultado = Agente.getAgente().leer("SELECT MAX(idReserva) FROM reserva");
+			resultado = Agente.getAgente().leer("SELECT MAX(idReserva) FROM reserva;");
 			//resultado = Agente.getAgente().leer("SELECT * FROM reserva;");
 			
 			while(resultado.next()) {
+				 correcto=true;
 				reserva.setIdReserva(resultado.getInt(1)+1);
 			
 			}
@@ -112,18 +127,22 @@ private ArrayList <Reserva> listaReserva;
 			System.out.println("Excepcion general");
 			//e.printStackTrace();
 		}
+		return correcto;
 	}
 	
-	public void readAll() {
+	public boolean readAll() {
+		boolean correcto = false;
 		ResultSet resultado;
 		
 		try {
-			resultado = Agente.getAgente().leer("SELECT * FROM reserva ORDER BY idReserva");
+			resultado = Agente.getAgente().leer("SELECT * FROM reserva ORDER BY idReserva;");
 			Reserva reserva;
 			
 			while (resultado.next()){
+				correcto=true;
 				Mesa m = new Mesa();
 				m.setIdMesa(resultado.getInt(6));
+				m.leer();
 				reserva=new Reserva(resultado.getInt(1),resultado.getString(2),resultado.getInt(3),
 						resultado.getString(4),resultado.getInt(5),m);
 				
@@ -136,6 +155,7 @@ private ArrayList <Reserva> listaReserva;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return correcto;
 		
 	}
 

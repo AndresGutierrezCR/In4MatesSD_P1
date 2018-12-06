@@ -32,11 +32,11 @@ public class IU_VerReservas extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	
+
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-	
+
 	public IU_VerReservas() {
-		selectedReserva=false;
+		selectedReserva = false;
 		setBorder(new TitledBorder(null, "Reservas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		setLayout(new BorderLayout(0, 0));
 		{
@@ -50,17 +50,17 @@ public class IU_VerReservas extends JPanel {
 		}
 		{
 			scrollPane = new JScrollPane();
-			
+
 			add(scrollPane, BorderLayout.CENTER);
 			{
 				tableReservas = new JTable();
 				tableReservas.addMouseListener(new TableReservasMouseListener());
-		
+
 				tableReservas.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID reserva",
 						"NombreCliente", "Comensales", "Turno comida/cena", "Turno", "ID Mesa", }
 
 				) {
-					boolean[] columnEditables = new boolean[] { false, false, false,false,false,false };
+					boolean[] columnEditables = new boolean[] { false, false, false, false, false, false };
 
 					public boolean isCellEditable(int row, int column) {
 						return columnEditables[column];
@@ -74,67 +74,81 @@ public class IU_VerReservas extends JPanel {
 
 	public void RecargarReservas() {
 		Reserva reserva1 = new Reserva();
-	//	tableReservas.removeAll();
-		if(tableReservas.getRowCount()>0) {
-		
-			DefaultTableModel modelo = (DefaultTableModel)tableReservas.getModel();
-			int Limite = tableReservas.getRowCount()-1;
-			
-			for(int i=Limite;i>=0;i--) {
-				modelo.removeRow(i);
+		// tableReservas.removeAll();
+		try {
+			if (tableReservas.getRowCount() > 0) {
+
+				DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
+				int Limite = tableReservas.getRowCount() - 1;
+
+				for (int i = Limite; i >= 0; i--) {
+					modelo.removeRow(i);
+				}
+
 			}
-			
-		}
-		reserva1.leerTodo();
-		for (int i = 0; i < reserva1.getGestorReserva().getListaReserva().size(); i++) {
+			reserva1.leerTodo();
+			for (int i = 0; i < reserva1.getGestorReserva().getListaReserva().size(); i++) {
 
-			Reserva aux = reserva1.getGestorReserva().getListaReserva().get(i);
+				Reserva aux = reserva1.getGestorReserva().getListaReserva().get(i);
 
-			DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
-			Object filaNueva[] = { aux.getIdReserva(), aux.getNombreCliente(), aux.getComensales(),
-					aux.getTurnoComCen(), aux.getTurno(), aux.getMesa().getIdMesa() };
-			modelo.addRow(filaNueva);
+				DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
+				Object filaNueva[] = { aux.getIdReserva(), aux.getNombreCliente(), aux.getComensales(),
+						aux.getTurnoComCen(), aux.getTurno(), aux.getMesa().getIdMesa() };
+				modelo.addRow(filaNueva);
+			}
+		} catch (Exception e) {
+
 		}
-	
+
 	}
-		public boolean isSelectedReserva() {
-			return this.selectedReserva;
-		
+
+	public boolean isSelectedReserva() {
+		return this.selectedReserva;
+
 	}
-		public void setSelectedReserva(boolean b) {
-		 this.selectedReserva=b;
-		}
-		
+
+	public void setSelectedReserva(boolean b) {
+		this.selectedReserva = b;
+	}
+
 	private class TableReservasMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-	
-			reserva = new Reserva();
-			int filaReserva = tableReservas.getSelectedRow();
-			int idReserva=Integer.parseInt(tableReservas.getValueAt(filaReserva, 0).toString());
-			reserva.setIdReserva(idReserva);
-			reserva.leer();
-			setSelectedReserva(true);
-			
+			try {
+				reserva = new Reserva();
+				int filaReserva = tableReservas.getSelectedRow();
+				int idReserva = Integer.parseInt(tableReservas.getValueAt(filaReserva, 0).toString());
+				reserva.setIdReserva(idReserva);
+				reserva.leer();
+				setSelectedReserva(true);
+			} catch (Exception arg0) {
+
+			}
 		}
 	}
+
 	private class BtnCancelarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if(isSelectedReserva()) {
-				Mesa mesa = reserva.getMesa();
-				mesa.setEstado(Estados.LIBRE);
-				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-				mesa.setHoraEstado(sdf.format(timestamp));
-				mesa.modificar();
-				reserva.eliminar();
-				
-				setSelectedReserva(false);
-				RecargarReservas();
-				JOptionPane.showMessageDialog(null, "Reserva eliminada correctamente", "Reserva eliminada",JOptionPane.INFORMATION_MESSAGE);
-			}
-			else {
-				
-				JOptionPane.showMessageDialog(null, "No ha selecionado ninguna reserva", "Error al cancelar reserva",JOptionPane.ERROR_MESSAGE);
+			if (isSelectedReserva()) {
+				try {
+					Mesa mesa = reserva.getMesa();
+					mesa.setEstado(Estados.LIBRE);
+					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+					mesa.setHoraEstado(sdf.format(timestamp));
+					mesa.modificar();
+					reserva.eliminar();
+
+					setSelectedReserva(false);
+					RecargarReservas();
+					JOptionPane.showMessageDialog(null, "Reserva eliminada correctamente", "Reserva eliminada",
+							JOptionPane.INFORMATION_MESSAGE);
+				} catch (Exception arg0) {
+
+				}
+			} else {
+
+				JOptionPane.showMessageDialog(null, "No ha selecionado ninguna reserva", "Error al cancelar reserva",
+						JOptionPane.ERROR_MESSAGE);
 
 			}
 		}

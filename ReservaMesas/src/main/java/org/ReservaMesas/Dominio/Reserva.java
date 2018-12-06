@@ -13,8 +13,31 @@ public class Reserva {
 	private Mesa mesa;
 	private GestorReserva gestorReserva;
 
-	public Reserva(int idReserva, String nombreCliente, int comensales, String turnoComCen, int turno, Mesa mesa) {
+	public Reserva(int idReserva, String nombreCliente, int comensales, String turnoComCen, int turno, Mesa mesa) throws Exception{
 		
+		if(idReserva < 1) {
+			throw new Exception("El numero de reserva no puede ser negativo");
+		}
+		
+		if(comensales > mesa.getComensales()) {
+			throw new Exception("Superado numero maximo de comensales");
+		}
+		if(comensales <=  0 ) {
+			throw new Exception("el numero de comensales debe ser positivo");
+		}
+		if (turno <= 0) {
+			throw new Exception("Turno no valido");
+		}
+		
+		if(nombreCliente.length()<1) {
+			throw new Exception("Nombre de cliente no puede ser vacio");
+		}
+		if(turnoComCen.length()<1 ) {
+			throw new Exception("Tunro Comdida/Cena no puede ser invalido");
+		}
+		if(!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))){
+			throw new Exception("No es un turno valido");
+		}
 		this.idReserva = idReserva;
 		this.nombreCliente = nombreCliente;
 		this.comensales = comensales;
@@ -28,26 +51,26 @@ public class Reserva {
 		this.gestorReserva=new GestorReserva();
 	}
 	
-	public void asignarIDUltimo() {
-		gestorReserva.lastID(this);
+	public boolean asignarIDUltimo() {
+		return gestorReserva.lastID(this);
 	}
 	
-	public void eliminar() {
-		gestorReserva.delete(this);
+	public boolean eliminar() {
+		return gestorReserva.delete(this);
 	}
 	
-	public void modificar() {
-		gestorReserva.update(this);
+	public boolean modificar() {
+		return gestorReserva.update(this);
 	}
 	
-	public void insertar() {
-		gestorReserva.insert(this);
+	public boolean insertar() {
+		return gestorReserva.insert(this);
 	}
-	public void leer() {
-		gestorReserva.read(this);
+	public boolean leer() {
+		return gestorReserva.read(this);
 	}
-	public void leerTodo() {
-		gestorReserva.readAll();
+	public boolean leerTodo() {
+		return gestorReserva.readAll();
 	}
 	
 	public GestorReserva getGestorReserva() {
@@ -59,7 +82,10 @@ public class Reserva {
 		return idReserva;
 	}
 
-	public void setIdReserva(int idReserva) {
+	public void setIdReserva(int idReserva)throws Exception {
+		if(idReserva < 1) {
+			throw new Exception("El numero de reserva no puede ser negativo");
+		}
 		this.idReserva = idReserva;
 	}
 
@@ -67,7 +93,10 @@ public class Reserva {
 		return nombreCliente;
 	}
 
-	public void setNombreCliente(String nombreCliente) {
+	public void setNombreCliente(String nombreCliente)throws Exception {
+		if(nombreCliente.length()<1) {
+			throw new Exception("Nombre de cliente no puede ser vacio");
+		}
 		this.nombreCliente = nombreCliente;
 	}
 
@@ -75,15 +104,28 @@ public class Reserva {
 		return comensales;
 	}
 
-	public void setComensales(int comensales) {
+	public void setComensales(int comensales) throws Exception{
+		if(comensales> this.mesa.getComensales()) {
+			throw new Exception("Superado numero de comensales");
+		}
+		if(comensales <= 0) {
+			throw new Exception("Numero de comensales no valido");
+		}
 		this.comensales = comensales;
 	}
 
 	public String getTurnoComCen() {
+		
 		return turnoComCen;
 	}
 
-	public void setTurnoComCen(String turnoComCen) {
+	public void setTurnoComCen(String turnoComCen) throws Exception {
+		if(turnoComCen.length()<1 ) {
+			throw new Exception("Tunro Comdida/Cena no puede ser invalido");
+		}
+		if(!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))){
+			throw new Exception("No es un turno valido");
+		}
 		this.turnoComCen = turnoComCen;
 	}
 
@@ -91,7 +133,10 @@ public class Reserva {
 		return turno;
 	}
 
-	public void setTurno(int turno) {
+	public void setTurno(int turno) throws Exception{
+		if (turno < 0) {
+			throw new Exception("Turno no valido");
+		}
 		this.turno = turno;
 	}
 

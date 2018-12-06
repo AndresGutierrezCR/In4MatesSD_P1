@@ -1,5 +1,8 @@
 package org.ReservaMesas.Dominio;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.ReservaMesas.Persistencia.GestorMesa;
 
 public class Mesa {
@@ -15,7 +18,20 @@ public class Mesa {
 		this.gestorMesa= new GestorMesa();
 	}
 	
-	public Mesa(int idMesa, int comensales, Estados estado,String horaEstado) {
+	public Mesa(int idMesa, int comensales, Estados estado,String horaEstado) throws Exception{
+		
+		if (idMesa < 1) {
+			throw new Exception("El id mesa debe ser positivo");
+		}
+		if (comensales < 1) {
+			throw new Exception("Los comensales deben ser positivos");
+		}
+
+			
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		formatoFecha.setLenient(false);
+		formatoFecha.parse(horaEstado);
+		
 		this.idMesa=idMesa;
 		this.comensales=comensales;
 		this.estado=estado;
@@ -27,7 +43,10 @@ public class Mesa {
 		return horaEstado;
 	}
 	
-	public void setHoraEstado(String horaEstado) {
+	public void setHoraEstado(String horaEstado) throws ParseException {
+		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		formatoFecha.setLenient(false);
+		formatoFecha.parse(horaEstado);
 		this.horaEstado=horaEstado;
 	}
 	
@@ -35,7 +54,10 @@ public class Mesa {
 		return idMesa;
 	}
 
-	public void setIdMesa(int idMesa) {
+	public void setIdMesa(int idMesa)throws Exception {
+		if (idMesa < 1) {
+			throw new Exception("El id mesa debe ser positivo");
+		}
 		this.idMesa = idMesa;
 	}
 
@@ -43,7 +65,10 @@ public class Mesa {
 		return comensales;
 	}
 
-	public void setComensales(int comensales) {
+	public void setComensales(int comensales)throws Exception {
+		if (comensales < 1) {
+			throw new Exception("Los comensales deben ser positivos");
+		}
 		this.comensales = comensales;
 	}
 
@@ -60,24 +85,24 @@ public class Mesa {
 	}
 	
 	
-	public void eliminar() {
-		gestorMesa.delete(this);
+	public boolean eliminar() {
+		return gestorMesa.delete(this);
 	}
 	
-	public void modificar() {
-		gestorMesa.update(this);
+	public boolean modificar() {
+		return gestorMesa.update(this);
 	}
 	
-	public void insertar() {
-		gestorMesa.insert(this);
+	public boolean insertar() {
+		return gestorMesa.insert(this);
 	}
 	
-	public void leer() {
-		gestorMesa.read(this);
+	public boolean leer() {
+		return gestorMesa.read(this);
 	}
 	
-	public void leerTodo() {
-		gestorMesa.readAll();
+	public boolean leerTodo() {
+		return gestorMesa.readAll();
 	}
 	
 

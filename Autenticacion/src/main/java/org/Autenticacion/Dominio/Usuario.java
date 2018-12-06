@@ -14,7 +14,16 @@ public class Usuario {
 		this.gestorUsuario=new GestorUsuario();
 	}
 	
-	public Usuario(String nombre,String password,String tipo) {
+	public Usuario(String nombre,String password,String tipo) throws Exception{
+		if (nombre.length()<1) {
+			throw new Exception("El nombre no puede ser vacio");
+		}
+		if(password.length()<1) {
+			throw new Exception("La password no puede ser vacia");
+		}
+		if(tipo.length()<1) {
+			throw new Exception("El tipo no puede ser vacio");
+		}
 		this.gestorUsuario= new GestorUsuario();
 		this.nombre=nombre;
 		this.password=password;
@@ -25,7 +34,10 @@ public class Usuario {
 		return nombre;
 	}
 
-	public void setNombre(String nombre) {
+	public void setNombre(String nombre) throws Exception {
+		if(nombre.length()<1) {
+			throw new Exception("El usuario no puede ser vacio");
+		}
 		this.nombre = nombre;
 	}
 
@@ -33,7 +45,10 @@ public class Usuario {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password) throws Exception{
+		if(password.length()<1) {
+			throw new Exception("La password no puede ser vacia");
+		}
 		this.password = password;
 	}
 
@@ -41,7 +56,10 @@ public class Usuario {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(String tipo)throws Exception {
+		if(tipo.length()<1) {
+			throw new Exception("El tipo no puede ser vacio");
+		}
 		this.tipo = tipo;
 	}
 
@@ -50,24 +68,24 @@ public class Usuario {
 	}
 	
 	
-	public void eliminar () {
-		gestorUsuario.delete(this);
+	public boolean eliminar () {
+		return gestorUsuario.delete(this);
 	}
 	
-	public boolean leer() {
-		return gestorUsuario.read(this);
+	public boolean autenticarse() {
+		return gestorUsuario.login(this);
 	}
 	
-	public void leerTodo() {
-		gestorUsuario.readAll();
+	public boolean leerTodo() {
+		return gestorUsuario.readAll();
 	}
 	
-	public void modificar() {
-		gestorUsuario.update(this);
+	public boolean modificar() {
+		return gestorUsuario.update(this);
 	}
 	
-	public void insertar() {
-		gestorUsuario.insert(this);
+	public boolean insertar() {
+		return gestorUsuario.insert(this);
 	}
 	
 	

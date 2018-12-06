@@ -35,11 +35,15 @@ public class IU_EstadosMesas extends JPanel {
 		mesa.leerTodo();
 		panelesMesas = new JPanel[mesa.getGestorMesa().getListaMesas().size()];
 		for(int i=0;i<mesa.getGestorMesa().getListaMesas().size();i++) {
+			try {
 			panelesMesas[i] = new IU_P_estadoMesa(mesa.getGestorMesa().getListaMesas().get(i).getIdMesa());
 			((IU_P_estadoMesa) panelesMesas[i]).setIdMesa(i+1);
 			panelesMesas[i].setBorder(new TitledBorder(null, "Estados mesa "+(i+1), TitledBorder.LEADING, TitledBorder.TOP, null, null));;
 			PanelContenedor.add(panelesMesas[i]);
 			((IU_P_estadoMesa) panelesMesas[i]).estadoInicial();
+			}catch(Exception e) {
+				
+			}
 		}
 	}
 	

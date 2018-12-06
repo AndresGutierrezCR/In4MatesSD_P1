@@ -24,49 +24,66 @@ public class GestorMesa {
 		this.listaMesas = listaMesas;
 	}
 	
-	public void delete(Mesa mesa) {
+	public boolean delete(Mesa mesa) {
+		boolean correcto=false;
 		try {
 			Agente.getAgente().modificar("DELETE FROM mesas WHERE idMesa = "+mesa.getIdMesa()+"");
+			correcto=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		}
+		return correcto;
 	}
 	
-	public void update(Mesa mesa) {
+	public boolean update(Mesa mesa) {
+		boolean correcto=false;
 		try {
 			Agente.getAgente().modificar("UPDATE mesas SET comensales="+mesa.getComensales()+", "
 					+ "estado='"+mesa.getEstado()+"', horaEstado='"+mesa.getHoraEstado()+"' WHERE idMesa = "+mesa.getIdMesa()+"");
+		correcto=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		}
+		return correcto;
 	}
 	
-	public void insert(Mesa mesa) {
+	public boolean insert(Mesa mesa) {
+		boolean correcto=false;
 		try {
 			Agente.getAgente().modificar("INSERT INTO mesas VALUES("+mesa.getIdMesa()+","+mesa.getComensales()+
 					",'"+mesa.getEstado()+"','"+mesa.getHoraEstado()+"')");
+			correcto=true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		}
+		return correcto;
 	}
 	
-	public void read(Mesa mesa) {
+	public boolean read(Mesa mesa) {
+		boolean correcto = false;
 		ResultSet resultado;
 		try {
 			resultado = Agente.getAgente().leer("SELECT * FROM mesas WHERE idmesa="+mesa.getIdMesa()+"");
 			while(resultado.next()) {
+				correcto=true;
 				mesa.setComensales(resultado.getInt(2));
 				Estados estado=Estados.valueOf(resultado.getString(3));
 				mesa.setEstado(estado);
@@ -74,35 +91,39 @@ public class GestorMesa {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			correcto=false;
 		}
-		
+		return correcto;
 	}
 	
-	public void readAll() {
+	public boolean readAll() {
 		ResultSet resultado;
-		
+		boolean correcto=false;
 		try {
 			resultado = Agente.getAgente().leer("SELECT * FROM mesas ORDER BY idMesa");
 			Mesa mesa;
 			
 			while (resultado.next()){
-				
+				correcto=true;
 				Estados estado=Estados.valueOf(resultado.getString(3));
 				mesa=new Mesa(resultado.getInt(1),resultado.getInt(2),estado,resultado.getString(4));
 				listaMesas.add(mesa);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//	e.printStackTrace();
+			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+		//	e.printStackTrace();
+			correcto=false;
 		}
-		
+		return correcto;
 	}
 
 }
