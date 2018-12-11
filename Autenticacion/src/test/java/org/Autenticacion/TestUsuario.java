@@ -81,7 +81,7 @@ public class TestUsuario {
 
 	@Test
 	public void testInsertarBorrarYModifiarUsuario() throws Exception {
-		Usuario u1 = new Usuario("pepe", "pepe", "camarero");
+		Usuario u1 = new Usuario("pepe", "pepe", "jefe de sala");
 		assertTrue(u1.insertar());
 		u1.setTipo("camarero");
 		assertTrue(u1.modificar());
