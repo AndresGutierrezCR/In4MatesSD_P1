@@ -11,23 +11,23 @@ public class Usuario {
 	private GestorUsuario gestorUsuario;
 	
 	public Usuario() {
-		this.gestorUsuario=new GestorUsuario();
+		this.gestorUsuario = new GestorUsuario();
 	}
 	
 	public Usuario(String nombre,String password,String tipo) throws Exception{
-		if (nombre.length()<1) {
+		if (nombre.length() < 1) {
 			throw new Exception("El nombre no puede ser vacio");
 		}
-		if(password.length()<1) {
+		if(password.length() < 1) {
 			throw new Exception("La password no puede ser vacia");
 		}
-		if(tipo.length()<1) {
+		if(tipo.length() < 1) {
 			throw new Exception("El tipo no puede ser vacio");
 		}
-		this.gestorUsuario= new GestorUsuario();
-		this.nombre=nombre;
-		this.password=password;
-		this.tipo=tipo;
+		this.gestorUsuario = new GestorUsuario();
+		this.nombre = nombre;
+		this.password = password;
+		this.tipo = tipo;
 	}
 
 	public String getNombre() {
@@ -35,7 +35,7 @@ public class Usuario {
 	}
 
 	public void setNombre(String nombre) throws Exception {
-		if(nombre.length()<1) {
+		if(nombre.length() < 1) {
 			throw new Exception("El usuario no puede ser vacio");
 		}
 		this.nombre = nombre;
@@ -46,7 +46,7 @@ public class Usuario {
 	}
 
 	public void setPassword(String password) throws Exception{
-		if(password.length()<1) {
+		if(password.length() < 1) {
 			throw new Exception("La password no puede ser vacia");
 		}
 		this.password = password;
@@ -57,7 +57,7 @@ public class Usuario {
 	}
 
 	public void setTipo(String tipo)throws Exception {
-		if(tipo.length()<1) {
+		if(tipo.length() < 1) {
 			throw new Exception("El tipo no puede ser vacio");
 		}
 		this.tipo = tipo;
@@ -87,7 +87,4 @@ public class Usuario {
 	public boolean insertar() {
 		return gestorUsuario.insert(this);
 	}
-	
-	
-	
 }
