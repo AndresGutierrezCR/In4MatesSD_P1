@@ -91,11 +91,11 @@ public class GestorMesa {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			//e.printStackTrace();
+			e.printStackTrace();
 			correcto=false;
 		}
 		return correcto;
@@ -116,11 +116,11 @@ public class GestorMesa {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-		//	e.printStackTrace();
+			e.printStackTrace();
 			correcto=false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-		//	e.printStackTrace();
+			e.printStackTrace();
 			correcto=false;
 		}
 		return correcto;
