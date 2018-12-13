@@ -49,22 +49,22 @@ public class IU_AsigMesa extends JPanel {
 	private JSpinner spnComensales;
 
 	private IU_VerReservas reservas;
-	
+
 	private Color colorOriginal;
 	/**
 	 * Create the panel.
 	 */
-	
+
 	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-	
+
 	public IU_AsigMesa(IU_VerReservas reservas) {
-		this.reservas=reservas;
+		this.reservas = reservas;
 		setBorder(new TitledBorder(null, "Asignar mesa", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 156, 101, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 34, 35, 33, 34, 36, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 0, 0, 156, 101, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 34, 35, 33, 34, 36, 0, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		{
 			lblNombreCliente = new JLabel("Nombre Cliente");
@@ -78,7 +78,7 @@ public class IU_AsigMesa extends JPanel {
 		{
 			txtNombreCliente = new JTextField();
 			txtNombreCliente.addFocusListener(new ColorKeyListener());
-			
+
 			GridBagConstraints gbc_textField = new GridBagConstraints();
 			gbc_textField.gridwidth = 2;
 			gbc_textField.insets = new Insets(0, 0, 5, 5);
@@ -102,14 +102,13 @@ public class IU_AsigMesa extends JPanel {
 			cmbMesas.addFocusListener(new ColorKeyListener());
 			Mesa m = new Mesa();
 			m.leerTodo();
-			ArrayList<String> listaIdMesas=new ArrayList<String>();
-			
-			for(int i=0;i<m.getGestorMesa().getListaMesas().size();i++) {
+			ArrayList<String> listaIdMesas = new ArrayList<String>();
+
+			for (int i = 0; i < m.getGestorMesa().getListaMesas().size(); i++) {
 				String id = Integer.toString(m.getGestorMesa().getListaMesas().get(i).getIdMesa());
 				listaIdMesas.add(id);
 			}
-			
-			
+
 			cmbMesas.setModel(new DefaultComboBoxModel(listaIdMesas.toArray()));
 			GridBagConstraints gbc_comboBox = new GridBagConstraints();
 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -179,7 +178,7 @@ public class IU_AsigMesa extends JPanel {
 		{
 			cmbTurnos = new JComboBox();
 			cmbTurnos.addFocusListener(new ColorKeyListener());
-			cmbTurnos.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3"}));
+			cmbTurnos.setModel(new DefaultComboBoxModel(new String[] { "1", "2", "3" }));
 			GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 			gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
 			gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
@@ -199,21 +198,22 @@ public class IU_AsigMesa extends JPanel {
 
 	}
 
-	
 	private class ColorKeyListener extends FocusAdapter {
 		@Override
 		public void focusGained(FocusEvent e) {
-			colorOriginal=e.getComponent().getBackground();
-			e.getComponent().setBackground(new Color(250,250,210));
+			colorOriginal = e.getComponent().getBackground();
+			e.getComponent().setBackground(new Color(250, 250, 210));
 		}
+
 		@Override
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorOriginal);
 		}
 	}
+
 	private class BtnAsignarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+
 			Reserva res = new Reserva();
 			res.asignarIDUltimo();
 			try {
@@ -223,24 +223,24 @@ public class IU_AsigMesa extends JPanel {
 				res.setMesa(m);
 				res.setNombreCliente(txtNombreCliente.getText());
 				res.setComensales(Integer.parseInt(spnComensales.getValue().toString()));
-				res.setTurnoComCen(rdbtnComida.isSelected() ? "comida":"cena");
+				res.setTurnoComCen(rdbtnComida.isSelected() ? "comida" : "cena");
 				res.setTurno(Integer.parseInt(cmbTurnos.getSelectedItem().toString()));
 				m.setEstado(Estados.RESERVADA);
 				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 				m.setHoraEstado(sdf.format(timestamp));
-				if(!res.insertar()) {
+				if (!res.insertar()) {
 					throw new Exception("Error al insertar la reserva");
 				}
-				
-				if(!m.modificar()) {
+
+				if (!m.modificar()) {
 					throw new Exception("Error al modificar el estado de la mesa");
 				}
 				reservas.RecargarReservas();
-				
-			}catch (Exception arg0) {
-				JOptionPane.showMessageDialog(null,arg0.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+
+			} catch (Exception arg0) {
+				JOptionPane.showMessageDialog(null, arg0.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
-			
+
 		}
 	}
 }

@@ -102,8 +102,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param idMesa comenta
+	 * @throws Exception comenta
 	 */
 	public void setIdMesa(int idMesa)throws Exception {
 		if (idMesa < 1) {
@@ -122,8 +122,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param comensales comenta
+	 * @throws Exception comenta
 	 */
 	public void setComensales(int comensales)throws Exception {
 		if (comensales < 1) {
@@ -144,8 +144,7 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param estado comenta
 	 */
 	public void setEstado(Estados estado) {
 		this.estado = estado;
@@ -172,7 +171,7 @@ public class Mesa {
 	/**
 	 * Modificar un usuario de la bbdd.
 	 *
-	 * @return 
+	 * @return comenta
 	 */
 	public boolean modificar() {
 		return gestorMesa.update(this);
@@ -181,7 +180,7 @@ public class Mesa {
 	/**
 	 * Insertar un usuario de la bbdd.
 	 *
-	 * @return 
+	 * @return comenta
 	 */
 	public boolean insertar() {
 		return gestorMesa.insert(this);

@@ -45,8 +45,7 @@ public class GestorReserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param listaReserva comenta
 	 */
 	public void setListaReserva(ArrayList<Reserva> listaReserva) {
 		this.listaReserva = listaReserva;
@@ -55,7 +54,7 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
+	 * @param reserva comenta.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Reserva reserva) {
@@ -76,7 +75,7 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
+	 * @param reserva comenta.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean update(Reserva reserva) {
@@ -103,7 +102,7 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
+	 * @param reserva comenta.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean insert(Reserva reserva) {
@@ -126,7 +125,7 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
+	 * @param reserva comenta.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean read(Reserva reserva) {
@@ -160,7 +159,7 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
+	 * @param reserva comenta.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean lastID(Reserva reserva) {
@@ -191,7 +190,6 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param Una reserva.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean readAll() {

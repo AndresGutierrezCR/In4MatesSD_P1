@@ -75,7 +75,7 @@ public class IU_VerConfMesas extends JPanel {
 			Object filaNueva[] = {aux.getIdMesa(),aux.getComensales(),aux.getEstado().toString(),aux.getHoraEstado()};
 			modelo.addRow(filaNueva);
 		}
-		
+
 	}
 
 }

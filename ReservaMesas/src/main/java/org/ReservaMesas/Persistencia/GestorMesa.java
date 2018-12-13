@@ -42,8 +42,7 @@ public class GestorMesa {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param listaMesas comenta
 	 */
 	public void setListaMesas(ArrayList<Mesa> listaMesas) {
 		this.listaMesas = listaMesas;
@@ -52,7 +51,7 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param Una mesa.
+	 * @param mesa comenta
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Mesa mesa) {
@@ -75,7 +74,7 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param Una mesa.
+	 * @param mesa comenta
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean update(Mesa mesa) {
@@ -101,7 +100,7 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param Una mesa.
+	 * @param mesa comenta
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean insert(Mesa mesa) {
@@ -125,7 +124,7 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param Una mesa.
+	 * @param mesa comenta
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean read(Mesa mesa) {

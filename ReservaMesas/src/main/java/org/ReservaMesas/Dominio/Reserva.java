@@ -45,11 +45,11 @@ public class Reserva {
 	 * Constructor con 5 parametros. Explicar.
 	 *
 	 * @param idReserva   ID de la mesa
-	 * @param nombreCliente 
-	 * @param comensales     
-	 * @param turnoComCen 
-	 * @param turno 
-	 * @param mesa
+	 * @param nombreCliente comenta
+	 * @param comensales comenta     
+	 * @param turnoComCen comenta
+	 * @param turno comenta
+	 * @param mesa comenta
 	 * @throws Exception explicar
 	 */
 	public Reserva(int idReserva, String nombreCliente, int comensales, String turnoComCen, int turno, Mesa mesa) throws Exception{
@@ -168,8 +168,8 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param idReserva comenta
+	 * @throws Exception comenta
 	 */
 	public void setIdReserva(int idReserva)throws Exception {
 		if(idReserva < 1) {
@@ -190,8 +190,8 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param nombreCliente comenta
+	 * @throws Exception comenta
 	 */
 	public void setNombreCliente(String nombreCliente)throws Exception {
 		if(nombreCliente.length()<1) {
@@ -212,8 +212,8 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param comensales comenta.
+	 * @throws Exception comenta
 	 */
 	public void setComensales(int comensales) throws Exception{
 		if(comensales> this.mesa.getComensales()) {
@@ -238,8 +238,8 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param turnoComCen comenta
+	 * @throws Exception comenta
 	 */
 	public void setTurnoComCen(String turnoComCen) throws Exception {
 		if(turnoComCen.length()<1 ) {
@@ -263,8 +263,8 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param turno comenta.
+	 * @throws Exception comenta
 	 */
 	public void setTurno(int turno) throws Exception{
 		if (turno < 0) {
@@ -285,8 +285,7 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param 
-	 * @throws 
+	 * @param mesa comenta
 	 */
 	public void setMesa(Mesa mesa) {
 		this.mesa = mesa;

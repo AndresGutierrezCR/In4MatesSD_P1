@@ -53,7 +53,5 @@ public class IU_EstadosMesas extends JPanel {
 		}
 		cargar();
 	}
-	
-	
 
 }

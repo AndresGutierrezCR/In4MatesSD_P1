@@ -325,5 +325,5 @@ public class IU_P_estadoMesa extends JPanel {
 	
 		}
 	}
-	
+
 }
