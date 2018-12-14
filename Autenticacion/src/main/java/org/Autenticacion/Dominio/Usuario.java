@@ -1,5 +1,5 @@
 /**
- * Info about this package.
+ * Paquete que contiene las clases de dominio del modulo autenticarse.
  **/
 package org.Autenticacion.Dominio;
 

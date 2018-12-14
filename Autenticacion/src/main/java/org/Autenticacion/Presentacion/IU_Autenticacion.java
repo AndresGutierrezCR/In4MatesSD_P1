@@ -1,3 +1,6 @@
+/**
+ * Paquete que contiene las clases de presentacion del modulo autenticarse.
+ **/
 package org.Autenticacion.Presentacion;
 
 import javax.swing.JPanel;
@@ -21,24 +24,54 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+/**
+ * Clase IU_Autenticacion. Contiene la interfaz de autenticacion que sera utilizada por los usuarios
+ * para identificarse en la aplicacion y poder hacer uso de ella.
+ *
+ * @author in4mates
+ * @version 1.0
+ */
 public class IU_Autenticacion extends JPanel {
+	/**
+	 * label que indica donde colocar el nombre.
+	 **/
 	private JLabel lblNombreDeUsuario;
+	/**
+	 * label que indica donde colocar la contraseña.
+	 **/
 	private JLabel lblContrasea;
+	/**
+	 * Contenedor de texto donde se escribira el nombre de usuario.
+	 **/
 	private JTextField txtNombre;
+	/**
+	 * Contenedor de texto donde se escribira la contraseña de usuario.
+	 **/
 	private JPasswordField passwordField;
+	/**
+	 * Boton para realizar el login con los datos insertados.
+	 **/
 	private JButton btnEntrar;
-	
+	/**
+	 * Boolean que indica si el proceso de autenticacion se ha realizado de manera correcta o incorrecta.
+	 **/
 	private boolean autenticado = false;
-
+	/**
+	 * Variable que almacena el color original.
+	 **/
 	private Color colorOriginal;
+	/**
+	 * Variable que almacena el color que se coloca cuando se hace una seleccion.
+	 **/
 	private Color colorSeleccion=new Color(250,250,200);
-	
+	/**
+	 * Jframe.
+	 **/
 	private JFrame frame;
 	
 	/**
-	 * Create the panel.
-	 */
+	 * Genera la interfaz de autenticacion con todos sus campos y caracteristicas.
+	 **/
 	public IU_Autenticacion() {
 		setBorder(new TitledBorder(null, "Autenticacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
@@ -97,33 +130,67 @@ public class IU_Autenticacion extends JPanel {
 		}
 
 	}
-	
+	/**
+	 * Setter del frame.
+	 *
+	 * @param JFrame frame.
+	 */
 	public void setFrame(JFrame frame) {
 		this.frame=frame;
 	}
-	
+	/**
+	 * Getter autenticado.
+	 *
+	 * @return autenticado (valor booleano de si la autenticacion es correcta o no).
+	 */
 	public boolean getAutenticado() {
 		return autenticado;
 	}
-
+	/**
+	 * Clase TxtFocusListener
+	 *
+	 * @author in4mates
+	 * @version 1.0
+	 */
 	private class TxtFocusListener extends FocusAdapter {
 		@Override
+		/**
+		 * metodo FocusGained que cambia el color del backgroud al de seleccion.
+		 * @param FocusEvent e.
+		 **/
 		public void focusGained(FocusEvent e) {
 			e.getComponent().setBackground(colorSeleccion);
 		}
 		@Override
+		/**
+		 * Metodo focusLosto que cambia el color del background al original.
+		 * @param FocusEvent e.
+		 **/
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorOriginal);
 		}
 	}
-	
+	/**
+	 * Setter setTxtNombre que inserta en el campo de texto del nombre una cadena con el nombre.
+	 *
+	 * @param String nombre (nombre de usuario a poner en el campo de texto de nombre).
+	 */
 	public void setTxtNombre(String nombre) {
 		txtNombre.setText(nombre);
 	}
+	/**
+	 * Setter setTxtPassword que inserta en el campo de texto del password una cadena con la contraseña.
+	 *
+	 * @param String pass (contraseña de usuario a poner en el campo de texto de password).
+	 */
 	public void setPassword(String pass) {
 		passwordField.setText(pass);
 	}
-	
+	/**
+	 * Metodo que realiza la comprobacion de si el usuario existe y se corresponde con uno valido de la base de datos.
+	 * @throws Exception arg0.
+	 * @return Valor a true o a false en funcion de si los datos introducidos pertenecen a un usuario almacenado en la base de datos.
+	 */
 	public boolean aceptar() {
 		boolean autenticado=false;
 		try {
@@ -152,6 +219,12 @@ public class IU_Autenticacion extends JPanel {
 		}
 		return autenticado;
 	}
+	/**
+	 * Clase BtnEntrarActionListener
+	 *
+	 * @author in4mates
+	 * @version 1.0
+	 */
 	private class BtnEntrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			aceptar();
