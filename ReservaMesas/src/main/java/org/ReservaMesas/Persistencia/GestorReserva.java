@@ -1,7 +1,7 @@
 package org.ReservaMesas.Persistencia;
 
 /**
- * Info about this package.
+ * Paquete de Persistencia dentro de ReservaMesas.
  **/
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,21 +13,21 @@ import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
 
 /**
- * Clase Usuario. Utilizada para representar a un usuario que se autentica en el
- * sistema. Cada usuario queda determinado por un nombre de usuario, una
- * contraseña y un tipo (función que desempeña dentro del restaurante)
+ * Clase GestorReserva. Utilizada para la gestión de todas las posibles acciones
+ * que se pueden realizar sobre una reserva. Cada gestor de reservas queda determinado
+ * por una lista de reservas.
  *
  * @author in4mates
  * @version 1.0
  */
 public class GestorReserva {
 	/**
-	 * Comenta variable
+	 * ArrayList para la lista de las reservas del sistema.
 	 **/
 	private ArrayList<Reserva> listaReserva;
 	
 	/**
-	 * Constructor por defecto.
+	 * Constructor por defecto. Crea la arraylist de reservas para listarlas.
 	 */
 	public GestorReserva() {
 		listaReserva = new ArrayList<Reserva>();
@@ -36,7 +36,7 @@ public class GestorReserva {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return lista dinámica de las reservas en el sistema (ArrayList<Reserva>).
 	 */
 	public ArrayList<Reserva> getListaReserva() {
 		return listaReserva;
@@ -45,7 +45,7 @@ public class GestorReserva {
 	/**
 	 * Setter.
 	 *
-	 * @param listaReserva comenta
+	 * @param listaReserva establece la lista de reservas.
 	 */
 	public void setListaReserva(ArrayList<Reserva> listaReserva) {
 		this.listaReserva = listaReserva;
@@ -54,7 +54,9 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param reserva comenta.
+	 * @param reserva objeto reserva que se dispone para ser borrado de la base de datos.
+	 * @exception Exception si no se ha borrado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Reserva reserva) {
@@ -73,10 +75,12 @@ public class GestorReserva {
 	}
 
 	/**
-	 * Borrar una reserva de la bbdd.
+	 * Actualizar una reserva de la bbdd.
 	 *
-	 * @param reserva comenta.
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param reserva objeto reserva que se dispone para ser modificado en la base de datos.
+	 * @exception Exception si no se ha actualizado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si se ha actualizado correctamente, false en caso contrario.
 	 */
 	public boolean update(Reserva reserva) {
 		boolean correcto = false;
@@ -100,10 +104,12 @@ public class GestorReserva {
 	}
 
 	/**
-	 * Borrar una reserva de la bbdd.
+	 * Insertar una reserva en la bbdd.
 	 *
-	 * @param reserva comenta.
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param reserva objeto reserva que se dispone para ser insertado en la base de datos.
+	 * @exception Exception si no se ha insertado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si el insertado se completó, false en caso contrario.
 	 */
 	public boolean insert(Reserva reserva) {
 		boolean correcto = false;
@@ -123,10 +129,12 @@ public class GestorReserva {
 	}
 
 	/**
-	 * Borrar una reserva de la bbdd.
+	 * Leer una reserva de la bbdd.
 	 *
-	 * @param reserva comenta.
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param reserva objeto reserva que se lee de la base de datos.
+	 * @exception Exception si no se ha leido correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si la lectura se completó, false en caso contrario.
 	 */
 	public boolean read(Reserva reserva) {
 		ResultSet resultado;
@@ -157,10 +165,12 @@ public class GestorReserva {
 	}
 
 	/**
-	 * Borrar una reserva de la bbdd.
+	 * Asignar el último id a una reserva de la bbdd.
 	 *
-	 * @param reserva comenta.
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param reserva objeto reserva al que se le asigna el último id en la base de datos.
+	 * @exception Exception si no se ha establecido el id correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si se asignó correctamente, false en caso contrario.
 	 */
 	public boolean lastID(Reserva reserva) {
 		ResultSet resultado;
@@ -188,9 +198,12 @@ public class GestorReserva {
 	}
 
 	/**
-	 * Borrar una reserva de la bbdd.
+	 * Leer todas las reservas de la bbdd.
 	 *
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param reserva objeto reserva que se lee de la base de datos.
+	 * @exception Exception si no se ha leido correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si toda la lectura se completó, false en caso contrario.
 	 */
 	public boolean readAll() {
 		boolean correcto = false;

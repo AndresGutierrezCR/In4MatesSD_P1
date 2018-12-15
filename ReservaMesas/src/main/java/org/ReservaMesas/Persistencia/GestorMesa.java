@@ -1,6 +1,6 @@
 package org.ReservaMesas.Persistencia;
 /**
- * Info about this package.
+ * Paquete de Persistencia dentro de ReservaMesas.
  **/
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,21 +10,21 @@ import org.Autenticacion.Persistencia.Agente;
 import org.ReservaMesas.Dominio.Estados;
 import org.ReservaMesas.Dominio.Mesa;
 /**
- * Clase Usuario. Utilizada para representar a un usuario que se autentica en el
- * sistema. Cada usuario queda determinado por un nombre de usuario, una
- * contraseña y un tipo (función que desempeña dentro del restaurante)
+ * Clase GestorMesa. Utilizada para la gestión de todas las posibles acciones
+ * que se pueden realizar sobre una mesa. Cada gestor de mesas queda determinado
+ * por una lista de mesas.
  *
  * @author in4mates
  * @version 1.0
  */
 public class GestorMesa {
 	/**
-	 * Comenta variable
+	 * ArrayList para la lista de las mesas del sistema.
 	 **/
 	private ArrayList<Mesa> listaMesas;
 	
 	/**
-	 * Constructor por defecto.
+	 * Constructor por defecto. Crea la arraylist de mesas para listarlas.
 	 */
 	public GestorMesa() {
 		listaMesas = new ArrayList<Mesa>();
@@ -33,7 +33,7 @@ public class GestorMesa {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return lista dinámica de las mesas en el sistema (ArrayList<Mesa>).
 	 */
 	public ArrayList<Mesa> getListaMesas() {
 		return listaMesas;
@@ -42,7 +42,7 @@ public class GestorMesa {
 	/**
 	 * Setter.
 	 *
-	 * @param listaMesas comenta
+	 * @param listaMesas establece la lista de mesas.
 	 */
 	public void setListaMesas(ArrayList<Mesa> listaMesas) {
 		this.listaMesas = listaMesas;
@@ -51,7 +51,9 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param mesa comenta
+	 * @param mesa objeto mesa que se dispone para ser borrado de la base de datos.
+	 * @exception Exception si no se ha borrado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Mesa mesa) {
@@ -72,10 +74,12 @@ public class GestorMesa {
 	}
 
 	/**
-	 * Borrar una mesa de la bbdd.
+	 * Actualizar una mesa de la bbdd.
 	 *
-	 * @param mesa comenta
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param mesa objeto mesa que se dispone para ser modificado en la base de datos.
+	 * @exception Exception si no se ha actualizado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si se ha actualizado correctamente, false en caso contrario.
 	 */
 	public boolean update(Mesa mesa) {
 		boolean correcto = false;
@@ -98,10 +102,12 @@ public class GestorMesa {
 	}
 
 	/**
-	 * Borrar una mesa de la bbdd.
+	 * Insertar una mesa en la bbdd.
 	 *
-	 * @param mesa comenta
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param mesa objeto mesa que se dispone para ser insertado en la base de datos.
+	 * @exception Exception si no se ha insertado correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si el insertado se completó, false en caso contrario.
 	 */
 	public boolean insert(Mesa mesa) {
 		boolean correcto = false;
@@ -122,10 +128,12 @@ public class GestorMesa {
 	}
 
 	/**
-	 * Borrar una mesa de la bbdd.
-	 *
-	 * @param mesa comenta
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * Leer una mesa de la bbdd.
+	 * 
+	 * @param mesa objeto mesa que se lee de la base de datos.
+	 * @exception Exception si no se ha leido correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si la lectura se completó, false en caso contrario.
 	 */
 	public boolean read(Mesa mesa) {
 		boolean correcto = false;
@@ -152,9 +160,12 @@ public class GestorMesa {
 	}
 
 	/**
-	 * Borrar una mesa de la bbdd.
+	 * Leer todas las mesas de la bbdd.
 	 *
-	 * @return true si el borrado se completó, false en caso contrario.
+	 * @param mesa objeto mesa que se lee de la base de datos.
+	 * @exception Exception si no se ha leido correctamente.
+	 * @exception SQLException si existe error en conexión con el Agente.
+	 * @return true si toda la lectura se completó, false en caso contrario.
 	 */
 	public boolean readAll() {
 		ResultSet resultado;

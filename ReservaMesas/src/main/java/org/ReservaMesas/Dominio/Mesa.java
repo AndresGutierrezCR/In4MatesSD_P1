@@ -1,15 +1,17 @@
 package org.ReservaMesas.Dominio;
 /**
- * Info about this package.
+ * Paquete de Dominio dentro de ReservaMesas.
  **/
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.ReservaMesas.Persistencia.GestorMesa;
 /**
- * Clase Usuario. Utilizada para representar a un usuario que se autentica en el
- * sistema. Cada usuario queda determinado por un nombre de usuario, una
- * contraseña y un tipo (función que desempeña dentro del restaurante)
+ * Clase Mesa. Utilizada para representar el tipo de objeto Mesa, que puede ser
+ * reservada por usuarios que usen el sistema. Cada mesa queda determinada por
+ * un identificador de mesa, un numero de comensales, un estado (fase en la que
+ * se encuentra la mesa en el sistema), una hora para el último cambio de estado.
+ * Cuenta además con un gestor para mesas (en Persistencia).
  *
  * @author in4mates
  * @version 1.0
@@ -17,42 +19,43 @@ import org.ReservaMesas.Persistencia.GestorMesa;
 
 public class Mesa {
 	/**
-	 * Comenta variable
+	 * Variable identificadora para cada una de las mesas en el sistema.
 	 **/
 	private int idMesa;
 	/**
-	 * Comenta variable
+	 * Numero de comensales que tendrán cada una de las mesas.
 	 **/
 	private int comensales;
 	/**
-	 * Comenta variable
+	 * Fase en la que se encuentran cada una de las mesas.
 	 **/
 	private Estados estado;
 	/**
-	 * Comenta variable
+	 * Última fecha y hora en la que se ha variado el estado de la mesa.
 	 **/
 	private String horaEstado;
 	/**
-	 * Comenta variable
+	 * Objeto para la gestión de las mesas.
 	 **/
 	private GestorMesa gestorMesa;
 	
 	/**
-	 * Constructor por defecto. Crea un usuario vacío.
+	 * Constructor por defecto de Mesa. Crea una Mesa vacía.
 	 */
 	public Mesa() {
 		this.gestorMesa = new GestorMesa();
 	}
 	
 	/**
-	 * Constructor con 3 parametros. Crea un usuario a partir de un nombre de
-	 * usuario, contraseña y tipo.
+	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador
+	 * unos comensales, un estado y una hora de estado.
 	 *
-	 * @param idMesa   ID de la mesa
-	 * @param comensales contraseña para ese usuario
-	 * @param estado     tipo de usuario (camarero, jefe de sala)
-	 * @param horaEstado Fechad el estado en formato dd/MM/yy hh:mm:ss
-	 * @throws Exception explicar
+	 * @param idMesa     ID de la mesa.
+	 * @param comensales numero de comensales.
+	 * @param estado     estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO, ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO, PREPARACION).
+	 * @param horaEstado Fecha del estado en formato dd/MM/yy hh:mm:ss .
+	 * @throws Exception si el id de la mesa es menor que 1.
+	 * @throws Exception si el número de comensales es menor que 1.
 	 */
 	public Mesa(int idMesa, int comensales, Estados estado, 
 			String horaEstado) throws Exception {
@@ -77,12 +80,17 @@ public class Mesa {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return hora y fecha exactas en las que el estado de la mesa ha sido modificado (String).
 	 */
 	public String getHoraEstado() {
 		return horaEstado;
 	}
 
+	/**
+	 * Setter.
+	 *
+	 * @param horaEstado establece la hora y fecha del cambio de estado.
+	 */
 	public void setHoraEstado(String horaEstado) throws ParseException {
 		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 		formatoFecha.setLenient(false);
@@ -93,7 +101,7 @@ public class Mesa {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return identificador de la mesa dentro de la base de datos (int).
 	 */
 	public int getIdMesa() {
 		return idMesa;
@@ -102,8 +110,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param idMesa comenta
-	 * @throws Exception comenta
+	 * @param idMesa establece el identificador de la mesa (y solo puede ser mayor que 1).
+	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
 	public void setIdMesa(int idMesa)throws Exception {
 		if (idMesa < 1) {
@@ -113,6 +121,8 @@ public class Mesa {
 	}
 
 	/**
+	 * Getter.
+	 * 
 	 * @return El numero de comensales de la mesa (int).
 	 **/
 	public int getComensales() {
@@ -122,8 +132,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param comensales comenta
-	 * @throws Exception comenta
+	 * @param comensales establece el numero de comensales por cada mesa (siempre mayor a 1).
+	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
 	public void setComensales(int comensales)throws Exception {
 		if (comensales < 1) {
@@ -135,7 +145,7 @@ public class Mesa {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return estado en el que se encuentra la mesa (Estados).
 	 */
 	public Estados getEstado() {
 		return estado;
@@ -144,7 +154,7 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param estado comenta
+	 * @param estado establece un estado para una mesa.
 	 */
 	public void setEstado(Estados estado) {
 		this.estado = estado;
@@ -153,52 +163,52 @@ public class Mesa {
 	/**
 	 * Getter.
 	 *
-	 * @return lo que devuelve
+	 * @return objeto gestor de la mesa (GestorMesa).
 	 */
 	public GestorMesa getGestorMesa() {
 		return gestorMesa;
 	}
 
 	/**
-	 * Eliminar un usuario de la bbdd.
+	 * Eliminar una mesa de la bbdd.
 	 *
-	 * @return true si el borrado se completó, false en caso contrario
+	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean eliminar() {
 		return gestorMesa.delete(this);
 	}
 
 	/**
-	 * Modificar un usuario de la bbdd.
+	 * Modificar una mesa de la bbdd.
 	 *
-	 * @return comenta
+	 * @return true si se logró modificar, false en caso contrario.
 	 */
 	public boolean modificar() {
 		return gestorMesa.update(this);
 	}
 
 	/**
-	 * Insertar un usuario de la bbdd.
+	 * Insertar una mesa en la bbdd.
 	 *
-	 * @return comenta
+	 * @return true si se insertó con exito, false en caso contrario.
 	 */
 	public boolean insertar() {
 		return gestorMesa.insert(this);
 	}
 
 	/**
-	 * Leer un usuario de la bbdd.
+	 * Leer una mesa de la bbdd.
 	 *
-	 * @return true si el borrado se completó, false en caso contrario
+	 * @return true si se realizó la lectura, false en caso contrario.
 	 */
 	public boolean leer() {
 		return gestorMesa.read(this);
 	}
 
 	/**
-	 * Leer todos los usuario de la bbdd.
+	 * Leer todos las mesas de la bbdd.
 	 *
-	 * @return true si el borrado se completó, false en caso contrario
+	 * @return true si la lectura se completó, false en caso contrario.
 	 */
 	public boolean leerTodo() {
 		return gestorMesa.readAll();
