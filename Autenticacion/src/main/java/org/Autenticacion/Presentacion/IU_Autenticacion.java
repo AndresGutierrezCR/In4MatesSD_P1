@@ -1,5 +1,5 @@
 /**
- * Paquete que contiene las clases de presentacion del modulo autenticarse.
+ * Paquete que contiene las clases de presentaci贸n del m贸dulo autenticarse.
  **/
 package org.Autenticacion.Presentacion;
 
@@ -25,8 +25,8 @@ import java.awt.event.FocusEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 /**
- * Clase IU_Autenticacion. Contiene la interfaz de autenticacion que sera utilizada por los usuarios
- * para identificarse en la aplicacion y poder hacer uso de ella.
+ * Clase IU_Autenticacion. Contiene la interfaz de autenticaci贸n que ser谩 utilizada por los usuarios
+ * para identificarse en la aplicaci贸n y poder hacer uso de ella.
  *
  * @author in4mates
  * @version 1.0
@@ -37,23 +37,23 @@ public class IU_Autenticacion extends JPanel {
 	 **/
 	private JLabel lblNombreDeUsuario;
 	/**
-	 * label que indica donde colocar la contrase馻.
+	 * label que indica donde colocar la contrase锟絘.
 	 **/
 	private JLabel lblContrasea;
 	/**
-	 * Contenedor de texto donde se escribira el nombre de usuario.
+	 * Contenedor de texto donde se escribir谩 el nombre de usuario.
 	 **/
 	private JTextField txtNombre;
 	/**
-	 * Contenedor de texto donde se escribira la contrase馻 de usuario.
+	 * Contenedor de texto donde se escribir谩 la contrase帽a de usuario.
 	 **/
 	private JPasswordField passwordField;
 	/**
-	 * Boton para realizar el login con los datos insertados.
+	 * Bot贸n para realizar el login con los datos insertados.
 	 **/
 	private JButton btnEntrar;
 	/**
-	 * Boolean que indica si el proceso de autenticacion se ha realizado de manera correcta o incorrecta.
+	 * Boolean que indica si el proceso de autenticaci贸n se ha realizado de manera correcta o incorrecta.
 	 **/
 	private boolean autenticado = false;
 	/**
@@ -61,7 +61,7 @@ public class IU_Autenticacion extends JPanel {
 	 **/
 	private Color colorOriginal;
 	/**
-	 * Variable que almacena el color que se coloca cuando se hace una seleccion.
+	 * Variable que almacena el color que se coloca cuando se hace una selecci贸n.
 	 **/
 	private Color colorSeleccion=new Color(250,250,200);
 	/**
@@ -70,7 +70,7 @@ public class IU_Autenticacion extends JPanel {
 	private JFrame frame;
 	
 	/**
-	 * Genera la interfaz de autenticacion con todos sus campos y caracteristicas.
+	 * Genera la interfaz de autenticaci贸n con todos sus campos y caracter铆sticas.
 	 **/
 	public IU_Autenticacion() {
 		setBorder(new TitledBorder(null, "Autenticacion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -133,7 +133,7 @@ public class IU_Autenticacion extends JPanel {
 	/**
 	 * Setter del frame.
 	 *
-	 * @param JFrame frame.
+	 * @param frame.
 	 */
 	public void setFrame(JFrame frame) {
 		this.frame=frame;
@@ -141,7 +141,7 @@ public class IU_Autenticacion extends JPanel {
 	/**
 	 * Getter autenticado.
 	 *
-	 * @return autenticado (valor booleano de si la autenticacion es correcta o no).
+	 * @return autenticado (valor booleano de si la autenticaci贸n es correcta o no).
 	 */
 	public boolean getAutenticado() {
 		return autenticado;
@@ -155,16 +155,16 @@ public class IU_Autenticacion extends JPanel {
 	private class TxtFocusListener extends FocusAdapter {
 		@Override
 		/**
-		 * metodo FocusGained que cambia el color del backgroud al de seleccion.
-		 * @param FocusEvent e.
+		 * m茅todo FocusGained que cambia el color del backgroud al de selecci贸n.
+		 * @param e.
 		 **/
 		public void focusGained(FocusEvent e) {
 			e.getComponent().setBackground(colorSeleccion);
 		}
 		@Override
 		/**
-		 * Metodo focusLosto que cambia el color del background al original.
-		 * @param FocusEvent e.
+		 * M茅todo focusLosto que cambia el color del background al original.
+		 * @param e.
 		 **/
 		public void focusLost(FocusEvent e) {
 			e.getComponent().setBackground(colorOriginal);
@@ -173,23 +173,22 @@ public class IU_Autenticacion extends JPanel {
 	/**
 	 * Setter setTxtNombre que inserta en el campo de texto del nombre una cadena con el nombre.
 	 *
-	 * @param String nombre (nombre de usuario a poner en el campo de texto de nombre).
+	 * @param nombre (nombre de usuario a poner en el campo de texto de nombre).
 	 */
 	public void setTxtNombre(String nombre) {
 		txtNombre.setText(nombre);
 	}
 	/**
-	 * Setter setTxtPassword que inserta en el campo de texto del password una cadena con la contrase馻.
+	 * Setter setTxtPassword que inserta en el campo de texto del password una cadena con la contrase帽a.
 	 *
-	 * @param String pass (contrase馻 de usuario a poner en el campo de texto de password).
+	 * @param pass (contrase帽a de usuario a poner en el campo de texto de password).
 	 */
 	public void setPassword(String pass) {
 		passwordField.setText(pass);
 	}
 	/**
-	 * Metodo que realiza la comprobacion de si el usuario existe y se corresponde con uno valido de la base de datos.
-	 * @throws Exception arg0.
-	 * @return Valor a true o a false en funcion de si los datos introducidos pertenecen a un usuario almacenado en la base de datos.
+	 * M茅todo que realiza la comprobaci贸n de si el usuario existe y se corresponde con uno valido de la base de datos.
+	 * @return Valor a true o a false en funci贸n de si los datos introducidos pertenecen a un usuario almacenado en la base de datos.
 	 */
 	public boolean aceptar() {
 		boolean autenticado=false;

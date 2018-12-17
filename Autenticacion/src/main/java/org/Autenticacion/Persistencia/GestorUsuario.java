@@ -1,5 +1,5 @@
 /**
- * Paquete que contiene las clases de persistencia del modulo autenticarse.
+ * Paquete que contiene las clases de persistencia del módulo autenticarse.
  **/
 package org.Autenticacion.Persistencia;
 import java.sql.ResultSet;
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import org.Autenticacion.Dominio.Usuario;
 
 /**
- * Clase GestorUsuario. Utilizada como intermediario entre el usuario de la aplicacion
+ * Clase GestorUsuario. Utilizada como intermediario entre el usuario de la aplicación
  * y el agente que se conecta a la base de datos para realizar las distintas operaciones.
- * Es la encargada de realizar todas las consultas SQL de lectura, eliminacion, modificacion y adicion.
+ * Es la encargada de realizar todas las consultas SQL de lectura, eliminación, modificación y adición.
  *
  * @author in4mates
  * @version 1.0
@@ -20,30 +20,29 @@ import org.Autenticacion.Dominio.Usuario;
 public class GestorUsuario {
 
 	/**
-	 * Array list que contendra a los distintos usuarios que se lean de la base de datos.
+	 * Array list que contendrá a los distintos usuarios que se lean de la base de datos.
 	 **/
 	private ArrayList <Usuario> listaUsuarios;
 	
 	/**
-	 * Constructor por defecto. Realiza la creacion de la lista vacia de usuarios.
+	 * Constructor por defecto. Realiza la creacion de la lista vacía de usuarios.
 	 */
 	public GestorUsuario() {
 		this.listaUsuarios=new ArrayList<Usuario>();
 	}
 	
     /**
-	 * Metodo que obtiene la lista de usuarios.
+	 * Método que obtiene la lista de usuarios.
 	 * @return Lista de los distintos usuarios que se cargaron en la lista con anterioridad.
 	 */
 	public ArrayList<Usuario> getListaUsuarios() {
 		return this.listaUsuarios;
 	}
     /**
-	 * Metodo que envia la consula SQL de eliminacion al agente, si este realiza la operacion de manera correcta
-	 * se obtendra un valor de true como resultado de la ejecucion del metodo.
-	 * @throws Exception, SQLException.
-	 * @param Usuario usuario (Usuario que se va a eliminar de la base de datos).
-	 * @return Valor a true o a false en funcion de si la consulta se ha ejecutado de manera correcta o no.
+	 * Método que envía la consula SQL de eliminación al agente, si este realiza la operación de manera correcta
+	 * se obtendrá un valor de true como resultado de la ejecución del método.
+	 * @param usuario (Usuario que se va a eliminar de la base de datos).
+	 * @return Valor a true o a false en función de si la consulta se ha ejecutado de manera correcta o no.
 	 */
 	public boolean delete(Usuario usuario) {
 		boolean correcto = false;
@@ -60,11 +59,10 @@ public class GestorUsuario {
 		return correcto;
 	}
     /**
-	 * Metodo que envia la consula SQL de modificacion al agente, si este realiza la operacion de manera correcta
-	 * se obtendra un valor de true como resultado de la ejecucion del metodo.
-	 * @throws Exception, SQLException.
-	 * @param Usuario usuario (Usuario que se va a modificar en la base de datos).
-	 * @return Valor a true o a false en funcion de si la consulta se ha ejecutado de manera correcta o no.
+	 * Método que envía la consula SQL de modificación al agente, si este realiza la operación de manera correcta
+	 * se obtendrá un valor de true como resultado de la ejecución del método.
+	 * @param usuario (Usuario que se va a modificar en la base de datos).
+	 * @return Valor a true o a false en función de si la consulta se ha ejecutado de manera correcta o no.
 	 */
 	public boolean update(Usuario usuario) {
 		boolean correcto = false;
@@ -85,11 +83,10 @@ public class GestorUsuario {
 		return correcto;
 	}
     /**
-	 * Metodo que envia la consula SQL de creacion de usuario al agente, si este realiza la operacion de manera correcta
-	 * se obtendra un valor de true como resultado de la ejecucion del metodo.
-	 * @throws Exception, SQLException.
-	 * @param Usuario usuario (Usuario que se va a añadir a la base de datos).
-	 * @return Valor a true o a false en funcion de si la consulta se ha ejecutado de manera correcta o no.
+	 * Método que envía la consula SQL de creación de usuario al agente, si este realiza la operación de manera correcta
+	 * se obtendrá un valor de true como resultado de la ejecución del metodo.
+	 * @param usuario (Usuario que se va a añadir a la base de datos).
+	 * @return Valor a true o a false en función de si la consulta se ha ejecutado de manera correcta o no.
 	 */
 	public boolean insert(Usuario usuario) {
 		boolean correcto=false;
@@ -108,11 +105,10 @@ public class GestorUsuario {
 	}
 
     /**
-	 * Metodo que envia la consula SQL de lectura al agente para comprobar de la existencia
-	 * un usuario segun los datos introducidos, si este realiza la operacion de manera correcta
-	 * se obtendra un valor de true como resultado de la ejecucion del metodo.
-	 * @throws Exception, SQLException.
-	 * @param Usuario usuario (Usuario sobre el cual se quieren comprobar sus datos para realizar el login).
+	 * Método que envía la consula SQL de lectura al agente para comprobar de la existencia
+	 * un usuario según los datos introducidos, si este realiza la operación de manera correcta
+	 * se obtendrá un valor de true como resultado de la ejecución del método.
+	 * @param usuario (Usuario sobre el cual se quieren comprobar sus datos para realizar el login).
 	 * @return Valor a true o a false en funcion de si la consulta se ha ejecutado de manera correcta o no.
 	 */
 	public boolean login(Usuario usuario) {
@@ -140,10 +136,8 @@ public class GestorUsuario {
 		return existe;
 	}
     /**
-	 * Metodo que envia la consula SQL de lectura al agente para obtener los datos referentes a todos los 
+	 * Método que envía la consula SQL de lectura al agente para obtener los datos referentes a todos los 
 	 * usuarios, una vez se tengan los datos se iran creando usuarios y estos se añadiran a la lista.
-	 * @throws Exception, SQLException.
-	 * @param Usuario usuario (Usuario sobre el cual se quieren comprobar sus datos para realizar el login).
 	 * @return Valor a true o a false en funcion de si la consulta se ha ejecutado de manera correcta o no.
 	 */
 	public boolean readAll() {
