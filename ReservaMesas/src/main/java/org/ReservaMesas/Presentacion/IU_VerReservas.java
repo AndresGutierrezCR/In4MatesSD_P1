@@ -72,6 +72,7 @@ public class IU_VerReservas extends JPanel {
 		RecargarReservas();
 	}
 
+
 	public void RecargarReservas() {
 		Reserva reserva1 = new Reserva();
 		// tableReservas.removeAll();

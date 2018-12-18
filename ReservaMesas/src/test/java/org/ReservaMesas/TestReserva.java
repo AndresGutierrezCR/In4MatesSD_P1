@@ -13,7 +13,7 @@ import org.junit.Test;
 public class TestReserva {
 
 	private Mesa mesaValida;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		mesaValida = new Mesa(2, 6, Estados.LIBRE, "01/01/2019 12:00:00");
@@ -251,4 +251,5 @@ public class TestReserva {
 		Reserva r1 = new Reserva();
 		assertTrue(r1.leerTodo());
 	}
+	
 }

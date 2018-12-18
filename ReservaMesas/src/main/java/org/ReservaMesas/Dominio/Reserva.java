@@ -134,7 +134,7 @@ public class Reserva {
 	}
 
 	public void setTurno(int turno) throws Exception{
-		if (turno < 0) {
+		if (turno <= 0) {
 			throw new Exception("Turno no valido");
 		}
 		this.turno = turno;
