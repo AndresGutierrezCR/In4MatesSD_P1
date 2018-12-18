@@ -47,8 +47,8 @@ public class Reserva {
 
 	/**
 	 * Constructor con 6 parametros. Crea una reserva de mesa a partir de un
-	 * identificador, un nombre de cliente, un numero de comensales, un turno de
-	 * comida o cena, un número de turno, y una mesa.
+	 * identificador, un nombre de cliente, un numero de comensales, un turno 
+	 * de comida o cena, un número de turno, y una mesa.
 	 *
 	 * @param idReserva     ID de la mesa.
 	 * @param nombreCliente nombre del cliente que reserva la mesa.
@@ -57,16 +57,16 @@ public class Reserva {
 	 * @param turno         número del turno de la reserva.
 	 * @param mesa          mesa en la que se realiza la reserva.
 	 * @throws Exception si el identificador de la reserva es menor que 1.
-	 * @throws Exception si el número de comensales supera al máximo permitido por
-	 *                   la mesa.
+	 * @throws Exception si el número de comensales supera al máximo permitido
+	 *  por la mesa.
 	 * @throws Exception si el número de comensales es menor o igual a 0.
 	 * @throws Exception si el número del turno es menor o igual a 0.
 	 * @throws Exception si la longitud del nombre del cliente es menor a 1.
 	 * @throws Exception si la longitud de la cadena del turno es menor a 1.
 	 * @throws Exception si el turno no es comida o cena.
 	 */
-	public Reserva(int idReserva, String nombreCliente, int comensales, String turnoComCen, int turno, Mesa mesa)
-			throws Exception {
+	public Reserva(int idReserva, String nombreCliente, int comensales,
+			String turnoComCen, int turno, Mesa mesa) throws Exception {
 
 		if (idReserva < 1) {
 			throw new Exception("El numero de reserva no puede ser negativo");
@@ -155,7 +155,8 @@ public class Reserva {
 	/**
 	 * Leer todas las reservas de la bbdd.
 	 *
-	 * @return true si se han leido todas correctamente, false en caso contrario.
+	 * @return true si se han leido todas correctamente, false en caso 
+	 * contrario.
 	 */
 	public boolean leerTodo() {
 		return gestorReserva.readAll();
@@ -228,8 +229,8 @@ public class Reserva {
 	 * Setter.
 	 *
 	 * @param comensales establece el numero de comensales en la reserva.
-	 * @throws Exception lanza excepción si se supera un número 
-	 * de comensales o elnúmero de comensales no es válido.
+	 * @throws Exception lanza excepción si se supera un número de comensales o
+	 *                   elnúmero de comensales no es válido.
 	 */
 	public void setComensales(int comensales) throws Exception {
 		if (comensales > this.mesa.getComensales()) {
@@ -244,7 +245,7 @@ public class Reserva {
 	/**
 	 * Getter.
 	 *
-	 * @return turno de comida o cena en el que se establece la reserva 
+	 * @return turno de comida o cena en el que se establece la reserva
 	 */
 	public String getTurnoComCen() {
 
@@ -255,8 +256,8 @@ public class Reserva {
 	 * Setter.
 	 *
 	 * @param turnoComCen establece el turno (comida o cena) para la reserva.
-	 * @throws Exception lanza excepción si el 
-	 * turno de comida o cena es inválido.
+	 * @throws Exception lanza excepción si el turno de comida o cena es 
+	 * inválido.
 	 */
 	public void setTurnoComCen(String turnoComCen) throws Exception {
 		if (turnoComCen.length() < 1) {

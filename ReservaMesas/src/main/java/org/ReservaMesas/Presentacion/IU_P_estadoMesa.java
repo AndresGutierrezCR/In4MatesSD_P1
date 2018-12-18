@@ -48,9 +48,9 @@ public class IU_P_estadoMesa extends JPanel {
 		if (idMesa < 1) {
 			throw new Exception("Id de mesa no posible");
 		}
-		this.idMesa=idMesa;
-		setBorder(new TitledBorder(null, "Estados mesa X", TitledBorder.LEADING,
-				TitledBorder.TOP, null, null));
+		this.idMesa = idMesa;
+		setBorder(new TitledBorder(null, "Estados mesa X",
+				TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 69, 105, 94, 94, 154, 93, 131,
 				94, 116, 0 };
@@ -281,7 +281,7 @@ public class IU_P_estadoMesa extends JPanel {
 	public void setIdMesa(int idMesa) {
 		this.idMesa = idMesa;
 	}
-	
+
 	public int getIDmesa() {
 		return this.idMesa;
 	}
@@ -313,7 +313,8 @@ public class IU_P_estadoMesa extends JPanel {
 				estado = Estados.PREPARACION;
 			}
 			try {
-				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+				Timestamp timestamp = new Timestamp(
+						System.currentTimeMillis());
 				mesa.setHoraEstado(sdf.format(timestamp));
 
 				mesa.setEstado(estado);

@@ -12,9 +12,9 @@ import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
 
 /**
- * Clase GestorReserva. Utilizada para la gestión de todas las posibles acciones
- * que se pueden realizar sobre una reserva. Cada gestor de reservas queda
- * determinado por una lista de reservas.
+ * Clase GestorReserva. Utilizada para la gestión de todas las posibles 
+ * acciones que se pueden realizar sobre una reserva. Cada gestor de reservas 
+ * queda determinado por una lista de reservas.
  *
  * @author in4mates
  * @version 1.0
@@ -53,8 +53,8 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser borrado de la base
-	 *                de datos.
+	 * @param reserva objeto reserva que se dispone para ser borrado de la base 
+	 * de datos.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Reserva reserva) {
@@ -77,8 +77,8 @@ public class GestorReserva {
 	/**
 	 * Actualizar una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser modificado en la
-	 *                base de datos.
+	 * @param reserva objeto reserva que se dispone para ser modificado en la 
+	 * base de datos.
 	 * @return true si se ha actualizado correctamente, false en caso contrario.
 	 */
 	public boolean update(Reserva reserva) {
@@ -107,17 +107,18 @@ public class GestorReserva {
 	/**
 	 * Insertar una reserva en la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser insertado en la
-	 *                base de datos.
+	 * @param reserva objeto reserva que se dispone para ser insertado en 
+	 * la base de datos.
 	 * @return true si el insertado se completó, false en caso contrario.
 	 */
 	public boolean insert(Reserva reserva) {
 		boolean correcto = false;
 		try {
 			Agente.getAgente().modificar("INSERT INTO reserva VALUES("
-					+ reserva.getIdReserva() + ",'" + reserva.getNombreCliente()
-					+ "'," + reserva.getComensales() + ",'"
-					+ reserva.getTurnoComCen() + "'," + reserva.getTurno() + ","
+					+ reserva.getIdReserva() + ",'"
+					+ reserva.getNombreCliente() + "',"
+					+ reserva.getComensales() + ",'" + reserva.getTurnoComCen()
+					+ "'," + reserva.getTurno() + ","
 					+ reserva.getMesa().getIdMesa() + ");");
 			correcto = true;
 		} catch (SQLException e) {
@@ -168,8 +169,8 @@ public class GestorReserva {
 	/**
 	 * Asignar el último id a una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva al que se le asigna el último id en la base
-	 *                de datos.
+	 * @param reserva objeto reserva al que se le asigna el último id en la 
+	 * base de datos.
 	 * @return true si se asignó correctamente, false en caso contrario.
 	 */
 	public boolean lastID(Reserva reserva) {

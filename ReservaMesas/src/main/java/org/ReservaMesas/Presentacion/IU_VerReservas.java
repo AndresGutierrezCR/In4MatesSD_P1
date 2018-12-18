@@ -73,10 +73,10 @@ public class IU_VerReservas extends JPanel {
 				scrollPane.setViewportView(tableReservas);
 			}
 		}
-		RecargarReservas();
+		recargarReservas();
 	}
 
-	public void RecargarReservas() {
+	public void recargarReservas() {
 		Reserva reserva1 = new Reserva();
 		// tableReservas.removeAll();
 		try {
@@ -151,7 +151,7 @@ public class IU_VerReservas extends JPanel {
 					reserva.eliminar();
 
 					setSelectedReserva(false);
-					RecargarReservas();
+					recargarReservas();
 					JOptionPane.showMessageDialog(null,
 							"Reserva eliminada correctamente",
 							"Reserva eliminada",
@@ -163,7 +163,8 @@ public class IU_VerReservas extends JPanel {
 
 				JOptionPane.showMessageDialog(null,
 						"No ha selecionado ninguna reserva",
-						"Error al cancelar reserva", JOptionPane.ERROR_MESSAGE);
+						"Error al cancelar reserva",
+						JOptionPane.ERROR_MESSAGE);
 
 			}
 		}

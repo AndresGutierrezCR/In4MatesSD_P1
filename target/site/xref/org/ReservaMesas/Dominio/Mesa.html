@@ -57,14 +57,14 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  	}
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_javadoccomment">	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador</em>
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  <em class="jxr_javadoccomment">	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador </em>
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_javadoccomment">	 * unos comensales, un estado y una hora de estado.</em>
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">	 *</em>
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">	 * @param idMesa     ID de la mesa.</em>
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">	 * @param comensales numero de comensales.</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">	 * @param estado     estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,</em>
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">	 *                   ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,</em>
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">	 *                   PREPARACION).</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">	 * @param estado    estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">	 *                  ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,</em>
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">	 *                  PREPARACION).</em>
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  <em class="jxr_javadoccomment">	 * @param horaEstado Fecha del estado en formato dd/MM/yy hh:mm:ss .</em>
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>  <em class="jxr_javadoccomment">	 * @throws Exception si el id de la mesa es menor que 1.</em>
 <a class="jxr_linenumber" name="L62" href="#L62">62</a>  <em class="jxr_javadoccomment">	 * @throws Exception si el número de comensales es menor que 1.</em>
@@ -127,8 +127,8 @@
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L120" href="#L120">120</a> <em class="jxr_javadoccomment">	 * Setter.</em>
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">	 * @param idMesa establece el identificador de la mesa (y solo puede ser</em>
-<a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">	 *               mayor que 1).</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">	 * @param idMesa establece el identificador de la mesa </em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> <em class="jxr_javadoccomment">	 * y solo puede ser mayor que 1).</em>
 <a class="jxr_linenumber" name="L124" href="#L124">124</a> <em class="jxr_javadoccomment">	 * @throws Exception lanza cualquier excepción que pueda surgir.</em>
 <a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L126" href="#L126">126</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setIdMesa(<strong class="jxr_keyword">int</strong> idMesa) <strong class="jxr_keyword">throws</strong> Exception {
@@ -150,8 +150,8 @@
 <a class="jxr_linenumber" name="L142" href="#L142">142</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L143" href="#L143">143</a> <em class="jxr_javadoccomment">	 * Setter.</em>
 <a class="jxr_linenumber" name="L144" href="#L144">144</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">	 * @param comensales establece el numero de comensales por cada mesa</em>
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">	 *                   (siempre mayor a 1).</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">	 * @param comensales establece el numero de comensales por cada mesa </em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">	 * (siempre mayor a 1).</em>
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> <em class="jxr_javadoccomment">	 * @throws Exception lanza cualquier excepción que pueda surgir.</em>
 <a class="jxr_linenumber" name="L148" href="#L148">148</a> <em class="jxr_javadoccomment">	 */</em>
 <a class="jxr_linenumber" name="L149" href="#L149">149</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setComensales(<strong class="jxr_keyword">int</strong> comensales) <strong class="jxr_keyword">throws</strong> Exception {

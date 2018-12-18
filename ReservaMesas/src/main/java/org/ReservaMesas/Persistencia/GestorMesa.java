@@ -13,8 +13,8 @@ import org.ReservaMesas.Dominio.Mesa;
 
 /**
  * Clase GestorMesa. Utilizada para la gestión de todas las posibles acciones
- * que se pueden realizar sobre una mesa. Cada gestor de mesas queda determinado
- * por una lista de mesas.
+ * que se pueden realizar sobre una mesa. Cada gestor de mesas queda 
+ * determinado por una lista de mesas.
  *
  * @author in4mates
  * @version 1.0
@@ -53,8 +53,8 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param mesa objeto mesa que se dispone para ser borrado de la base de
-	 *             datos.
+	 * @param mesa objeto mesa que se dispone para ser borrado de la base de 
+	 * datos.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Mesa mesa) {
@@ -82,7 +82,7 @@ public class GestorMesa {
 	 *             datos.
 	 * @return true si se ha actualizado correctamente, false en caso contrario.
 	 */
-	public boolean update(Mesa mesa) {
+	public boolean update(final Mesa mesa) {
 		boolean correcto = false;
 		try {
 			final String SQL = "UPDATE mesas SET comensales="
@@ -90,8 +90,8 @@ public class GestorMesa {
 					+ mesa.getEstado() + "', horaEstado='"
 					+ mesa.getHoraEstado() + "' WHERE idMesa = "
 					+ mesa.getIdMesa() + "";
-			Agente.getAgente()
-					.modificar(SQL);
+	
+			Agente.getAgente().modificar(SQL);
 			correcto = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -112,12 +112,12 @@ public class GestorMesa {
 	 *             datos.
 	 * @return true si el insertado se completó, false en caso contrario.
 	 */
-	public boolean insert(Mesa mesa) {
+	public boolean insert(final Mesa mesa) {
 		boolean correcto = false;
 		try {
-			final String SQL = "INSERT INTO mesas VALUES("
-					+ mesa.getIdMesa() + "," + mesa.getComensales() + ",'"
-					+ mesa.getEstado() + "','" + mesa.getHoraEstado() + "')";
+			final String SQL = "INSERT INTO mesas VALUES(" + mesa.getIdMesa()
+					+ "," + mesa.getComensales() + ",'" + mesa.getEstado()
+					+ "','" + mesa.getHoraEstado() + "')";
 			Agente.getAgente().modificar(SQL);
 			correcto = true;
 		} catch (SQLException e) {
@@ -143,8 +143,8 @@ public class GestorMesa {
 		ResultSet resultado;
 		try {
 			resultado = Agente.getAgente()
-					.leer("SELECT * FROM mesas WHERE idmesa=" + mesa.getIdMesa()
-							+ "");
+					.leer("SELECT * FROM mesas WHERE idmesa="
+							+ mesa.getIdMesa() + "");
 			while (resultado.next()) {
 				correcto = true;
 				mesa.setComensales(resultado.getInt(2));

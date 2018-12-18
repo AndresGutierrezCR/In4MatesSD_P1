@@ -62,7 +62,8 @@ public class IU_AsigMesa extends JPanel {
 				TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 156, 101, 0, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 34, 35, 33, 34, 36, 0, 0, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 34, 35, 33, 34, 36, 0, 0,
+				0 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
@@ -106,13 +107,15 @@ public class IU_AsigMesa extends JPanel {
 			m.leerTodo();
 			ArrayList<String> listaIdMesas = new ArrayList<String>();
 
-			for (int i = 0; i < m.getGestorMesa().getListaMesas().size(); i++) {
+			for (int i = 0; i < m.getGestorMesa().getListaMesas()
+					.size(); i++) {
 				String id = Integer.toString(
 						m.getGestorMesa().getListaMesas().get(i).getIdMesa());
 				listaIdMesas.add(id);
 			}
 
-			cmbMesas.setModel(new DefaultComboBoxModel(listaIdMesas.toArray()));
+			cmbMesas.setModel(
+					new DefaultComboBoxModel(listaIdMesas.toArray()));
 			GridBagConstraints gbc_comboBox = new GridBagConstraints();
 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBox.insets = new Insets(0, 0, 5, 5);
@@ -234,7 +237,8 @@ public class IU_AsigMesa extends JPanel {
 				res.setTurno(Integer
 						.parseInt(cmbTurnos.getSelectedItem().toString()));
 				m.setEstado(Estados.RESERVADA);
-				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+				Timestamp timestamp = new Timestamp(
+						System.currentTimeMillis());
 				m.setHoraEstado(sdf.format(timestamp));
 				if (!res.insertar()) {
 					throw new Exception("Error al insertar la reserva");
@@ -244,7 +248,7 @@ public class IU_AsigMesa extends JPanel {
 					throw new Exception(
 							"Error al modificar el estado de la mesa");
 				}
-				reservas.RecargarReservas();
+				reservas.recargarReservas();
 
 			} catch (Exception arg0) {
 				JOptionPane.showMessageDialog(null, arg0.getMessage(), "Error",

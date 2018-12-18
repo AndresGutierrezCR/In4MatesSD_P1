@@ -49,14 +49,14 @@ public class Mesa {
 	}
 
 	/**
-	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador
+	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador 
 	 * unos comensales, un estado y una hora de estado.
 	 *
 	 * @param idMesa     ID de la mesa.
 	 * @param comensales numero de comensales.
-	 * @param estado     estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,
-	 *                   ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,
-	 *                   PREPARACION).
+	 * @param estado    estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,
+	 *                  ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,
+	 *                  PREPARACION).
 	 * @param horaEstado Fecha del estado en formato dd/MM/yy hh:mm:ss .
 	 * @throws Exception si el id de la mesa es menor que 1.
 	 * @throws Exception si el número de comensales es menor que 1.
@@ -119,8 +119,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param idMesa establece el identificador de la mesa (y solo puede ser
-	 *               mayor que 1).
+	 * @param idMesa establece el identificador de la mesa 
+	 * y solo puede ser mayor que 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
 	public void setIdMesa(int idMesa) throws Exception {
@@ -142,8 +142,8 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param comensales establece el numero de comensales por cada mesa
-	 *                   (siempre mayor a 1).
+	 * @param comensales establece el numero de comensales por cada mesa 
+	 * (siempre mayor a 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
 	public void setComensales(int comensales) throws Exception {

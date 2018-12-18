@@ -56,9 +56,9 @@
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>  		<strong class="jxr_keyword">if</strong> (idMesa &lt; 1) {
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>  			<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Id de mesa no posible"</span>);
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  		}
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		<strong class="jxr_keyword">this</strong>.idMesa=idMesa;
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		setBorder(<strong class="jxr_keyword">new</strong> TitledBorder(<strong class="jxr_keyword">null</strong>, <span class="jxr_string">"Estados mesa X"</span>, TitledBorder.LEADING,
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  				TitledBorder.TOP, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>));
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  		<strong class="jxr_keyword">this</strong>.idMesa = idMesa;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>  		setBorder(<strong class="jxr_keyword">new</strong> TitledBorder(<strong class="jxr_keyword">null</strong>, <span class="jxr_string">"Estados mesa X"</span>,
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  				TitledBorder.LEADING, TitledBorder.TOP, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>));
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>  		GridBagLayout gridBagLayout = <strong class="jxr_keyword">new</strong> GridBagLayout();
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>  		gridBagLayout.columnWidths = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] { 69, 105, 94, 94, 154, 93, 131,
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>  				94, 116, 0 };
@@ -289,7 +289,7 @@
 <a class="jxr_linenumber" name="L281" href="#L281">281</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setIdMesa(<strong class="jxr_keyword">int</strong> idMesa) {
 <a class="jxr_linenumber" name="L282" href="#L282">282</a> 		<strong class="jxr_keyword">this</strong>.idMesa = idMesa;
 <a class="jxr_linenumber" name="L283" href="#L283">283</a> 	}
-<a class="jxr_linenumber" name="L284" href="#L284">284</a> 	
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 
 <a class="jxr_linenumber" name="L285" href="#L285">285</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getIDmesa() {
 <a class="jxr_linenumber" name="L286" href="#L286">286</a> 		<strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.idMesa;
 <a class="jxr_linenumber" name="L287" href="#L287">287</a> 	}
@@ -321,22 +321,23 @@
 <a class="jxr_linenumber" name="L313" href="#L313">313</a> 				estado = Estados.PREPARACION;
 <a class="jxr_linenumber" name="L314" href="#L314">314</a> 			}
 <a class="jxr_linenumber" name="L315" href="#L315">315</a> 			<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 				Timestamp timestamp = <strong class="jxr_keyword">new</strong> Timestamp(System.currentTimeMillis());
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> 				mesa.setHoraEstado(sdf.format(timestamp));
-<a class="jxr_linenumber" name="L318" href="#L318">318</a> 
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 				mesa.setEstado(estado);
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> 				mesa.modificar();
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> 				volverColorInicial();
-<a class="jxr_linenumber" name="L322" href="#L322">322</a> 				estadoBotones(estado);
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> 
-<a class="jxr_linenumber" name="L324" href="#L324">324</a> 			} <strong class="jxr_keyword">catch</strong> (Exception arg0) {
-<a class="jxr_linenumber" name="L325" href="#L325">325</a> 				System.out.println(arg0.getMessage());
-<a class="jxr_linenumber" name="L326" href="#L326">326</a> 			}
-<a class="jxr_linenumber" name="L327" href="#L327">327</a> 
-<a class="jxr_linenumber" name="L328" href="#L328">328</a> 		}
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> 	}
-<a class="jxr_linenumber" name="L330" href="#L330">330</a> 
-<a class="jxr_linenumber" name="L331" href="#L331">331</a> }
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 				Timestamp timestamp = <strong class="jxr_keyword">new</strong> Timestamp(
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 						System.currentTimeMillis());
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 				mesa.setHoraEstado(sdf.format(timestamp));
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 				mesa.setEstado(estado);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 				mesa.modificar();
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 				volverColorInicial();
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 				estadoBotones(estado);
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 			} <strong class="jxr_keyword">catch</strong> (Exception arg0) {
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 				System.out.println(arg0.getMessage());
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 			}
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 		}
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 	}
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> 
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018. All rights reserved.</div>

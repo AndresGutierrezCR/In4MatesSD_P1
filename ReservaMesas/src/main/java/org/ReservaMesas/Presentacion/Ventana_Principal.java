@@ -116,8 +116,7 @@ public class Ventana_Principal {
 
 				{
 					panel_VerConfMesas = new IU_VerConfMesas();
-					GridBagConstraints gbc_panel_VerConfMesas =
-							new GridBagConstraints();
+					GridBagConstraints gbc_panel_VerConfMesas = new GridBagConstraints();
 					gbc_panel_VerConfMesas.gridwidth = 2;
 					gbc_panel_VerConfMesas.insets = new Insets(0, 0, 5, 0);
 					gbc_panel_VerConfMesas.fill = GridBagConstraints.BOTH;
@@ -128,8 +127,7 @@ public class Ventana_Principal {
 				}
 				{
 					panel_VerReservas = new IU_VerReservas();
-					GridBagConstraints gbc_panel_VerReservas = 
-							new GridBagConstraints();
+					GridBagConstraints gbc_panel_VerReservas = new GridBagConstraints();
 					gbc_panel_VerReservas.gridwidth = 4;
 					gbc_panel_VerReservas.fill = GridBagConstraints.BOTH;
 					gbc_panel_VerReservas.gridx = 1;
@@ -139,8 +137,7 @@ public class Ventana_Principal {
 				}
 				{
 					panel_HacerReservas = new IU_AsigMesa(panel_VerReservas);
-					GridBagConstraints gbc_panel_HacerReservas = 
-							new GridBagConstraints();
+					GridBagConstraints gbc_panel_HacerReservas = new GridBagConstraints();
 					gbc_panel_HacerReservas.insets = new Insets(0, 0, 5, 5);
 					gbc_panel_HacerReservas.fill = GridBagConstraints.BOTH;
 					gbc_panel_HacerReservas.gridx = 1;

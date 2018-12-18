@@ -3,7 +3,6 @@ package org.ReservaMesas.Presentacion;
 import javax.swing.JPanel;
 import java.awt.Color;
 
-
 import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
@@ -44,7 +43,8 @@ public class IU_VerConfMesas extends JPanel {
 						return columnEditables[column];
 					}
 				});
-				tableMesas.getColumnModel().getColumn(0).setPreferredWidth(100);
+				tableMesas.getColumnModel().getColumn(0)
+						.setPreferredWidth(100);
 				tableMesas.getColumnModel().getColumn(1).setPreferredWidth(96);
 				scrollPane.setViewportView(tableMesas);
 			}
