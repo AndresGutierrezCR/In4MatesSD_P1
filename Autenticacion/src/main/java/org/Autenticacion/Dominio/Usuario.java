@@ -1,5 +1,6 @@
 /**
- * Paquete que contiene las clases de dominio del modulo autenticarse.
+ * org.Autenticacion.Dominio Paquete que contiene las clases de dominio del
+ * modulo autenticarse.
  **/
 package org.Autenticacion.Dominio;
 
@@ -15,55 +16,55 @@ import org.Autenticacion.Persistencia.GestorUsuario;
  */
 
 public class Usuario {
-    /**
-    * nombre de usuario.
-    **/
-    private String nombre;
-     /**
-     * contraseña para ese usuario.
-     **/
-    private String password;
-     /**
-     * tipo de usuario (camarero, jefe de salas, cocina).
-     **/
-    private String tipo;
-    /**
-	* Objeto de acceso a bbdd.
-	**/
-    private GestorUsuario gestorUsuario;
+	/**
+	 * nombre de usuario.
+	 **/
+	private String nombre;
+	/**
+	 * contraseña para ese usuario.
+	 **/
+	private String password;
+	/**
+	 * tipo de usuario (camarero, jefe de salas, cocina).
+	 **/
+	private String tipo;
+	/**
+	 * Objeto de acceso a bbdd.
+	 **/
+	private GestorUsuario gestorUsuario;
 
-     /**
+	/**
 	 * Constructor por defecto. Crea un usuario vacío.
 	 */
-     public Usuario() {
-         this.gestorUsuario = new GestorUsuario();
-     }
-
-     /**
-	 * Constructor con 3 parametros. Crea un usuario a partir de un
-	 * nombre de usuario, contraseña y tipo.
+	public Usuario() {
+		this.gestorUsuario = new GestorUsuario();
+	}
+	
+	/**
+	 * Constructor con 3 parametros. Crea un usuario a partir
+	 * de un nombre de usuario, contraseña y tipo.
 	 *
 	 * @param nombre   nombre de usuario
 	 * @param password contraseña para ese usuario
 	 * @param tipo     tipo de usuario (camarero, jefe de sala)
 	 * @throws Exception si el nombre de usuario es una cadena vacia
 	 */
-     public Usuario(String nombre, String password, String tipo)
-               throws Exception {
-          if (nombre.length() < 1) {
-               throw new Exception("El nombre no puede ser vacio");
-          }
-          if (password.length() < 1) {
-               throw new Exception("La password no puede ser vacia");
-          }
-          if (tipo.length() < 1) {
-               throw new Exception("El tipo no puede ser vacio");
-          }
-          this.gestorUsuario = new GestorUsuario();
-          this.nombre = nombre;
-          this.password = password;
-          this.tipo = tipo;
-     }
+	public Usuario(String nombre, String password, String tipo)
+			throws Exception {
+		if (nombre.length() < 1) {
+			throw new Exception("El nombre no puede ser vacio");
+		}
+		if (password.length() < 1) {
+			throw new Exception("La password no puede ser vacia");
+		}
+		if (tipo.length() < 1) {
+			throw new Exception("El tipo no puede ser vacio");
+		}
+		this.gestorUsuario = new GestorUsuario();
+		this.nombre = nombre;
+		this.password = password;
+		this.tipo = tipo;
+	}
 
 	/**
 	 * Getter.
