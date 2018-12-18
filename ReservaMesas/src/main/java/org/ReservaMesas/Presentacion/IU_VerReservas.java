@@ -12,8 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import org.ReservaMesas.Dominio.Estados;
 import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Timestamp;
@@ -33,11 +31,13 @@ public class IU_VerReservas extends JPanel {
 	 * Create the panel.
 	 */
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat(
+			"dd/MM/yy HH:mm:ss");
 
 	public IU_VerReservas() {
 		selectedReserva = false;
-		setBorder(new TitledBorder(null, "Reservas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(null, "Reservas", TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
 		setLayout(new BorderLayout(0, 0));
 		{
 			panelBotones = new JPanel();
@@ -54,13 +54,17 @@ public class IU_VerReservas extends JPanel {
 			add(scrollPane, BorderLayout.CENTER);
 			{
 				tableReservas = new JTable();
-				tableReservas.addMouseListener(new TableReservasMouseListener());
+				tableReservas
+						.addMouseListener(new TableReservasMouseListener());
 
-				tableReservas.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID reserva",
-						"NombreCliente", "Comensales", "Turno comida/cena", "Turno", "ID Mesa", }
+				tableReservas.setModel(new DefaultTableModel(new Object[][] {},
+						new String[] { "ID reserva", "NombreCliente",
+								"Comensales", "Turno comida/cena", "Turno",
+								"ID Mesa", }
 
 				) {
-					boolean[] columnEditables = new boolean[] { false, false, false, false, false, false };
+					boolean[] columnEditables = new boolean[] { false, false,
+							false, false, false, false };
 
 					public boolean isCellEditable(int row, int column) {
 						return columnEditables[column];
@@ -78,7 +82,8 @@ public class IU_VerReservas extends JPanel {
 		try {
 			if (tableReservas.getRowCount() > 0) {
 
-				DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
+				DefaultTableModel modelo = (DefaultTableModel) tableReservas
+						.getModel();
 				int Limite = tableReservas.getRowCount() - 1;
 
 				for (int i = Limite; i >= 0; i--) {
@@ -87,17 +92,22 @@ public class IU_VerReservas extends JPanel {
 
 			}
 			reserva1.leerTodo();
-			for (int i = 0; i < reserva1.getGestorReserva().getListaReserva().size(); i++) {
+			for (int i = 0; i < reserva1.getGestorReserva().getListaReserva()
+					.size(); i++) {
 
-				Reserva aux = reserva1.getGestorReserva().getListaReserva().get(i);
+				Reserva aux = reserva1.getGestorReserva().getListaReserva()
+						.get(i);
 
-				DefaultTableModel modelo = (DefaultTableModel) tableReservas.getModel();
-				Object filaNueva[] = { aux.getIdReserva(), aux.getNombreCliente(), aux.getComensales(),
-						aux.getTurnoComCen(), aux.getTurno(), aux.getMesa().getIdMesa() };
+				DefaultTableModel modelo = (DefaultTableModel) tableReservas
+						.getModel();
+				Object filaNueva[] = { aux.getIdReserva(),
+						aux.getNombreCliente(), aux.getComensales(),
+						aux.getTurnoComCen(), aux.getTurno(),
+						aux.getMesa().getIdMesa() };
 				modelo.addRow(filaNueva);
 			}
 		} catch (Exception e) {
-
+			System.out.println(e.getMessage());
 		}
 
 	}
@@ -117,12 +127,13 @@ public class IU_VerReservas extends JPanel {
 			try {
 				reserva = new Reserva();
 				int filaReserva = tableReservas.getSelectedRow();
-				int idReserva = Integer.parseInt(tableReservas.getValueAt(filaReserva, 0).toString());
+				int idReserva = Integer.parseInt(
+						tableReservas.getValueAt(filaReserva, 0).toString());
 				reserva.setIdReserva(idReserva);
 				reserva.leer();
 				setSelectedReserva(true);
 			} catch (Exception arg0) {
-
+				System.out.println(arg0.getMessage());
 			}
 		}
 	}
@@ -133,22 +144,26 @@ public class IU_VerReservas extends JPanel {
 				try {
 					Mesa mesa = reserva.getMesa();
 					mesa.setEstado(Estados.LIBRE);
-					Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+					Timestamp timestamp = new Timestamp(
+							System.currentTimeMillis());
 					mesa.setHoraEstado(sdf.format(timestamp));
 					mesa.modificar();
 					reserva.eliminar();
 
 					setSelectedReserva(false);
 					RecargarReservas();
-					JOptionPane.showMessageDialog(null, "Reserva eliminada correctamente", "Reserva eliminada",
+					JOptionPane.showMessageDialog(null,
+							"Reserva eliminada correctamente",
+							"Reserva eliminada",
 							JOptionPane.INFORMATION_MESSAGE);
 				} catch (Exception arg0) {
-
+					System.out.println(arg0.getMessage());
 				}
 			} else {
 
-				JOptionPane.showMessageDialog(null, "No ha selecionado ninguna reserva", "Error al cancelar reserva",
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"No ha selecionado ninguna reserva",
+						"Error al cancelar reserva", JOptionPane.ERROR_MESSAGE);
 
 			}
 		}

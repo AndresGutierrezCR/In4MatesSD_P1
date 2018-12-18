@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 
 public class IU_P_estadoMesa extends JPanel {
-	
+
 	private JButton btnLibre;
 	private JButton btnReservada;
 	private JButton btnOcupada;
@@ -29,31 +29,36 @@ public class IU_P_estadoMesa extends JPanel {
 	private JButton btnEsperaCuenta;
 	private JButton btnPagando;
 	private JButton btnPreparacion;
-	
-	private Color colorSelecionado = new Color(200,200,250);
+
+	private Color colorSelecionado = new Color(200, 200, 250);
 	private Color colorDefecto;
 	private Estados estadoUltimo;
-	
+
 	private int idMesa;
 	private Mesa mesa;
-	
 
-	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+	private static final SimpleDateFormat sdf = new SimpleDateFormat(
+			"dd/MM/yy HH:mm:ss");
+
 	/**
 	 * Create the panel.
 	 */
-	public IU_P_estadoMesa(int idMesa) throws Exception{
-		
-		if(idMesa <1) {
+	public IU_P_estadoMesa(int idMesa) throws Exception {
+
+		if (idMesa < 1) {
 			throw new Exception("Id de mesa no posible");
 		}
-		
-		setBorder(new TitledBorder(null, "Estados mesa X", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.idMesa=idMesa;
+		setBorder(new TitledBorder(null, "Estados mesa X", TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{69, 105, 94, 94, 154, 93, 131, 94, 116, 0};
-		gridBagLayout.rowHeights = new int[]{0, 25, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWidths = new int[] { 69, 105, 94, 94, 154, 93, 131,
+				94, 116, 0 };
+		gridBagLayout.rowHeights = new int[] { 0, 25, 0, 0 };
+		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
+				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0,
+				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		{
 			btnLibre = new JButton("Libre");
@@ -64,7 +69,7 @@ public class IU_P_estadoMesa extends JPanel {
 			gbc_btnLibre.gridx = 0;
 			gbc_btnLibre.gridy = 1;
 			add(btnLibre, gbc_btnLibre);
-			colorDefecto=btnLibre.getBackground();
+			colorDefecto = btnLibre.getBackground();
 		}
 		{
 			btnReservada = new JButton("Reservada");
@@ -147,31 +152,32 @@ public class IU_P_estadoMesa extends JPanel {
 			add(btnPreparacion, gbc_btnPreparacion);
 		}
 		try {
-		mesa = new Mesa();
-		mesa.setIdMesa(idMesa);
-		mesa.leer();
-		}catch(Exception e) {
-			JOptionPane.showMessageDialog(null,e.getMessage(), "Error",JOptionPane.ERROR_MESSAGE);
+			mesa = new Mesa();
+			mesa.setIdMesa(idMesa);
+			mesa.leer();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
+					JOptionPane.ERROR_MESSAGE);
 		}
-		
+
 	}
-	
+
 	public void estadoInicial() {
 
 		Estados estado;
 		estado = mesa.getEstado();
 		estadoBotones(estado);
 	}
-	
+
 	public void estadoBotones(Estados estado) {
-		
-		switch(estado) {
-		
+
+		switch (estado) {
+
 		case LIBRE:
 			btnLibre.setBackground(colorSelecionado);
 			btnLibre.setSelected(true);
 			btnLibre.setForeground(Color.white);
-		break;
+			break;
 		case RESERVADA:
 			btnReservada.setBackground(colorSelecionado);
 			btnReservada.setSelected(true);
@@ -191,7 +197,7 @@ public class IU_P_estadoMesa extends JPanel {
 			btnEsperaDeComida.setBackground(colorSelecionado);
 			btnEsperaDeComida.setSelected(true);
 			btnEsperaDeComida.setForeground(Color.white);
-			
+
 			break;
 		case SERVIDOS:
 			btnServidos.setBackground(colorSelecionado);
@@ -214,21 +220,21 @@ public class IU_P_estadoMesa extends JPanel {
 			btnPreparacion.setForeground(Color.white);
 			break;
 		}
-		estadoUltimo=estado;
+		estadoUltimo = estado;
 	}
-	
+
 	public Estados getEstadoUltimo() {
 		return this.estadoUltimo;
 	}
-	
+
 	public void volverColorInicial() {
-		
+
 		switch (estadoUltimo) {
 		case LIBRE:
 			btnLibre.setBackground(colorDefecto);
 			btnLibre.setSelected(false);
 			btnLibre.setForeground(Color.black);
-		break;
+			break;
 		case RESERVADA:
 			btnReservada.setBackground(colorDefecto);
 			btnReservada.setSelected(false);
@@ -271,58 +277,54 @@ public class IU_P_estadoMesa extends JPanel {
 			break;
 		}
 	}
-	
+
 	public void setIdMesa(int idMesa) {
-		this.idMesa=idMesa;
+		this.idMesa = idMesa;
+	}
+	
+	public int getIDmesa() {
+		return this.idMesa;
 	}
 
 	private class BtnActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+
 			String boton = e.getActionCommand().toString();
 			Estados estado;
-			estado=Estados.LIBRE;
-			
-			if (boton.equals("Libre")){
-				estado=Estados.LIBRE;
-			} 
-			else if (boton.equals("Reservada")) {
-				estado=Estados.RESERVADA;
-			}
-			else if (boton.equals("Ocupada")) {
-				estado=Estados.OCUPADA;
-			}
-			else if (boton.equals("Pidiendo")) {
-				estado=Estados.PIDIENDO;
-			}
-			else if (boton.equals("Espera de comida")) {
-				estado=Estados.ESPERA_COMIDA;
-			}
-			else if (boton.equals("Servidos")) {
-				estado=Estados.SERVIDOS;
-			}
-			else if (boton.equals("Espera cuenta")) {
-				estado=Estados.ESPERA_CUENTA;
-			}
-			else if (boton.equals("Pagando")) {
-				estado=Estados.PAGANDO;
-			}
-			else if (boton.equals("Preparación")) {
-				estado=Estados.PREPARACION;
+			estado = Estados.LIBRE;
+
+			if (boton.equals("Libre")) {
+				estado = Estados.LIBRE;
+			} else if (boton.equals("Reservada")) {
+				estado = Estados.RESERVADA;
+			} else if (boton.equals("Ocupada")) {
+				estado = Estados.OCUPADA;
+			} else if (boton.equals("Pidiendo")) {
+				estado = Estados.PIDIENDO;
+			} else if (boton.equals("Espera de comida")) {
+				estado = Estados.ESPERA_COMIDA;
+			} else if (boton.equals("Servidos")) {
+				estado = Estados.SERVIDOS;
+			} else if (boton.equals("Espera cuenta")) {
+				estado = Estados.ESPERA_CUENTA;
+			} else if (boton.equals("Pagando")) {
+				estado = Estados.PAGANDO;
+			} else if (boton.equals("Preparación")) {
+				estado = Estados.PREPARACION;
 			}
 			try {
-			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			mesa.setHoraEstado(sdf.format(timestamp));
-			
-			mesa.setEstado(estado);
-			mesa.modificar();
-			volverColorInicial();
-			estadoBotones(estado);
-			
-			}catch(Exception arg0) {
-				
+				Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+				mesa.setHoraEstado(sdf.format(timestamp));
+
+				mesa.setEstado(estado);
+				mesa.modificar();
+				volverColorInicial();
+				estadoBotones(estado);
+
+			} catch (Exception arg0) {
+				System.out.println(arg0.getMessage());
 			}
-	
+
 		}
 	}
 

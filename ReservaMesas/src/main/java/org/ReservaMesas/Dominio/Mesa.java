@@ -1,4 +1,5 @@
 package org.ReservaMesas.Dominio;
+
 /**
  * Paquete de Dominio dentro de ReservaMesas.
  **/
@@ -6,12 +7,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.ReservaMesas.Persistencia.GestorMesa;
+
 /**
  * Clase Mesa. Utilizada para representar el tipo de objeto Mesa, que puede ser
  * reservada por usuarios que usen el sistema. Cada mesa queda determinada por
  * un identificador de mesa, un numero de comensales, un estado (fase en la que
- * se encuentra la mesa en el sistema), una hora para el último cambio de estado.
- * Cuenta además con un gestor para mesas (en Persistencia).
+ * se encuentra la mesa en el sistema), una hora para el último cambio de
+ * estado. Cuenta además con un gestor para mesas (en Persistencia).
  *
  * @author in4mates
  * @version 1.0
@@ -38,28 +40,30 @@ public class Mesa {
 	 * Objeto para la gestión de las mesas.
 	 **/
 	private GestorMesa gestorMesa;
-	
+
 	/**
 	 * Constructor por defecto de Mesa. Crea una Mesa vacía.
 	 */
 	public Mesa() {
 		this.gestorMesa = new GestorMesa();
 	}
-	
+
 	/**
 	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador
 	 * unos comensales, un estado y una hora de estado.
 	 *
 	 * @param idMesa     ID de la mesa.
 	 * @param comensales numero de comensales.
-	 * @param estado     estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO, ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO, PREPARACION).
+	 * @param estado     estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,
+	 *                   ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,
+	 *                   PREPARACION).
 	 * @param horaEstado Fecha del estado en formato dd/MM/yy hh:mm:ss .
 	 * @throws Exception si el id de la mesa es menor que 1.
 	 * @throws Exception si el número de comensales es menor que 1.
 	 */
-	public Mesa(int idMesa, int comensales, Estados estado, 
-			String horaEstado) throws Exception {
-		
+	public Mesa(int idMesa, int comensales, Estados estado, String horaEstado)
+			throws Exception {
+
 		if (idMesa < 1) {
 			throw new Exception("El id mesa debe ser positivo");
 		}
@@ -67,20 +71,23 @@ public class Mesa {
 			throw new Exception("Los comensales deben ser positivos");
 		}
 
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		SimpleDateFormat formatoFecha = new SimpleDateFormat(
+				"dd/MM/yy HH:mm:ss");
 		formatoFecha.setLenient(false);
 		formatoFecha.parse(horaEstado);
-		
+
 		this.idMesa = idMesa;
 		this.comensales = comensales;
 		this.estado = estado;
 		this.horaEstado = horaEstado;
 		this.gestorMesa = new GestorMesa();
 	}
+
 	/**
 	 * Getter.
 	 *
-	 * @return hora y fecha exactas en las que el estado de la mesa ha sido modificado (String).
+	 * @return hora y fecha exactas en las que el estado de la mesa ha sido
+	 *         modificado (String).
 	 */
 	public String getHoraEstado() {
 		return horaEstado;
@@ -90,9 +97,11 @@ public class Mesa {
 	 * Setter.
 	 *
 	 * @param horaEstado establece la hora y fecha del cambio de estado.
+	 * @throws ParseException si no es una hora correcta.
 	 */
 	public void setHoraEstado(String horaEstado) throws ParseException {
-		SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+		SimpleDateFormat formatoFecha = new SimpleDateFormat(
+				"dd/MM/yy HH:mm:ss");
 		formatoFecha.setLenient(false);
 		formatoFecha.parse(horaEstado);
 		this.horaEstado = horaEstado;
@@ -106,14 +115,15 @@ public class Mesa {
 	public int getIdMesa() {
 		return idMesa;
 	}
-	
+
 	/**
 	 * Setter.
 	 *
-	 * @param idMesa establece el identificador de la mesa (y solo puede ser mayor que 1).
+	 * @param idMesa establece el identificador de la mesa (y solo puede ser
+	 *               mayor que 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
-	public void setIdMesa(int idMesa)throws Exception {
+	public void setIdMesa(int idMesa) throws Exception {
 		if (idMesa < 1) {
 			throw new Exception("El id mesa debe ser positivo");
 		}
@@ -128,20 +138,21 @@ public class Mesa {
 	public int getComensales() {
 		return comensales;
 	}
-	
+
 	/**
 	 * Setter.
 	 *
-	 * @param comensales establece el numero de comensales por cada mesa (siempre mayor a 1).
+	 * @param comensales establece el numero de comensales por cada mesa
+	 *                   (siempre mayor a 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
-	public void setComensales(int comensales)throws Exception {
+	public void setComensales(int comensales) throws Exception {
 		if (comensales < 1) {
 			throw new Exception("Los comensales deben ser positivos");
 		}
 		this.comensales = comensales;
 	}
-	
+
 	/**
 	 * Getter.
 	 *
@@ -150,7 +161,7 @@ public class Mesa {
 	public Estados getEstado() {
 		return estado;
 	}
-	
+
 	/**
 	 * Setter.
 	 *
