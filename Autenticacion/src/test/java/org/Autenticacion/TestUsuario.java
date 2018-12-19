@@ -114,7 +114,7 @@ public class TestUsuario {
 	public void testAutenticarse() throws Exception {
 		Usuario usuarioExiste = new Usuario("in4mates", "in4mates",
 				"jefe de sala");
-		Usuario usuarioNoExiste = new Usuario("pepe", "pepe", "camarerp");
+		Usuario usuarioNoExiste = new Usuario("pepe", "pepe", "camarero");
 		assertTrue(usuarioExiste.autenticarse());
 		assertFalse(usuarioNoExiste.autenticarse());
 	}

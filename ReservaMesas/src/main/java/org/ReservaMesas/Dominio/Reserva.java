@@ -13,7 +13,8 @@ public class Reserva {
 	private Mesa mesa;
 	private GestorReserva gestorReserva;
 
-	public Reserva(int idReserva, String nombreCliente, int comensales, String turnoComCen, int turno, Mesa mesa) throws Exception{
+	public Reserva(int idReserva, String nombreCliente, int comensales,
+			String turnoComCen, int turno, Mesa mesa) throws Exception{
 		
 		if(idReserva < 1) {
 			throw new Exception("El numero de reserva no puede ser negativo");
