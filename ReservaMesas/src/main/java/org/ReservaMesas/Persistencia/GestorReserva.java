@@ -26,7 +26,8 @@ public class GestorReserva {
 	private ArrayList<Reserva> listaReserva;
 
 	/**
-	 * Constructor por defecto. Crea la arraylist de reservas para listarlas.
+	 * Constructor por defecto. Crea la arraylist de
+	 * reservas para listarlas.
 	 */
 	public GestorReserva() {
 		listaReserva = new ArrayList<Reserva>();
@@ -53,16 +54,18 @@ public class GestorReserva {
 	/**
 	 * Borrar una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser borrado de la base 
-	 * de datos.
+	 * @param reserva objeto reserva que se dispone para ser
+	 * borrado de la base de datos.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Reserva reserva) {
 		boolean correcto = false;
 		try {
 			Agente.getAgente()
-					.modificar("DELETE FROM reserva WHERE idReserva = "
-							+ reserva.getIdReserva() + ";");
+					.modificar("DELETE FROM "
+							+ "reserva WHERE idReserva = "
+							+ reserva.getIdReserva()
+							+ ";");
 			correcto = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -77,20 +80,27 @@ public class GestorReserva {
 	/**
 	 * Actualizar una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser modificado en la 
+	 * @param reserva objeto reserva que se dispone
+	 * para ser modificado en la 
 	 * base de datos.
-	 * @return true si se ha actualizado correctamente, false en caso contrario.
+	 * @return true si se ha actualizado correctamente,
+	 * false en caso contrario.
 	 */
 	public boolean update(Reserva reserva) {
 		boolean correcto = false;
 
 		try {
-			Agente.getAgente().modificar("UPDATE reserva SET nombrecliente='"
-					+ reserva.getNombreCliente() + "', " + "comensales="
-					+ reserva.getComensales() + ", turnocomcen ='"
-					+ reserva.getTurnoComCen() + "'" + ", turno="
+			Agente.getAgente().modificar("UPDATE reserva "
+					+ "SET nombrecliente='"
+					+ reserva.getNombreCliente()
+					+ "', " + "comensales="
+					+ reserva.getComensales()
+					+ ", turnocomcen ='"
+					+ reserva.getTurnoComCen()
+					+ "'" + ", turno="
 					+ reserva.getTurno() + ", idMesa="
-					+ reserva.getMesa().getIdMesa() + " WHERE idReserva = "
+					+ reserva.getMesa().getIdMesa()
+					+ " WHERE idReserva = "
 					+ reserva.getIdReserva() + ";");
 			correcto = true;
 
@@ -114,10 +124,12 @@ public class GestorReserva {
 	public boolean insert(Reserva reserva) {
 		boolean correcto = false;
 		try {
-			Agente.getAgente().modificar("INSERT INTO reserva VALUES("
+			Agente.getAgente().modificar("INSERT "
+					+ "INTO reserva VALUES("
 					+ reserva.getIdReserva() + ",'"
 					+ reserva.getNombreCliente() + "',"
-					+ reserva.getComensales() + ",'" + reserva.getTurnoComCen()
+					+ reserva.getComensales() 
+					+ ",'" + reserva.getTurnoComCen()
 					+ "'," + reserva.getTurno() + ","
 					+ reserva.getMesa().getIdMesa() + ");");
 			correcto = true;
@@ -142,15 +154,18 @@ public class GestorReserva {
 		boolean correcto = false;
 		try {
 			resultado = Agente.getAgente()
-					.leer("SELECT * FROM reserva WHERE idReserva="
-							+ reserva.getIdReserva() + ";");
+					.leer("SELECT * FROM "
+						+ "reserva WHERE idReserva="
+						+ reserva.getIdReserva()
+						+ ";");
 			while (resultado.next()) {
 				correcto = true;
 				Mesa m = new Mesa();
 				m.setIdMesa(resultado.getInt(6));
 				m.leer();
 				reserva.setMesa(m);
-				reserva.setNombreCliente(resultado.getString(2));
+				reserva.setNombreCliente(
+					resultado.getString(2));
 				reserva.setComensales(resultado.getInt(3));
 				reserva.setTurnoComCen(resultado.getString(4));
 				reserva.setTurno(resultado.getInt(5));
@@ -169,7 +184,7 @@ public class GestorReserva {
 	/**
 	 * Asignar el último id a una reserva de la bbdd.
 	 *
-	 * @param reserva objeto reserva al que se le asigna el último id en la 
+	 * @param reserva objeto reserva al que se le asigna el último id en la
 	 * base de datos.
 	 * @return true si se asignó correctamente, false en caso contrario.
 	 */
@@ -179,8 +194,8 @@ public class GestorReserva {
 		try {
 
 			resultado = Agente.getAgente()
-					.leer("SELECT MAX(idReserva) FROM reserva;");
-			// resultado = Agente.getAgente().leer("SELECT * FROM reserva;");
+					.leer("SELECT "
+					+ "MAX(idReserva) FROM reserva;");
 
 			while (resultado.next()) {
 				correcto = true;
@@ -210,7 +225,8 @@ public class GestorReserva {
 
 		try {
 			resultado = Agente.getAgente()
-					.leer("SELECT * FROM reserva ORDER BY idReserva;");
+					.leer("SELECT * FROM "
+					+ "reserva ORDER BY idReserva;");
 			Reserva reserva;
 
 			while (resultado.next()) {
@@ -219,8 +235,10 @@ public class GestorReserva {
 				m.setIdMesa(resultado.getInt(6));
 				m.leer();
 				reserva = new Reserva(resultado.getInt(1),
-						resultado.getString(2), resultado.getInt(3),
-						resultado.getString(4), resultado.getInt(5), m);
+						resultado.getString(2),
+						resultado.getInt(3),
+						resultado.getString(4),
+						resultado.getInt(5), m);
 
 				listaReserva.add(reserva);
 			}

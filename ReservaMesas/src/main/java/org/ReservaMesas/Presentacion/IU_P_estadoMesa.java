@@ -1,3 +1,6 @@
+/**
+ * Paquete que contiene las clases de presentación del módulo ReservaMesas.
+ **/
 package org.ReservaMesas.Presentacion;
 
 import javax.swing.JPanel;
@@ -17,32 +20,84 @@ import java.awt.event.ActionListener;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
-
+/**
+ * Clase IU_P_estadoMesa. Panel que contiene los distintos estados en los
+ * que puede estar una mesa y poder modificar los mismos.
+ *
+ * @author in4mates
+ * @version 1.0
+ */
 public class IU_P_estadoMesa extends JPanel {
-
+	/**
+	 * Botón del estado libre.
+	 **/
 	private JButton btnLibre;
+	/**
+	 * Botón del estado reservada.
+	 **/
 	private JButton btnReservada;
+	/**
+	 * Botón del estado ocupada.
+	 **/
 	private JButton btnOcupada;
+	/**
+	 * Botón del estado pidiendo.
+	 **/
 	private JButton btnPidiendo;
+	/**
+	 * Botón del estado esperando comida.
+	 **/
 	private JButton btnEsperaDeComida;
+	/**
+	 * Botón del estado mesa servida.
+	 **/
 	private JButton btnServidos;
+	/**
+	 * Botón del estado a la espera de la cuenta.
+	 **/
 	private JButton btnEsperaCuenta;
+	/**
+	 * Botón del estado pagando.
+	 **/
 	private JButton btnPagando;
+	/**
+	 * Botón del estado preparación.
+	 **/
 	private JButton btnPreparacion;
 
+	/**
+	 * Color que define la selección de algo.
+	 **/
 	private Color colorSelecionado = new Color(200, 200, 250);
+	/**
+	 * Color por defecto.
+	 **/
 	private Color colorDefecto;
+	/**
+	 * Almacena el último estado.
+	 **/
 	private Estados estadoUltimo;
-
+	/**
+	 * Almacena el id de la mesa.
+	 **/
 	private int idMesa;
+	/**
+	 * Objeto del tipo mesa.
+	 **/
 	private Mesa mesa;
-
+	/**
+	 * Define el formato de la fecha y la hora.
+	 **/
 	private static final SimpleDateFormat sdf = new SimpleDateFormat(
 			"dd/MM/yy HH:mm:ss");
 
 	/**
-	 * Create the panel.
-	 */
+	 * Constructor del panel estado mesa con todos
+	 * sus campos y características.
+	 * 
+	 * @param idMesa .
+	 * @throws Exception .
+	 **/
 	public IU_P_estadoMesa(int idMesa) throws Exception {
 
 		if (idMesa < 1) {
@@ -50,20 +105,25 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 		this.idMesa = idMesa;
 		setBorder(new TitledBorder(null, "Estados mesa X",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 69, 105, 94, 94, 154, 93, 131,
+				TitledBorder.LEADING,
+				TitledBorder.TOP, null, null));
+		GridBagLayout gridBagLayout =
+				new GridBagLayout();
+		gridBagLayout.columnWidths =
+				new int[] {69, 105, 94, 94, 154, 93, 131,
 				94, 116, 0 };
-		gridBagLayout.rowHeights = new int[] { 0, 25, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0,
+		gridBagLayout.rowHeights = new int[] {0, 25, 0, 0 };
+		gridBagLayout.columnWeights =
+				new double[] {0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0,
+		gridBagLayout.rowWeights = new double[] {0.0, 0.0, 0.0,
 				Double.MIN_VALUE };
 		setLayout(gridBagLayout);
 		{
 			btnLibre = new JButton("Libre");
 			btnLibre.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnLibre = new GridBagConstraints();
+			GridBagConstraints gbc_btnLibre =
+					new GridBagConstraints();
 			gbc_btnLibre.anchor = GridBagConstraints.WEST;
 			gbc_btnLibre.insets = new Insets(0, 0, 5, 5);
 			gbc_btnLibre.gridx = 0;
@@ -74,7 +134,8 @@ public class IU_P_estadoMesa extends JPanel {
 		{
 			btnReservada = new JButton("Reservada");
 			btnReservada.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnReservada = new GridBagConstraints();
+			GridBagConstraints gbc_btnReservada =
+					new GridBagConstraints();
 			gbc_btnReservada.anchor = GridBagConstraints.WEST;
 			gbc_btnReservada.insets = new Insets(0, 0, 5, 5);
 			gbc_btnReservada.gridx = 1;
@@ -84,7 +145,8 @@ public class IU_P_estadoMesa extends JPanel {
 		{
 			btnOcupada = new JButton("Ocupada");
 			btnOcupada.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnOcupada = new GridBagConstraints();
+			GridBagConstraints gbc_btnOcupada =
+					new GridBagConstraints();
 			gbc_btnOcupada.anchor = GridBagConstraints.WEST;
 			gbc_btnOcupada.insets = new Insets(0, 0, 5, 5);
 			gbc_btnOcupada.gridx = 2;
@@ -94,7 +156,8 @@ public class IU_P_estadoMesa extends JPanel {
 		{
 			btnPidiendo = new JButton("Pidiendo");
 			btnPidiendo.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnPidiendo = new GridBagConstraints();
+			GridBagConstraints gbc_btnPidiendo =
+					new GridBagConstraints();
 			gbc_btnPidiendo.anchor = GridBagConstraints.WEST;
 			gbc_btnPidiendo.insets = new Insets(0, 0, 5, 5);
 			gbc_btnPidiendo.gridx = 3;
@@ -103,8 +166,10 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 		{
 			btnEsperaDeComida = new JButton("Espera de comida");
-			btnEsperaDeComida.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnEsperaDeComida = new GridBagConstraints();
+			btnEsperaDeComida.addActionListener(
+					new BtnActionListener());
+			GridBagConstraints gbc_btnEsperaDeComida =
+					new GridBagConstraints();
 			gbc_btnEsperaDeComida.anchor = GridBagConstraints.WEST;
 			gbc_btnEsperaDeComida.insets = new Insets(0, 0, 5, 5);
 			gbc_btnEsperaDeComida.gridx = 4;
@@ -114,7 +179,8 @@ public class IU_P_estadoMesa extends JPanel {
 		{
 			btnServidos = new JButton("Servidos");
 			btnServidos.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnServidos = new GridBagConstraints();
+			GridBagConstraints gbc_btnServidos =
+					new GridBagConstraints();
 			gbc_btnServidos.anchor = GridBagConstraints.WEST;
 			gbc_btnServidos.insets = new Insets(0, 0, 5, 5);
 			gbc_btnServidos.gridx = 5;
@@ -123,8 +189,10 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 		{
 			btnEsperaCuenta = new JButton("Espera cuenta");
-			btnEsperaCuenta.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnEsperaCuenta = new GridBagConstraints();
+			btnEsperaCuenta.addActionListener(
+					new BtnActionListener());
+			GridBagConstraints gbc_btnEsperaCuenta =
+					new GridBagConstraints();
 			gbc_btnEsperaCuenta.anchor = GridBagConstraints.WEST;
 			gbc_btnEsperaCuenta.insets = new Insets(0, 0, 5, 5);
 			gbc_btnEsperaCuenta.gridx = 6;
@@ -134,7 +202,8 @@ public class IU_P_estadoMesa extends JPanel {
 		{
 			btnPagando = new JButton("Pagando");
 			btnPagando.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnPagando = new GridBagConstraints();
+			GridBagConstraints gbc_btnPagando =
+					new GridBagConstraints();
 			gbc_btnPagando.anchor = GridBagConstraints.WEST;
 			gbc_btnPagando.insets = new Insets(0, 0, 5, 5);
 			gbc_btnPagando.gridx = 7;
@@ -143,8 +212,10 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 		{
 			btnPreparacion = new JButton("Preparación");
-			btnPreparacion.addActionListener(new BtnActionListener());
-			GridBagConstraints gbc_btnPreparacion = new GridBagConstraints();
+			btnPreparacion.addActionListener(
+					new BtnActionListener());
+			GridBagConstraints gbc_btnPreparacion =
+					new GridBagConstraints();
 			gbc_btnPreparacion.insets = new Insets(0, 0, 5, 0);
 			gbc_btnPreparacion.anchor = GridBagConstraints.WEST;
 			gbc_btnPreparacion.gridx = 8;
@@ -156,19 +227,27 @@ public class IU_P_estadoMesa extends JPanel {
 			mesa.setIdMesa(idMesa);
 			mesa.leer();
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, e.getMessage(), "Error",
+			JOptionPane.showMessageDialog(null, e
+					.getMessage(), "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
-
+	/**
+	 * método estadoInicial que recoge el estado inicial de la mesa..
+	 **/
 	public void estadoInicial() {
 
 		Estados estado;
 		estado = mesa.getEstado();
 		estadoBotones(estado);
 	}
-
+	/**
+	 * método estadoBotones que cambia el formato de los botones en
+	 * función del estado en el que se encuentra la mesa.
+	 *
+	 * @param estado .
+	 **/
 	public void estadoBotones(Estados estado) {
 
 		switch (estado) {
@@ -222,11 +301,18 @@ public class IU_P_estadoMesa extends JPanel {
 		}
 		estadoUltimo = estado;
 	}
-
+	/**
+	 * método getEstadoUltimo que devuelve el ultimo estado de una mesa.
+	 *
+	 * @return estadoUltimo ultimo estado en el que ha estado una mesa.
+	 **/
 	public Estados getEstadoUltimo() {
 		return this.estadoUltimo;
 	}
-
+	/**
+	 * método volverColorInicial que cambia el color de los botones
+	 * al original.
+	 **/
 	public void volverColorInicial() {
 
 		switch (estadoUltimo) {
@@ -277,16 +363,34 @@ public class IU_P_estadoMesa extends JPanel {
 			break;
 		}
 	}
-
+	/**
+	 * método setIdMesa que asigna el id a una mesa.
+	 *
+	 * @param idMesa id a asignar a una mesa.
+	 **/
 	public void setIdMesa(int idMesa) {
 		this.idMesa = idMesa;
 	}
-
+	/**
+	 * método getIDmesa que devuelve el id de una mesa.
+	 *
+	 * @return idMesa.
+	 **/
 	public int getIDmesa() {
 		return this.idMesa;
 	}
-
+	/**
+	 * Clase BtnActionListener
+	 *
+	 * @author in4mates
+	 * @version 1.0
+	 */
 	private class BtnActionListener implements ActionListener {
+		/**
+		 * método actionPerformed.
+		 *
+		 * @param e .
+		 **/
 		public void actionPerformed(ActionEvent e) {
 
 			String boton = e.getActionCommand().toString();

@@ -49,26 +49,28 @@ public class Mesa {
 	}
 
 	/**
-	 * Constructor con 4 parametros. Crea una mesa a partir de un identificador 
-	 * unos comensales, un estado y una hora de estado.
+	 * Constructor con 4 parametros. Crea una mesa a partir de un
+	 * identificador unos comensales, un estado y una hora de estado.
 	 *
 	 * @param idMesa     ID de la mesa.
 	 * @param comensales numero de comensales.
-	 * @param estado    estado de la mesa (LIBRE, RESERVADA, OCUPADA, PIDIENDO,
-	 *                  ESPERA_COMIDA, SERVIDOS, ESPERA_CUENTA, PAGANDO,
-	 *                  PREPARACION).
+	 * @param estado    estado de la mesa (LIBRE, RESERVADA,
+	 * OCUPADA, PIDIENDO, ESPERA_COMIDA, SERVIDOS,
+	 * ESPERA_CUENTA, PAGANDO, PREPARACION).
 	 * @param horaEstado Fecha del estado en formato dd/MM/yy hh:mm:ss .
 	 * @throws Exception si el id de la mesa es menor que 1.
 	 * @throws Exception si el número de comensales es menor que 1.
 	 */
-	public Mesa(int idMesa, int comensales, Estados estado, String horaEstado)
+	public Mesa(int idMesa, int comensales, Estados estado,
+			String horaEstado)
 			throws Exception {
 
 		if (idMesa < 1) {
 			throw new Exception("El id mesa debe ser positivo");
 		}
 		if (comensales < 1) {
-			throw new Exception("Los comensales deben ser positivos");
+			throw new Exception("Los comensales deben "
+					+ "ser positivos");
 		}
 
 		SimpleDateFormat formatoFecha = new SimpleDateFormat(
@@ -119,7 +121,7 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param idMesa establece el identificador de la mesa 
+	 * @param idMesa establece el identificador de la mesa
 	 * y solo puede ser mayor que 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
@@ -132,7 +134,7 @@ public class Mesa {
 
 	/**
 	 * Getter.
-	 * 
+	 *
 	 * @return El numero de comensales de la mesa (int).
 	 **/
 	public int getComensales() {
@@ -142,13 +144,14 @@ public class Mesa {
 	/**
 	 * Setter.
 	 *
-	 * @param comensales establece el numero de comensales por cada mesa 
+	 * @param comensales establece el numero de comensales por cada mesa
 	 * (siempre mayor a 1).
 	 * @throws Exception lanza cualquier excepción que pueda surgir.
 	 */
 	public void setComensales(int comensales) throws Exception {
 		if (comensales < 1) {
-			throw new Exception("Los comensales deben ser positivos");
+			throw new Exception("Los comensales "
+					+ "deben ser positivos");
 		}
 		this.comensales = comensales;
 	}

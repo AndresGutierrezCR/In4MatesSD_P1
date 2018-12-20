@@ -47,8 +47,8 @@ public class Reserva {
 
 	/**
 	 * Constructor con 6 parametros. Crea una reserva de mesa a partir de un
-	 * identificador, un nombre de cliente, un numero de comensales, un turno 
-	 * de comida o cena, un número de turno, y una mesa.
+	 * identificador, un nombre de cliente, un numero de comensales,
+	 * un turno de comida o cena, un número de turno, y una mesa.
 	 *
 	 * @param idReserva     ID de la mesa.
 	 * @param nombreCliente nombre del cliente que reserva la mesa.
@@ -57,8 +57,8 @@ public class Reserva {
 	 * @param turno         número del turno de la reserva.
 	 * @param mesa          mesa en la que se realiza la reserva.
 	 * @throws Exception si el identificador de la reserva es menor que 1.
-	 * @throws Exception si el número de comensales supera al máximo permitido
-	 *  por la mesa.
+	 * @throws Exception si el número de comensales supera al máximo
+	 * permitido por la mesa.
 	 * @throws Exception si el número de comensales es menor o igual a 0.
 	 * @throws Exception si el número del turno es menor o igual a 0.
 	 * @throws Exception si la longitud del nombre del cliente es menor a 1.
@@ -66,27 +66,33 @@ public class Reserva {
 	 * @throws Exception si el turno no es comida o cena.
 	 */
 	public Reserva(int idReserva, String nombreCliente, int comensales,
-			String turnoComCen, int turno, Mesa mesa) throws Exception {
+			String turnoComCen, int turno, Mesa mesa)
+					throws Exception {
 
 		if (idReserva < 1) {
-			throw new Exception("El numero de reserva no puede ser negativo");
+			throw new Exception("El numero de reserva no "
+					+ "puede ser negativo");
 		}
 
 		if (comensales > mesa.getComensales()) {
-			throw new Exception("Superado numero maximo de comensales");
+			throw new Exception("Superado numero maximo "
+					+ "de comensales");
 		}
 		if (comensales <= 0) {
-			throw new Exception("el numero de comensales debe ser positivo");
+			throw new Exception("el numero de comensales "
+					+ "debe ser positivo");
 		}
 		if (turno <= 0) {
 			throw new Exception("Turno no valido");
 		}
 
 		if (nombreCliente.length() < 1) {
-			throw new Exception("Nombre de cliente no puede ser vacio");
+			throw new Exception("Nombre de cliente no "
+					+ "puede ser vacio");
 		}
 		if (turnoComCen.length() < 1) {
-			throw new Exception("Tunro Comdida/Cena no puede ser invalido");
+			throw new Exception("Tunro Comdida/Cena no "
+					+ "puede ser invalido");
 		}
 		if (!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))) {
 			throw new Exception("No es un turno valido");
@@ -155,7 +161,7 @@ public class Reserva {
 	/**
 	 * Leer todas las reservas de la bbdd.
 	 *
-	 * @return true si se han leido todas correctamente, false en caso 
+	 * @return true si se han leido todas correctamente, false en caso
 	 * contrario.
 	 */
 	public boolean leerTodo() {
@@ -188,7 +194,8 @@ public class Reserva {
 	 */
 	public void setIdReserva(int idReserva) throws Exception {
 		if (idReserva < 1) {
-			throw new Exception("El numero de reserva no puede ser negativo");
+			throw new Exception("El numero de "
+					+ "reserva no puede ser negativo");
 		}
 		this.idReserva = idReserva;
 	}
@@ -205,12 +212,15 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param nombreCliente establece el nombre del cliente en la reserva.
-	 * @throws Exception lanza excepción si el nombre del cliente está vacío.
+	 * @param nombreCliente establece el nombre del cliente en
+	 * la reserva.
+	 * @throws Exception lanza excepción si el nombre del
+	 * cliente está vacío.
 	 */
 	public void setNombreCliente(String nombreCliente) throws Exception {
 		if (nombreCliente.length() < 1) {
-			throw new Exception("Nombre de cliente no puede ser vacio");
+			throw new Exception("Nombre de cliente no"
+					+ " puede ser vacio");
 		}
 		this.nombreCliente = nombreCliente;
 	}
@@ -218,8 +228,8 @@ public class Reserva {
 	/**
 	 * Getter.
 	 *
-	 * @return número de personas (comensales) para los que se reserva la mesa
-	 *         (int).
+	 * @return número de personas (comensales) para los que se
+	 * reserva la mesa(int).
 	 */
 	public int getComensales() {
 		return comensales;
@@ -229,8 +239,8 @@ public class Reserva {
 	 * Setter.
 	 *
 	 * @param comensales establece el numero de comensales en la reserva.
-	 * @throws Exception lanza excepción si se supera un número de comensales o
-	 *                   elnúmero de comensales no es válido.
+	 * @throws Exception lanza excepción si se supera un número
+	 * de comensales o elnúmero de comensales no es válido.
 	 */
 	public void setComensales(int comensales) throws Exception {
 		if (comensales > this.mesa.getComensales()) {
@@ -255,13 +265,15 @@ public class Reserva {
 	/**
 	 * Setter.
 	 *
-	 * @param turnoComCen establece el turno (comida o cena) para la reserva.
-	 * @throws Exception lanza excepción si el turno de comida o cena es 
-	 * inválido.
+	 * @param turnoComCen establece el turno (comida o cena)
+	 * para la reserva.
+	 * @throws Exception lanza excepción si el turno de comida
+	 * o cena es inválido.
 	 */
 	public void setTurnoComCen(String turnoComCen) throws Exception {
 		if (turnoComCen.length() < 1) {
-			throw new Exception("Tunro Comdida/Cena no puede ser invalido");
+			throw new Exception("Tunro Comdida/Cena "
+					+ "no puede ser invalido");
 		}
 		if (!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))) {
 			throw new Exception("No es un turno valido");

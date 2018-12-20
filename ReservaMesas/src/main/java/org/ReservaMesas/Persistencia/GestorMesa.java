@@ -13,7 +13,7 @@ import org.ReservaMesas.Dominio.Mesa;
 
 /**
  * Clase GestorMesa. Utilizada para la gestión de todas las posibles acciones
- * que se pueden realizar sobre una mesa. Cada gestor de mesas queda 
+ * que se pueden realizar sobre una mesa. Cada gestor de mesas queda
  * determinado por una lista de mesas.
  *
  * @author in4mates
@@ -53,8 +53,8 @@ public class GestorMesa {
 	/**
 	 * Borrar una mesa de la bbdd.
 	 *
-	 * @param mesa objeto mesa que se dispone para ser borrado de la base de 
-	 * datos.
+	 * @param mesa objeto mesa que se dispone para ser borrado
+	 * de la base de datos.
 	 * @return true si el borrado se completó, false en caso contrario.
 	 */
 	public boolean delete(Mesa mesa) {
@@ -78,19 +78,21 @@ public class GestorMesa {
 	/**
 	 * Actualizar una mesa de la bbdd.
 	 *
-	 * @param mesa objeto mesa que se dispone para ser modificado en la base de
-	 *             datos.
-	 * @return true si se ha actualizado correctamente, false en caso contrario.
+	 * @param mesa objeto mesa que se dispone para ser modificado
+	 * en la base de datos.
+	 * @return true si se ha actualizado correctamente, false en
+	 * caso contrario.
 	 */
 	public boolean update(final Mesa mesa) {
 		boolean correcto = false;
 		try {
 			final String SQL = "UPDATE mesas SET comensales="
-					+ mesa.getComensales() + ", " + "estado='"
+					+ mesa.getComensales() + ", "
+					+ "estado='"
 					+ mesa.getEstado() + "', horaEstado='"
-					+ mesa.getHoraEstado() + "' WHERE idMesa = "
+					+ mesa.getHoraEstado() + "' WHERE "
+							+ "idMesa = "
 					+ mesa.getIdMesa() + "";
-	
 			Agente.getAgente().modificar(SQL);
 			correcto = true;
 		} catch (SQLException e) {
@@ -108,16 +110,20 @@ public class GestorMesa {
 	/**
 	 * Insertar una mesa en la bbdd.
 	 *
-	 * @param mesa objeto mesa que se dispone para ser insertado en la base de
-	 *             datos.
+	 * @param mesa objeto mesa que se dispone para ser insertado
+	 * en la base de datos.
 	 * @return true si el insertado se completó, false en caso contrario.
 	 */
 	public boolean insert(final Mesa mesa) {
 		boolean correcto = false;
 		try {
-			final String SQL = "INSERT INTO mesas VALUES(" + mesa.getIdMesa()
-					+ "," + mesa.getComensales() + ",'" + mesa.getEstado()
-					+ "','" + mesa.getHoraEstado() + "')";
+			final String SQL = "INSERT "
+					+ "INTO mesas VALUES(" 
+					+ mesa.getIdMesa()
+					+ "," + mesa.getComensales() + ",'"
+					+ mesa.getEstado()
+					+ "','"
+					+ mesa.getHoraEstado() + "')";
 			Agente.getAgente().modificar(SQL);
 			correcto = true;
 		} catch (SQLException e) {
@@ -134,7 +140,7 @@ public class GestorMesa {
 
 	/**
 	 * Leer una mesa de la bbdd.
-	 * 
+	 *
 	 * @param mesa objeto mesa que se lee de la base de datos.
 	 * @return true si la lectura se completó, false en caso contrario.
 	 */
@@ -143,12 +149,16 @@ public class GestorMesa {
 		ResultSet resultado;
 		try {
 			resultado = Agente.getAgente()
-					.leer("SELECT * FROM mesas WHERE idmesa="
-							+ mesa.getIdMesa() + "");
+					.leer("SELECT * FROM "
+							+ "mesas WHERE idmesa="
+							+ mesa.getIdMesa()
+							+ "");
 			while (resultado.next()) {
 				correcto = true;
 				mesa.setComensales(resultado.getInt(2));
-				Estados estado = Estados.valueOf(resultado.getString(3));
+				Estados estado =
+						Estados.valueOf(
+								resultado.getString(3));
 				mesa.setEstado(estado);
 				mesa.setHoraEstado(resultado.getString(4));
 			}
@@ -174,13 +184,17 @@ public class GestorMesa {
 		boolean correcto = false;
 		try {
 			resultado = Agente.getAgente()
-					.leer("SELECT * FROM mesas ORDER BY idMesa");
+					.leer("SELECT "
+						+ "* FROM mesas ORDER BY idMesa");
 			Mesa mesa;
 
 			while (resultado.next()) {
 				correcto = true;
-				Estados estado = Estados.valueOf(resultado.getString(3));
-				mesa = new Mesa(resultado.getInt(1), resultado.getInt(2),
+				Estados estado =
+						Estados.valueOf(
+							resultado.getString(3));
+				mesa = new Mesa(resultado.getInt(1),
+						resultado.getInt(2),
 						estado, resultado.getString(4));
 				listaMesas.add(mesa);
 			}
