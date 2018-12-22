@@ -118,7 +118,7 @@ public class GestorMesa {
 		boolean correcto = false;
 		try {
 			final String SQL = "INSERT "
-					+ "INTO mesas VALUES(" 
+					+ "INTO mesas VALUES("
 					+ mesa.getIdMesa()
 					+ "," + mesa.getComensales() + ",'"
 					+ mesa.getEstado()
@@ -146,6 +146,14 @@ public class GestorMesa {
 	 */
 	public boolean read(Mesa mesa) {
 		boolean correcto = false;
+		/**
+		 * número tres.
+		 */
+		final int tres = 3;
+		/**
+		 * número cuatro.
+		 */
+		final int cuatro = 4;
 		ResultSet resultado;
 		try {
 			resultado = Agente.getAgente()
@@ -158,9 +166,11 @@ public class GestorMesa {
 				mesa.setComensales(resultado.getInt(2));
 				Estados estado =
 						Estados.valueOf(
-								resultado.getString(3));
+						resultado
+						.getString(tres));
 				mesa.setEstado(estado);
-				mesa.setHoraEstado(resultado.getString(4));
+				mesa.setHoraEstado(resultado
+						.getString(cuatro));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -182,20 +192,30 @@ public class GestorMesa {
 	public boolean readAll() {
 		ResultSet resultado;
 		boolean correcto = false;
+		/**
+		 * número tres.
+		 */
+		final int tres = 3;
+		/**
+		 * número cuatro.
+		 */
+		final int cuatro = 4;
 		try {
 			resultado = Agente.getAgente()
 					.leer("SELECT "
-						+ "* FROM mesas ORDER BY idMesa");
+					+ "* FROM mesas ORDER BY idMesa");
 			Mesa mesa;
 
 			while (resultado.next()) {
 				correcto = true;
 				Estados estado =
 						Estados.valueOf(
-							resultado.getString(3));
+							resultado
+							.getString(tres));
 				mesa = new Mesa(resultado.getInt(1),
 						resultado.getInt(2),
-						estado, resultado.getString(4));
+						estado,
+						resultado.getString(cuatro));
 				listaMesas.add(mesa);
 			}
 		} catch (SQLException e) {

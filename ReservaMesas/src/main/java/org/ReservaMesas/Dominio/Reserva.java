@@ -94,7 +94,9 @@ public class Reserva {
 			throw new Exception("Tunro Comdida/Cena no "
 					+ "puede ser invalido");
 		}
-		if (!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))) {
+		if (!(turnoComCen
+				.equals("comida") || turnoComCen
+				.equals("cena"))) {
 			throw new Exception("No es un turno valido");
 		}
 		this.idReserva = idReserva;
@@ -275,7 +277,9 @@ public class Reserva {
 			throw new Exception("Tunro Comdida/Cena "
 					+ "no puede ser invalido");
 		}
-		if (!(turnoComCen.equals("comida") || turnoComCen.equals("cena"))) {
+		if (!(turnoComCen
+				.equals("comida") || turnoComCen
+				.equals("cena"))) {
 			throw new Exception("No es un turno valido");
 		}
 		this.turnoComCen = turnoComCen;

@@ -12,8 +12,8 @@ import org.ReservaMesas.Dominio.Mesa;
 import org.ReservaMesas.Dominio.Reserva;
 
 /**
- * Clase GestorReserva. Utilizada para la gestión de todas las posibles 
- * acciones que se pueden realizar sobre una reserva. Cada gestor de reservas 
+ * Clase GestorReserva. Utilizada para la gestión de todas las posibles
+ * acciones que se pueden realizar sobre una reserva. Cada gestor de reservas
  * queda determinado por una lista de reservas.
  *
  * @author in4mates
@@ -63,9 +63,9 @@ public class GestorReserva {
 		try {
 			Agente.getAgente()
 					.modificar("DELETE FROM "
-							+ "reserva WHERE idReserva = "
-							+ reserva.getIdReserva()
-							+ ";");
+						+ "reserva WHERE idReserva = "
+						+ reserva.getIdReserva()
+						+ ";");
 			correcto = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -81,7 +81,7 @@ public class GestorReserva {
 	 * Actualizar una reserva de la bbdd.
 	 *
 	 * @param reserva objeto reserva que se dispone
-	 * para ser modificado en la 
+	 * para ser modificado en la
 	 * base de datos.
 	 * @return true si se ha actualizado correctamente,
 	 * false en caso contrario.
@@ -117,7 +117,7 @@ public class GestorReserva {
 	/**
 	 * Insertar una reserva en la bbdd.
 	 *
-	 * @param reserva objeto reserva que se dispone para ser insertado en 
+	 * @param reserva objeto reserva que se dispone para ser insertado en
 	 * la base de datos.
 	 * @return true si el insertado se completó, false en caso contrario.
 	 */
@@ -128,7 +128,7 @@ public class GestorReserva {
 					+ "INTO reserva VALUES("
 					+ reserva.getIdReserva() + ",'"
 					+ reserva.getNombreCliente() + "',"
-					+ reserva.getComensales() 
+					+ reserva.getComensales()
 					+ ",'" + reserva.getTurnoComCen()
 					+ "'," + reserva.getTurno() + ","
 					+ reserva.getMesa().getIdMesa() + ");");
@@ -152,6 +152,22 @@ public class GestorReserva {
 	public boolean read(Reserva reserva) {
 		ResultSet resultado;
 		boolean correcto = false;
+		/**
+		 * número seis.
+		 */
+		final int seis = 6;
+		/**
+		 * número cinco.
+		 */
+		final int cinco = 5;
+		/**
+		 * número cuatro.
+		 */
+		final int cuatro = 4;
+		/**
+		 * número tres.
+		 */
+		final int tres = 3;
 		try {
 			resultado = Agente.getAgente()
 					.leer("SELECT * FROM "
@@ -161,14 +177,16 @@ public class GestorReserva {
 			while (resultado.next()) {
 				correcto = true;
 				Mesa m = new Mesa();
-				m.setIdMesa(resultado.getInt(6));
+				m.setIdMesa(resultado.getInt(seis));
 				m.leer();
 				reserva.setMesa(m);
 				reserva.setNombreCliente(
 					resultado.getString(2));
-				reserva.setComensales(resultado.getInt(3));
-				reserva.setTurnoComCen(resultado.getString(4));
-				reserva.setTurno(resultado.getInt(5));
+				reserva.setComensales(resultado.getInt(tres));
+				reserva
+				.setTurnoComCen(resultado
+						.getString(cuatro));
+				reserva.setTurno(resultado.getInt(cinco));
 
 			}
 		} catch (SQLException e) {
@@ -221,6 +239,22 @@ public class GestorReserva {
 	 */
 	public boolean readAll() {
 		boolean correcto = false;
+		/**
+		 * número seis.
+		 */
+		final int seis = 6;
+		/**
+		 * número cinco.
+		 */
+		final int cinco = 5;
+		/**
+		 * número cuatro.
+		 */
+		final int cuatro = 4;
+		/**
+		 * número tres.
+		 */
+		final int tres = 3;
 		ResultSet resultado;
 
 		try {
@@ -232,13 +266,13 @@ public class GestorReserva {
 			while (resultado.next()) {
 				correcto = true;
 				Mesa m = new Mesa();
-				m.setIdMesa(resultado.getInt(6));
+				m.setIdMesa(resultado.getInt(seis));
 				m.leer();
 				reserva = new Reserva(resultado.getInt(1),
 						resultado.getString(2),
-						resultado.getInt(3),
-						resultado.getString(4),
-						resultado.getInt(5), m);
+						resultado.getInt(tres),
+						resultado.getString(cuatro),
+						resultado.getInt(cinco), m);
 
 				listaReserva.add(reserva);
 			}

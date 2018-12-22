@@ -344,7 +344,8 @@ public class IU_AsigMesa extends JPanel {
 				res.setComensales(
 						Integer.parseInt(spnComensales
 						.getValue().toString()));
-				res.setTurnoComCen(rdbtnComida.isSelected() ? "comida" : "cena");
+				res.setTurnoComCen(rdbtnComida
+						.isSelected() ? "comida" : "cena");
 				res.setTurno(Integer
 						.parseInt(cmbTurnos
 						.getSelectedItem()
