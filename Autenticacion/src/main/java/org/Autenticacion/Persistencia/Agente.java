@@ -37,7 +37,6 @@ public class Agente {
 
 	/**
 	 * Constructor por defecto. Realiza la conexión a la base de datos.
-	 * 
 	 * @throws Exception .
 	 */
 	private Agente() throws Exception {
@@ -49,7 +48,6 @@ public class Agente {
 	 * Constructor que creará y devolverá un agente en caso de que
 	 * no exista uno previamente, si existe un agente con anterioridad
 	 * se devolverá dicho agente.
-	 * 
 	 * @return Instancia del agente.
 	 * @throws Exception .
 	 */
@@ -64,7 +62,6 @@ public class Agente {
 	 * Realiza la conexión con la base de datos mediante el uso del driver y
 	 * de la
 	 * url.
-	 * 
 	 * @throws Exception .
 	 */
 	private void conectar() throws Exception {
@@ -74,7 +71,6 @@ public class Agente {
 
 	/**
 	 * Realiza la desconexión con la base de datos.
-	 * 
 	 * @throws Exception .
 	 */
 	public void desconectar() throws Exception {
@@ -84,7 +80,6 @@ public class Agente {
 	/**
 	 * Comunica a la base de datos la consulta SQL de modificación que ha
 	 * recibido el agente por parte del gestor.
-	 * 
 	 * @throws Exception .
 	 * @throws SQLException .
 	 * @param SQL (Consulta SQL de modificación sobre la base de datos).
@@ -101,7 +96,6 @@ public class Agente {
 	/**
 	 * Comunica a la base de datos la consulta SQL de lectura de datos que
 	 * ha sido entregada al agente por el gestor.
-	 * 
 	 * @throws Exception .
 	 * @throws SQLException .
 	 * @param SQL (Consulta SQL de lectura de datos sobre la base de datos).

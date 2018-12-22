@@ -35,6 +35,14 @@ import java.awt.event.ActionEvent;
  */
 public class IU_Autenticacion extends JPanel {
 	/**
+	 * número 250.
+	 **/
+	final int doscientosCincuenta = 250;
+	/**
+	 * número 200.
+	 **/
+	final int doscientos = 200;
+	/**
 	 * label que indica donde colocar el nombre.
 	 **/
 	private JLabel lblNombreDeUsuario;
@@ -67,7 +75,10 @@ public class IU_Autenticacion extends JPanel {
 	 * Variable que almacena el color que se coloca cuando se hace una
 	 * selección.
 	 **/
-	private Color colorSeleccion = new Color(250, 250, 200);
+	private Color colorSeleccion =
+			new Color(doscientosCincuenta,
+					doscientosCincuenta,
+					doscientos);
 	/**
 	 * Jframe.
 	 **/
@@ -78,11 +89,28 @@ public class IU_Autenticacion extends JPanel {
 	 * características.
 	 **/
 	public IU_Autenticacion() {
+		/**
+		 * número 5.
+		 **/
+		final int cinco = 5;
+		/**
+		 * número 3.
+		 **/
+		final int tres = 3;
+		/**
+		 * número 10.
+		 **/
+		final int diez = 10;
+		/**
+		 * número 198.
+		 **/
+		final int cientoNoventaOcho = 198;
 		setBorder(new TitledBorder(null, "Autenticacion",
 				TitledBorder.LEADING,
 				TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] {0, 0, 0, 198,
+		gridBagLayout.columnWidths = new int[] {
+				0, 0, 0, cientoNoventaOcho,
 				0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] {0, 0, 0, 0, 0, 0, 0, 0 };
 		gridBagLayout.columnWeights = new double[] {0.0, 0.0, 0.0, 0.0,
@@ -94,7 +122,8 @@ public class IU_Autenticacion extends JPanel {
 			lblNombreDeUsuario = new JLabel("Nombre de usuario:");
 			GridBagConstraints gbc_lblNombreDeUsuario =
 					new GridBagConstraints();
-			gbc_lblNombreDeUsuario.insets = new Insets(0, 0, 5, 5);
+			gbc_lblNombreDeUsuario.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_lblNombreDeUsuario.gridx = 1;
 			gbc_lblNombreDeUsuario.gridy = 2;
 			add(lblNombreDeUsuario, gbc_lblNombreDeUsuario);
@@ -104,21 +133,23 @@ public class IU_Autenticacion extends JPanel {
 			txtNombre.addFocusListener(new TxtFocusListener());
 			GridBagConstraints gbc_txtNombre =
 					new GridBagConstraints();
-			gbc_txtNombre.insets = new Insets(0, 0, 5, 5);
+			gbc_txtNombre.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_txtNombre.fill = GridBagConstraints.HORIZONTAL;
-			gbc_txtNombre.gridx = 3;
+			gbc_txtNombre.gridx = tres;
 			gbc_txtNombre.gridy = 2;
 			add(txtNombre, gbc_txtNombre);
-			txtNombre.setColumns(10);
+			txtNombre.setColumns(diez);
 		}
 		colorOriginal = txtNombre.getBackground();
 		{
 			lblContrasea = new JLabel("Contraseña");
 			GridBagConstraints gbc_lblContrasea =
 					new GridBagConstraints();
-			gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
+			gbc_lblContrasea.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_lblContrasea.gridx = 1;
-			gbc_lblContrasea.gridy = 3;
+			gbc_lblContrasea.gridy = tres;
 			add(lblContrasea, gbc_lblContrasea);
 		}
 		{
@@ -126,10 +157,11 @@ public class IU_Autenticacion extends JPanel {
 			passwordField.addFocusListener(new TxtFocusListener());
 			GridBagConstraints gbc_passwordField =
 					new GridBagConstraints();
-			gbc_passwordField.insets = new Insets(0, 0, 5, 5);
+			gbc_passwordField.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
-			gbc_passwordField.gridx = 3;
-			gbc_passwordField.gridy = 3;
+			gbc_passwordField.gridx = tres;
+			gbc_passwordField.gridy = tres;
 			add(passwordField, gbc_passwordField);
 		}
 		{
@@ -139,9 +171,9 @@ public class IU_Autenticacion extends JPanel {
 					new BtnEntrarActionListener());
 			GridBagConstraints gbc_btnEntrar =
 					new GridBagConstraints();
-			gbc_btnEntrar.insets = new Insets(0, 0, 5, 5);
-			gbc_btnEntrar.gridx = 3;
-			gbc_btnEntrar.gridy = 5;
+			gbc_btnEntrar.insets = new Insets(0, 0, cinco, cinco);
+			gbc_btnEntrar.gridx = tres;
+			gbc_btnEntrar.gridy = cinco;
 			add(btnEntrar, gbc_btnEntrar);
 		}
 
@@ -150,7 +182,7 @@ public class IU_Autenticacion extends JPanel {
 	/**
 	 * Setter del frame.
 	 *
-	 * @param frame.
+	 * @param frame .
 	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
@@ -245,18 +277,18 @@ public class IU_Autenticacion extends JPanel {
 
 				if (!usuario.autenticarse()) {
 					JOptionPane.showMessageDialog(null,
-							"Usuario o contraseña"
-							+ " incorrectos",
-							"Autenticación",
-							JOptionPane.WARNING_MESSAGE);
+						"Usuario o contraseña"
+						+ " incorrectos",
+						"Autenticación",
+						JOptionPane.WARNING_MESSAGE);
 				} else {
 					autenticado = true;
 
 					JOptionPane.showMessageDialog(null,
-							"Autenticacion"
-							+ " correcta",
-							"Autenticación",
-							JOptionPane.DEFAULT_OPTION);
+						"Autenticacion"
+						+ " correcta",
+						"Autenticación",
+						JOptionPane.DEFAULT_OPTION);
 
 				}
 			}
@@ -267,12 +299,16 @@ public class IU_Autenticacion extends JPanel {
 	}
 
 	/**
-	 * Clase BtnEntrarActionListener
+	 * Clase BtnEntrarActionListener.
 	 *
 	 * @author in4mates
 	 * @version 1.0
 	 */
 	private class BtnEntrarActionListener implements ActionListener {
+		/**
+		 * Método actionPerformed.
+		 * @param e .
+		 */
 		public void actionPerformed(ActionEvent e) {
 			aceptar();
 		}

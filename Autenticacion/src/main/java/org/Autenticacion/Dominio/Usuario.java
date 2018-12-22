@@ -39,7 +39,6 @@ public class Usuario {
 	public Usuario() {
 		this.gestorUsuario = new GestorUsuario();
 	}
-	
 	/**
 	 * Constructor con 3 parametros. Crea un usuario a partir
 	 * de un nombre de usuario, contraseña y tipo.

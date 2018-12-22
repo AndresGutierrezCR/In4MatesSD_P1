@@ -146,6 +146,7 @@ public class GestorUsuario {
 	 */
 	public boolean login(Usuario usuario) {
 		ResultSet resultado;
+		final int tres = 3;
 		boolean existe = false;
 		try {
 			resultado = Agente.getAgente()
@@ -160,7 +161,7 @@ public class GestorUsuario {
 				existe = true;
 				usuario.setNombre(resultado.getString(1));
 				usuario.setPassword(resultado.getString(2));
-				usuario.setTipo(resultado.getString(3));
+				usuario.setTipo(resultado.getString(tres));
 
 			}
 
@@ -184,6 +185,7 @@ public class GestorUsuario {
 	 */
 	public boolean readAll() {
 		ResultSet resultado;
+		final int tres = 3;
 		boolean correcto = false;
 		try {
 			resultado = Agente.getAgente().leer("SELECT * "
@@ -194,7 +196,7 @@ public class GestorUsuario {
 				correcto = true;
 				usuario = new Usuario(resultado.getString(1),
 						resultado.getString(2),
-						resultado.getString(3));
+						resultado.getString(tres));
 				listaUsuarios.add(usuario);
 			}
 		} catch (SQLException e) {
