@@ -42,6 +42,14 @@ public class IU_VerConfMesas extends JPanel {
 	 * sus campos y características.
 	 **/
 	public IU_VerConfMesas() {
+		/**
+		 * número cien.
+		 **/
+		final int cien = 100;
+		/**
+		 * número noventaYSeis.
+		 **/
+		final int noventaYSeis = 96;
 		setBorder(new TitledBorder(null, "Configuraci\u00F3n mesas",
 				TitledBorder.LEADING,
 				TitledBorder.TOP, null, null));
@@ -74,9 +82,10 @@ public class IU_VerConfMesas extends JPanel {
 					}
 				});
 				tableMesas.getColumnModel().getColumn(0)
-						.setPreferredWidth(100);
+						.setPreferredWidth(cien);
 				tableMesas.getColumnModel()
-				.getColumn(1).setPreferredWidth(96);
+				.getColumn(1)
+				.setPreferredWidth(noventaYSeis);
 				scrollPane.setViewportView(tableMesas);
 			}
 		}

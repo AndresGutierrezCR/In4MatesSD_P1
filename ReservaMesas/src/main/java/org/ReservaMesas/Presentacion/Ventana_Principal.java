@@ -104,9 +104,48 @@ public class Ventana_Principal {
 	 * Método initialize.
 	 **/
 	private void initialize() {
+		/**
+		 * número cinco.
+		 **/
+		final int cinco = 5;
+		/**
+		 * número tres.
+		 **/
+		final int tres = 3;
+		/**
+		 * número dosCientos.
+		 **/
+		final int dosCientos = 200;
+		/**
+		 * número milDosCientos.
+		 **/
+		final int milDosCientos = 1200;
+		/**
+		 * número seteCientos.
+		 **/
+		final int seteCientos = 700;
+		/**
+		 * número CuatroCientosOnce.
+		 **/
+		final int CuatroCientosOnce = 411;
+		/**
+		 * número CuatroCientosCinco.
+		 **/
+		final int CuatroCientosCinco = 405;
+		/**
+		 * número ochentaYTres.
+		 **/
+		final int ochentaYTres = 83;
+		/**
+		 * número cuatro.
+		 **/
+		final int cuatro = 4;
 		frame = new JFrame();
 
-		frame.setBounds(200, 200, 1200, 700);
+		frame.setBounds(dosCientos,
+				dosCientos,
+				milDosCientos,
+				seteCientos);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		{
 			tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -122,10 +161,13 @@ public class Ventana_Principal {
 				GridBagLayout gbl_tabAutenticacion =
 						new GridBagLayout();
 				gbl_tabAutenticacion.columnWidths =
-						new int[] {411, 405, 0,
+						new int[] {CuatroCientosOnce,
+								CuatroCientosCinco,
+								0,
 						0 };
 				gbl_tabAutenticacion.rowHeights =
-						new int[] {83, 0, 0, 0 };
+						new int[] {ochentaYTres,
+								0, 0, 0 };
 				gbl_tabAutenticacion.columnWeights =
 						new double[] {0.0, 0.0,
 						0.0, Double.MIN_VALUE };
@@ -140,7 +182,7 @@ public class Ventana_Principal {
 					GridBagConstraints gbc_panel =
 						new GridBagConstraints();
 					gbc_panel.insets =
-						new Insets(0, 0, 5, 5);
+						new Insets(0, 0, cinco, cinco);
 					gbc_panel.fill =
 							GridBagConstraints.BOTH;
 					gbc_panel.gridx = 1;
@@ -155,7 +197,8 @@ public class Ventana_Principal {
 					GridBagConstraints gbc_btnEntrar =
 						new GridBagConstraints();
 					gbc_btnEntrar.insets =
-						new Insets(0, 0, 0, 5);
+						new Insets(0, 0, 0,
+								cinco);
 					gbc_btnEntrar.gridx = 1;
 					gbc_btnEntrar.gridy = 2;
 					tabAutenticacion.add(btnEntrar,
@@ -191,10 +234,10 @@ public class Ventana_Principal {
 						new GridBagConstraints();
 					gbc_panel_VerConfMesas.gridwidth = 2;
 					gbc_panel_VerConfMesas.insets =
-						new Insets(0, 0, 5, 0);
+						new Insets(0, 0, cinco, 0);
 					gbc_panel_VerConfMesas.fill =
 							GridBagConstraints.BOTH;
-					gbc_panel_VerConfMesas.gridx = 3;
+					gbc_panel_VerConfMesas.gridx = tres;
 					gbc_panel_VerConfMesas.gridy = 1;
 					tabReservaMesas.add(panel_VerConfMesas,
 							gbc_panel_VerConfMesas);
@@ -204,11 +247,12 @@ public class Ventana_Principal {
 						new IU_VerReservas();
 					GridBagConstraints gbc_panel_VerReservas =
 						new GridBagConstraints();
-					gbc_panel_VerReservas.gridwidth = 4;
+					gbc_panel_VerReservas.gridwidth =
+							cuatro;
 					gbc_panel_VerReservas.fill =
 							GridBagConstraints.BOTH;
 					gbc_panel_VerReservas.gridx = 1;
-					gbc_panel_VerReservas.gridy = 3;
+					gbc_panel_VerReservas.gridy = tres;
 					tabReservaMesas.add(panel_VerReservas,
 							gbc_panel_VerReservas);
 				}
@@ -219,7 +263,7 @@ public class Ventana_Principal {
 					GridBagConstraints gbc_panel_HacerReservas =
 						new GridBagConstraints();
 					gbc_panel_HacerReservas.insets =
-						new Insets(0, 0, 5, 5);
+						new Insets(0, 0, cinco, cinco);
 					gbc_panel_HacerReservas.fill =
 							GridBagConstraints.BOTH;
 					gbc_panel_HacerReservas.gridx = 1;

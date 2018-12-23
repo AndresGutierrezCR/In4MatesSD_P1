@@ -110,17 +110,74 @@ public class IU_AsigMesa extends JPanel {
 	/**
 	 * Constructor de la interfaz de asignación de mesas con todos
 	 * sus campos y características.
+	 * @param reservas .
 	 **/
 	public IU_AsigMesa(IU_VerReservas reservas) {
+		/**
+		 * número cinco.
+		 **/
+		final int cinco = 5;
+		/**
+		 * número siete.
+		 **/
+		final int siete = 7;
+		/**
+		 * número cuatro.
+		 **/
+		final int cuatro = 4;
+		/**
+		 * número seis.
+		 **/
+		final int seis = 6;
+		/**
+		 * número tres.
+		 **/
+		final int tres = 3;
+		/**
+		 * número diez.
+		 **/
+		final int diez = 10;
+		/**
+		 * número treintaYTres.
+		 **/
+		final int treintaYTres = 33;
+		/**
+		 * número treintaYCuatro.
+		 **/
+		final int treintaYCuatro = 34;
+		/**
+		 * número treintaYCinco.
+		 **/
+		final int treintaYCinco = 35;
+		/**
+		 * número treintaYSeis.
+		 **/
+		final int treintaYSeis = 36;
+		/**
+		 * número cientoCincuentaYSeis.
+		 **/
+		final int cientoCincuentaYSeis = 156;
+		/**
+		 * número cientoUno.
+		 **/
+		final int cientoUno = 101;
 		this.reservas = reservas;
 		setBorder(new TitledBorder(
 				null, "Asignar mesa", TitledBorder.LEADING,
 				TitledBorder.TOP, null, null));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths =
-				new int[] {0, 0, 156, 101, 0, 0 };
+				new int[] {0, 0,
+						cientoCincuentaYSeis,
+						cientoUno,
+						0, 0 };
 		gridBagLayout.rowHeights =
-				new int[] {0, 34, 35, 33, 34, 36, 0, 0,
+				new int[] {0, treintaYCuatro,
+						treintaYCinco,
+						treintaYTres,
+						treintaYCuatro,
+						treintaYSeis,
+						0, 0,
 				0 };
 		gridBagLayout.columnWeights =
 				new double[] {0.0, 0.0, 0.0, 0.0, 0.0,
@@ -134,7 +191,8 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_lblNombreCliente =
 					new GridBagConstraints();
 			gbc_lblNombreCliente.anchor = GridBagConstraints.WEST;
-			gbc_lblNombreCliente.insets = new Insets(0, 0, 5, 5);
+			gbc_lblNombreCliente.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_lblNombreCliente.gridx = 1;
 			gbc_lblNombreCliente.gridy = 1;
 			add(lblNombreCliente, gbc_lblNombreCliente);
@@ -147,19 +205,19 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_textField =
 					new GridBagConstraints();
 			gbc_textField.gridwidth = 2;
-			gbc_textField.insets = new Insets(0, 0, 5, 5);
+			gbc_textField.insets = new Insets(0, 0, cinco, cinco);
 			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textField.gridx = 2;
 			gbc_textField.gridy = 1;
 			add(txtNombreCliente, gbc_textField);
-			txtNombreCliente.setColumns(10);
+			txtNombreCliente.setColumns(diez);
 		}
 		{
 			lblMesa = new JLabel("Mesa");
 			GridBagConstraints gbc_lblMesa =
 					new GridBagConstraints();
 			gbc_lblMesa.anchor = GridBagConstraints.WEST;
-			gbc_lblMesa.insets = new Insets(0, 0, 5, 5);
+			gbc_lblMesa.insets = new Insets(0, 0, cinco, cinco);
 			gbc_lblMesa.gridx = 1;
 			gbc_lblMesa.gridy = 2;
 			add(lblMesa, gbc_lblMesa);
@@ -187,7 +245,7 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_comboBox =
 					new GridBagConstraints();
 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-			gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+			gbc_comboBox.insets = new Insets(0, 0, cinco, cinco);
 			gbc_comboBox.gridx = 2;
 			gbc_comboBox.gridy = 2;
 			add(cmbMesas, gbc_comboBox);
@@ -197,22 +255,23 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_lblComensales =
 					new GridBagConstraints();
 			gbc_lblComensales.anchor = GridBagConstraints.WEST;
-			gbc_lblComensales.insets = new Insets(0, 0, 5, 5);
+			gbc_lblComensales.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_lblComensales.gridx = 1;
-			gbc_lblComensales.gridy = 3;
+			gbc_lblComensales.gridy = tres;
 			add(lblComensales, gbc_lblComensales);
 		}
 		{
 			spnComensales = new JSpinner();
 			spnComensales.addFocusListener(new ColorKeyListener());
 			spnComensales.setModel(
-					new SpinnerNumberModel(1, 1, 6, 1));
+					new SpinnerNumberModel(1, 1, seis, 1));
 			GridBagConstraints gbc_spinner =
 					new GridBagConstraints();
 			gbc_spinner.anchor = GridBagConstraints.WEST;
-			gbc_spinner.insets = new Insets(0, 0, 5, 5);
+			gbc_spinner.insets = new Insets(0, 0, cinco, cinco);
 			gbc_spinner.gridx = 2;
-			gbc_spinner.gridy = 3;
+			gbc_spinner.gridy = tres;
 			add(spnComensales, gbc_spinner);
 		}
 		{
@@ -220,9 +279,10 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_lblTurnoComCen =
 					new GridBagConstraints();
 			gbc_lblTurnoComCen.anchor = GridBagConstraints.WEST;
-			gbc_lblTurnoComCen.insets = new Insets(0, 0, 5, 5);
+			gbc_lblTurnoComCen.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_lblTurnoComCen.gridx = 1;
-			gbc_lblTurnoComCen.gridy = 4;
+			gbc_lblTurnoComCen.gridy = cuatro;
 			add(lblTurnoComCen, gbc_lblTurnoComCen);
 		}
 		{
@@ -231,9 +291,9 @@ public class IU_AsigMesa extends JPanel {
 			buttonGroup.add(rdbtnComida);
 			GridBagConstraints gbc_rdbtnComida =
 					new GridBagConstraints();
-			gbc_rdbtnComida.insets = new Insets(0, 0, 5, 5);
+			gbc_rdbtnComida.insets = new Insets(0, 0, cinco, cinco);
 			gbc_rdbtnComida.gridx = 2;
-			gbc_rdbtnComida.gridy = 4;
+			gbc_rdbtnComida.gridy = cuatro;
 			add(rdbtnComida, gbc_rdbtnComida);
 		}
 		{
@@ -242,9 +302,9 @@ public class IU_AsigMesa extends JPanel {
 			buttonGroup.add(rdbtnCena);
 			GridBagConstraints gbc_rdbtnCena =
 					new GridBagConstraints();
-			gbc_rdbtnCena.insets = new Insets(0, 0, 5, 5);
-			gbc_rdbtnCena.gridx = 3;
-			gbc_rdbtnCena.gridy = 4;
+			gbc_rdbtnCena.insets = new Insets(0, 0, cinco, cinco);
+			gbc_rdbtnCena.gridx = tres;
+			gbc_rdbtnCena.gridy = cuatro;
 			add(rdbtnCena, gbc_rdbtnCena);
 		}
 		{
@@ -252,9 +312,9 @@ public class IU_AsigMesa extends JPanel {
 			GridBagConstraints gbc_lblTurno =
 					new GridBagConstraints();
 			gbc_lblTurno.anchor = GridBagConstraints.EAST;
-			gbc_lblTurno.insets = new Insets(0, 0, 5, 5);
+			gbc_lblTurno.insets = new Insets(0, 0, cinco, cinco);
 			gbc_lblTurno.gridx = 1;
-			gbc_lblTurno.gridy = 5;
+			gbc_lblTurno.gridy = cinco;
 			add(lblTurno, gbc_lblTurno);
 		}
 		{
@@ -265,10 +325,10 @@ public class IU_AsigMesa extends JPanel {
 					new String[] {"1", "2", "3" }));
 			GridBagConstraints gbc_comboBox_1 =
 					new GridBagConstraints();
-			gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
+			gbc_comboBox_1.insets = new Insets(0, 0, cinco, cinco);
 			gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_comboBox_1.gridx = 2;
-			gbc_comboBox_1.gridy = 5;
+			gbc_comboBox_1.gridy = cinco;
 			add(cmbTurnos, gbc_comboBox_1);
 		}
 		{
@@ -277,15 +337,15 @@ public class IU_AsigMesa extends JPanel {
 					new BtnAsignarActionListener());
 			GridBagConstraints gbc_btnAsignar =
 					new GridBagConstraints();
-			gbc_btnAsignar.insets = new Insets(0, 0, 0, 5);
+			gbc_btnAsignar.insets = new Insets(0, 0, 0, cinco);
 			gbc_btnAsignar.gridx = 2;
-			gbc_btnAsignar.gridy = 7;
+			gbc_btnAsignar.gridy = siete;
 			add(btnAsignar, gbc_btnAsignar);
 		}
 
 	}
 	/**
-	 * Clase ColorKeyListener
+	 * Clase ColorKeyListener.
 	 *
 	 * @author in4mates
 	 * @version 1.0
@@ -299,10 +359,18 @@ public class IU_AsigMesa extends JPanel {
 		 * @param e.
 		 **/
 		public void focusGained(FocusEvent e) {
+			/**
+			 * número doscientos cincuenta.
+			 **/
+			final int doscientosCincuenta = 250;
+			/**
+			 * número doscientos diez.
+			 **/
+			final int doscientosDiez = 210;
 			colorOriginal = e.getComponent().getBackground();
 			e.getComponent()
-			.setBackground(new Color(250,
-					250, 210));
+			.setBackground(new Color(doscientosCincuenta,
+					doscientosCincuenta, doscientosDiez));
 		}
 
 		@Override
@@ -317,7 +385,7 @@ public class IU_AsigMesa extends JPanel {
 		}
 	}
 	/**
-	 * Clase BtnAsignarActionListener
+	 * Clase BtnAsignarActionListener.
 	 *
 	 * @author in4mates
 	 * @version 1.0
@@ -344,8 +412,7 @@ public class IU_AsigMesa extends JPanel {
 				res.setComensales(
 						Integer.parseInt(spnComensales
 						.getValue().toString()));
-				res.setTurnoComCen(rdbtnComida
-						.isSelected() ? "comida" : "cena");
+				res.setTurnoComCen(rdbtnComida.isSelected() ? "comida" : "cena");
 				res.setTurno(Integer
 						.parseInt(cmbTurnos
 						.getSelectedItem()

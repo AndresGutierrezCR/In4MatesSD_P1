@@ -118,270 +118,338 @@
 <a class="jxr_linenumber" name="L110" href="#L110">110</a> 	<em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L111" href="#L111">111</a> <em class="jxr_javadoccomment">	 * Constructor de la interfaz de asignación de mesas con todos</em>
 <a class="jxr_linenumber" name="L112" href="#L112">112</a> <em class="jxr_javadoccomment">	 * sus campos y características.</em>
-<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">	 **/</em>
-<a class="jxr_linenumber" name="L114" href="#L114">114</a> 	<strong class="jxr_keyword">public</strong> <a name="IU_AsigMesa" href="../../../org/ReservaMesas/Presentacion/IU_AsigMesa.html#IU_AsigMesa">IU_AsigMesa</a>(<a name="IU_VerReservas" href="../../../org/ReservaMesas/Presentacion/IU_VerReservas.html#IU_VerReservas">IU_VerReservas</a> reservas) {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a> 		<strong class="jxr_keyword">this</strong>.reservas = reservas;
-<a class="jxr_linenumber" name="L116" href="#L116">116</a> 		setBorder(<strong class="jxr_keyword">new</strong> TitledBorder(
-<a class="jxr_linenumber" name="L117" href="#L117">117</a> 				<strong class="jxr_keyword">null</strong>, <span class="jxr_string">"Asignar mesa"</span>, TitledBorder.LEADING,
-<a class="jxr_linenumber" name="L118" href="#L118">118</a> 				TitledBorder.TOP, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>));
-<a class="jxr_linenumber" name="L119" href="#L119">119</a> 		GridBagLayout gridBagLayout = <strong class="jxr_keyword">new</strong> GridBagLayout();
-<a class="jxr_linenumber" name="L120" href="#L120">120</a> 		gridBagLayout.columnWidths =
-<a class="jxr_linenumber" name="L121" href="#L121">121</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0, 0, 156, 101, 0, 0 };
-<a class="jxr_linenumber" name="L122" href="#L122">122</a> 		gridBagLayout.rowHeights =
-<a class="jxr_linenumber" name="L123" href="#L123">123</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0, 34, 35, 33, 34, 36, 0, 0,
-<a class="jxr_linenumber" name="L124" href="#L124">124</a> 				0 };
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> 		gridBagLayout.columnWeights =
-<a class="jxr_linenumber" name="L126" href="#L126">126</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[] {0.0, 0.0, 0.0, 0.0, 0.0,
-<a class="jxr_linenumber" name="L127" href="#L127">127</a> 				Double.MIN_VALUE };
-<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		gridBagLayout.rowWeights =
-<a class="jxr_linenumber" name="L129" href="#L129">129</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-<a class="jxr_linenumber" name="L130" href="#L130">130</a> 				0.0, 0.0, Double.MIN_VALUE };
-<a class="jxr_linenumber" name="L131" href="#L131">131</a> 		setLayout(gridBagLayout);
-<a class="jxr_linenumber" name="L132" href="#L132">132</a> 		{
-<a class="jxr_linenumber" name="L133" href="#L133">133</a> 			lblNombreCliente = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Nombre Cliente"</span>);
-<a class="jxr_linenumber" name="L134" href="#L134">134</a> 			GridBagConstraints gbc_lblNombreCliente =
-<a class="jxr_linenumber" name="L135" href="#L135">135</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L136" href="#L136">136</a> 			gbc_lblNombreCliente.anchor = GridBagConstraints.WEST;
-<a class="jxr_linenumber" name="L137" href="#L137">137</a> 			gbc_lblNombreCliente.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L138" href="#L138">138</a> 			gbc_lblNombreCliente.gridx = 1;
-<a class="jxr_linenumber" name="L139" href="#L139">139</a> 			gbc_lblNombreCliente.gridy = 1;
-<a class="jxr_linenumber" name="L140" href="#L140">140</a> 			add(lblNombreCliente, gbc_lblNombreCliente);
-<a class="jxr_linenumber" name="L141" href="#L141">141</a> 		}
-<a class="jxr_linenumber" name="L142" href="#L142">142</a> 		{
-<a class="jxr_linenumber" name="L143" href="#L143">143</a> 			txtNombreCliente = <strong class="jxr_keyword">new</strong> JTextField();
-<a class="jxr_linenumber" name="L144" href="#L144">144</a> 			txtNombreCliente.addFocusListener(
-<a class="jxr_linenumber" name="L145" href="#L145">145</a> 					<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L146" href="#L146">146</a> 
-<a class="jxr_linenumber" name="L147" href="#L147">147</a> 			GridBagConstraints gbc_textField =
-<a class="jxr_linenumber" name="L148" href="#L148">148</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L149" href="#L149">149</a> 			gbc_textField.gridwidth = 2;
-<a class="jxr_linenumber" name="L150" href="#L150">150</a> 			gbc_textField.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L151" href="#L151">151</a> 			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
-<a class="jxr_linenumber" name="L152" href="#L152">152</a> 			gbc_textField.gridx = 2;
-<a class="jxr_linenumber" name="L153" href="#L153">153</a> 			gbc_textField.gridy = 1;
-<a class="jxr_linenumber" name="L154" href="#L154">154</a> 			add(txtNombreCliente, gbc_textField);
-<a class="jxr_linenumber" name="L155" href="#L155">155</a> 			txtNombreCliente.setColumns(10);
-<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		}
-<a class="jxr_linenumber" name="L157" href="#L157">157</a> 		{
-<a class="jxr_linenumber" name="L158" href="#L158">158</a> 			lblMesa = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Mesa"</span>);
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> 			GridBagConstraints gbc_lblMesa =
-<a class="jxr_linenumber" name="L160" href="#L160">160</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L161" href="#L161">161</a> 			gbc_lblMesa.anchor = GridBagConstraints.WEST;
-<a class="jxr_linenumber" name="L162" href="#L162">162</a> 			gbc_lblMesa.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L163" href="#L163">163</a> 			gbc_lblMesa.gridx = 1;
-<a class="jxr_linenumber" name="L164" href="#L164">164</a> 			gbc_lblMesa.gridy = 2;
-<a class="jxr_linenumber" name="L165" href="#L165">165</a> 			add(lblMesa, gbc_lblMesa);
-<a class="jxr_linenumber" name="L166" href="#L166">166</a> 		}
-<a class="jxr_linenumber" name="L167" href="#L167">167</a> 		{
-<a class="jxr_linenumber" name="L168" href="#L168">168</a> 			cmbMesas = <strong class="jxr_keyword">new</strong> JComboBox();
-<a class="jxr_linenumber" name="L169" href="#L169">169</a> 			cmbMesas.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L170" href="#L170">170</a> 			Mesa m = <strong class="jxr_keyword">new</strong> <a name="Mesa" href="../../../org/ReservaMesas/Dominio/Mesa.html#Mesa">Mesa</a>();
-<a class="jxr_linenumber" name="L171" href="#L171">171</a> 			m.leerTodo();
-<a class="jxr_linenumber" name="L172" href="#L172">172</a> 			ArrayList&lt;String&gt; listaIdMesas =
-<a class="jxr_linenumber" name="L173" href="#L173">173</a> 					<strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
-<a class="jxr_linenumber" name="L174" href="#L174">174</a> 
-<a class="jxr_linenumber" name="L175" href="#L175">175</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; m.getGestorMesa().getListaMesas()
-<a class="jxr_linenumber" name="L176" href="#L176">176</a> 					.size(); i++) {
-<a class="jxr_linenumber" name="L177" href="#L177">177</a> 				String id = Integer.toString(
-<a class="jxr_linenumber" name="L178" href="#L178">178</a> 						m.getGestorMesa()
-<a class="jxr_linenumber" name="L179" href="#L179">179</a> 						.getListaMesas()
-<a class="jxr_linenumber" name="L180" href="#L180">180</a> 						.get(i).getIdMesa());
-<a class="jxr_linenumber" name="L181" href="#L181">181</a> 				listaIdMesas.add(id);
-<a class="jxr_linenumber" name="L182" href="#L182">182</a> 			}
-<a class="jxr_linenumber" name="L183" href="#L183">183</a> 
-<a class="jxr_linenumber" name="L184" href="#L184">184</a> 			cmbMesas.setModel(
-<a class="jxr_linenumber" name="L185" href="#L185">185</a> 					<strong class="jxr_keyword">new</strong> DefaultComboBoxModel(
-<a class="jxr_linenumber" name="L186" href="#L186">186</a> 						listaIdMesas.toArray()));
-<a class="jxr_linenumber" name="L187" href="#L187">187</a> 			GridBagConstraints gbc_comboBox =
-<a class="jxr_linenumber" name="L188" href="#L188">188</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L189" href="#L189">189</a> 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-<a class="jxr_linenumber" name="L190" href="#L190">190</a> 			gbc_comboBox.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L191" href="#L191">191</a> 			gbc_comboBox.gridx = 2;
-<a class="jxr_linenumber" name="L192" href="#L192">192</a> 			gbc_comboBox.gridy = 2;
-<a class="jxr_linenumber" name="L193" href="#L193">193</a> 			add(cmbMesas, gbc_comboBox);
-<a class="jxr_linenumber" name="L194" href="#L194">194</a> 		}
-<a class="jxr_linenumber" name="L195" href="#L195">195</a> 		{
-<a class="jxr_linenumber" name="L196" href="#L196">196</a> 			lblComensales = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Comensales"</span>);
-<a class="jxr_linenumber" name="L197" href="#L197">197</a> 			GridBagConstraints gbc_lblComensales =
-<a class="jxr_linenumber" name="L198" href="#L198">198</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L199" href="#L199">199</a> 			gbc_lblComensales.anchor = GridBagConstraints.WEST;
-<a class="jxr_linenumber" name="L200" href="#L200">200</a> 			gbc_lblComensales.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L201" href="#L201">201</a> 			gbc_lblComensales.gridx = 1;
-<a class="jxr_linenumber" name="L202" href="#L202">202</a> 			gbc_lblComensales.gridy = 3;
-<a class="jxr_linenumber" name="L203" href="#L203">203</a> 			add(lblComensales, gbc_lblComensales);
-<a class="jxr_linenumber" name="L204" href="#L204">204</a> 		}
-<a class="jxr_linenumber" name="L205" href="#L205">205</a> 		{
-<a class="jxr_linenumber" name="L206" href="#L206">206</a> 			spnComensales = <strong class="jxr_keyword">new</strong> JSpinner();
-<a class="jxr_linenumber" name="L207" href="#L207">207</a> 			spnComensales.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L208" href="#L208">208</a> 			spnComensales.setModel(
-<a class="jxr_linenumber" name="L209" href="#L209">209</a> 					<strong class="jxr_keyword">new</strong> SpinnerNumberModel(1, 1, 6, 1));
-<a class="jxr_linenumber" name="L210" href="#L210">210</a> 			GridBagConstraints gbc_spinner =
-<a class="jxr_linenumber" name="L211" href="#L211">211</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L212" href="#L212">212</a> 			gbc_spinner.anchor = GridBagConstraints.WEST;
-<a class="jxr_linenumber" name="L213" href="#L213">213</a> 			gbc_spinner.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L214" href="#L214">214</a> 			gbc_spinner.gridx = 2;
-<a class="jxr_linenumber" name="L215" href="#L215">215</a> 			gbc_spinner.gridy = 3;
-<a class="jxr_linenumber" name="L216" href="#L216">216</a> 			add(spnComensales, gbc_spinner);
-<a class="jxr_linenumber" name="L217" href="#L217">217</a> 		}
-<a class="jxr_linenumber" name="L218" href="#L218">218</a> 		{
-<a class="jxr_linenumber" name="L219" href="#L219">219</a> 			lblTurnoComCen = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Turno Co/Ce"</span>);
-<a class="jxr_linenumber" name="L220" href="#L220">220</a> 			GridBagConstraints gbc_lblTurnoComCen =
-<a class="jxr_linenumber" name="L221" href="#L221">221</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L222" href="#L222">222</a> 			gbc_lblTurnoComCen.anchor = GridBagConstraints.WEST;
-<a class="jxr_linenumber" name="L223" href="#L223">223</a> 			gbc_lblTurnoComCen.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L224" href="#L224">224</a> 			gbc_lblTurnoComCen.gridx = 1;
-<a class="jxr_linenumber" name="L225" href="#L225">225</a> 			gbc_lblTurnoComCen.gridy = 4;
-<a class="jxr_linenumber" name="L226" href="#L226">226</a> 			add(lblTurnoComCen, gbc_lblTurnoComCen);
-<a class="jxr_linenumber" name="L227" href="#L227">227</a> 		}
-<a class="jxr_linenumber" name="L228" href="#L228">228</a> 		{
-<a class="jxr_linenumber" name="L229" href="#L229">229</a> 			rdbtnComida = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Comida"</span>);
-<a class="jxr_linenumber" name="L230" href="#L230">230</a> 			rdbtnComida.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L231" href="#L231">231</a> 			buttonGroup.add(rdbtnComida);
-<a class="jxr_linenumber" name="L232" href="#L232">232</a> 			GridBagConstraints gbc_rdbtnComida =
-<a class="jxr_linenumber" name="L233" href="#L233">233</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L234" href="#L234">234</a> 			gbc_rdbtnComida.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L235" href="#L235">235</a> 			gbc_rdbtnComida.gridx = 2;
-<a class="jxr_linenumber" name="L236" href="#L236">236</a> 			gbc_rdbtnComida.gridy = 4;
-<a class="jxr_linenumber" name="L237" href="#L237">237</a> 			add(rdbtnComida, gbc_rdbtnComida);
-<a class="jxr_linenumber" name="L238" href="#L238">238</a> 		}
-<a class="jxr_linenumber" name="L239" href="#L239">239</a> 		{
-<a class="jxr_linenumber" name="L240" href="#L240">240</a> 			rdbtnCena = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Cena"</span>);
-<a class="jxr_linenumber" name="L241" href="#L241">241</a> 			rdbtnCena.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L242" href="#L242">242</a> 			buttonGroup.add(rdbtnCena);
-<a class="jxr_linenumber" name="L243" href="#L243">243</a> 			GridBagConstraints gbc_rdbtnCena =
-<a class="jxr_linenumber" name="L244" href="#L244">244</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L245" href="#L245">245</a> 			gbc_rdbtnCena.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L246" href="#L246">246</a> 			gbc_rdbtnCena.gridx = 3;
-<a class="jxr_linenumber" name="L247" href="#L247">247</a> 			gbc_rdbtnCena.gridy = 4;
-<a class="jxr_linenumber" name="L248" href="#L248">248</a> 			add(rdbtnCena, gbc_rdbtnCena);
-<a class="jxr_linenumber" name="L249" href="#L249">249</a> 		}
-<a class="jxr_linenumber" name="L250" href="#L250">250</a> 		{
-<a class="jxr_linenumber" name="L251" href="#L251">251</a> 			lblTurno = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Turno "</span>);
-<a class="jxr_linenumber" name="L252" href="#L252">252</a> 			GridBagConstraints gbc_lblTurno =
-<a class="jxr_linenumber" name="L253" href="#L253">253</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L254" href="#L254">254</a> 			gbc_lblTurno.anchor = GridBagConstraints.EAST;
-<a class="jxr_linenumber" name="L255" href="#L255">255</a> 			gbc_lblTurno.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L256" href="#L256">256</a> 			gbc_lblTurno.gridx = 1;
-<a class="jxr_linenumber" name="L257" href="#L257">257</a> 			gbc_lblTurno.gridy = 5;
-<a class="jxr_linenumber" name="L258" href="#L258">258</a> 			add(lblTurno, gbc_lblTurno);
-<a class="jxr_linenumber" name="L259" href="#L259">259</a> 		}
-<a class="jxr_linenumber" name="L260" href="#L260">260</a> 		{
-<a class="jxr_linenumber" name="L261" href="#L261">261</a> 			cmbTurnos = <strong class="jxr_keyword">new</strong> JComboBox();
-<a class="jxr_linenumber" name="L262" href="#L262">262</a> 			cmbTurnos.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
-<a class="jxr_linenumber" name="L263" href="#L263">263</a> 			cmbTurnos.setModel(
-<a class="jxr_linenumber" name="L264" href="#L264">264</a> 					<strong class="jxr_keyword">new</strong> DefaultComboBoxModel(
-<a class="jxr_linenumber" name="L265" href="#L265">265</a> 					<strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"1"</span>, <span class="jxr_string">"2"</span>, <span class="jxr_string">"3"</span> }));
-<a class="jxr_linenumber" name="L266" href="#L266">266</a> 			GridBagConstraints gbc_comboBox_1 =
-<a class="jxr_linenumber" name="L267" href="#L267">267</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L268" href="#L268">268</a> 			gbc_comboBox_1.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 5, 5);
-<a class="jxr_linenumber" name="L269" href="#L269">269</a> 			gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-<a class="jxr_linenumber" name="L270" href="#L270">270</a> 			gbc_comboBox_1.gridx = 2;
-<a class="jxr_linenumber" name="L271" href="#L271">271</a> 			gbc_comboBox_1.gridy = 5;
-<a class="jxr_linenumber" name="L272" href="#L272">272</a> 			add(cmbTurnos, gbc_comboBox_1);
-<a class="jxr_linenumber" name="L273" href="#L273">273</a> 		}
-<a class="jxr_linenumber" name="L274" href="#L274">274</a> 		{
-<a class="jxr_linenumber" name="L275" href="#L275">275</a> 			btnAsignar = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Asignar"</span>);
-<a class="jxr_linenumber" name="L276" href="#L276">276</a> 			btnAsignar.addActionListener(
-<a class="jxr_linenumber" name="L277" href="#L277">277</a> 					<strong class="jxr_keyword">new</strong> BtnAsignarActionListener());
-<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			GridBagConstraints gbc_btnAsignar =
-<a class="jxr_linenumber" name="L279" href="#L279">279</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
-<a class="jxr_linenumber" name="L280" href="#L280">280</a> 			gbc_btnAsignar.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 0, 5);
-<a class="jxr_linenumber" name="L281" href="#L281">281</a> 			gbc_btnAsignar.gridx = 2;
-<a class="jxr_linenumber" name="L282" href="#L282">282</a> 			gbc_btnAsignar.gridy = 7;
-<a class="jxr_linenumber" name="L283" href="#L283">283</a> 			add(btnAsignar, gbc_btnAsignar);
-<a class="jxr_linenumber" name="L284" href="#L284">284</a> 		}
-<a class="jxr_linenumber" name="L285" href="#L285">285</a> 
-<a class="jxr_linenumber" name="L286" href="#L286">286</a> 	}
-<a class="jxr_linenumber" name="L287" href="#L287">287</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L288" href="#L288">288</a> <em class="jxr_javadoccomment">	 * Clase ColorKeyListener</em>
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L290" href="#L290">290</a> <em class="jxr_javadoccomment">	 * @author in4mates</em>
-<a class="jxr_linenumber" name="L291" href="#L291">291</a> <em class="jxr_javadoccomment">	 * @version 1.0</em>
-<a class="jxr_linenumber" name="L292" href="#L292">292</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L293" href="#L293">293</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">class</strong> ColorKeyListener <strong class="jxr_keyword">extends</strong> FocusAdapter {
-<a class="jxr_linenumber" name="L294" href="#L294">294</a> 		@Override
-<a class="jxr_linenumber" name="L295" href="#L295">295</a> 		<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L296" href="#L296">296</a> <em class="jxr_javadoccomment">		 * método FocusGained que cambia el color del backgroud al de</em>
-<a class="jxr_linenumber" name="L297" href="#L297">297</a> <em class="jxr_javadoccomment">		 * selección.</em>
-<a class="jxr_linenumber" name="L298" href="#L298">298</a> <em class="jxr_javadoccomment">		 *</em>
-<a class="jxr_linenumber" name="L299" href="#L299">299</a> <em class="jxr_javadoccomment">		 * @param e.</em>
-<a class="jxr_linenumber" name="L300" href="#L300">300</a> <em class="jxr_javadoccomment">		 **/</em>
-<a class="jxr_linenumber" name="L301" href="#L301">301</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> focusGained(FocusEvent e) {
-<a class="jxr_linenumber" name="L302" href="#L302">302</a> 			colorOriginal = e.getComponent().getBackground();
-<a class="jxr_linenumber" name="L303" href="#L303">303</a> 			e.getComponent()
-<a class="jxr_linenumber" name="L304" href="#L304">304</a> 			.setBackground(<strong class="jxr_keyword">new</strong> Color(250,
-<a class="jxr_linenumber" name="L305" href="#L305">305</a> 					250, 210));
-<a class="jxr_linenumber" name="L306" href="#L306">306</a> 		}
-<a class="jxr_linenumber" name="L307" href="#L307">307</a> 
-<a class="jxr_linenumber" name="L308" href="#L308">308</a> 		@Override
-<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L310" href="#L310">310</a> <em class="jxr_javadoccomment">		 * Método focusLosto que cambia el color del background</em>
-<a class="jxr_linenumber" name="L311" href="#L311">311</a> <em class="jxr_javadoccomment">		 * al original.</em>
-<a class="jxr_linenumber" name="L312" href="#L312">312</a> <em class="jxr_javadoccomment">		 *</em>
-<a class="jxr_linenumber" name="L313" href="#L313">313</a> <em class="jxr_javadoccomment">		 * @param e.</em>
-<a class="jxr_linenumber" name="L314" href="#L314">314</a> <em class="jxr_javadoccomment">		 **/</em>
-<a class="jxr_linenumber" name="L315" href="#L315">315</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> focusLost(FocusEvent e) {
-<a class="jxr_linenumber" name="L316" href="#L316">316</a> 			e.getComponent().setBackground(colorOriginal);
-<a class="jxr_linenumber" name="L317" href="#L317">317</a> 		}
-<a class="jxr_linenumber" name="L318" href="#L318">318</a> 	}
-<a class="jxr_linenumber" name="L319" href="#L319">319</a> 	<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L320" href="#L320">320</a> <em class="jxr_javadoccomment">	 * Clase BtnAsignarActionListener</em>
-<a class="jxr_linenumber" name="L321" href="#L321">321</a> <em class="jxr_javadoccomment">	 *</em>
-<a class="jxr_linenumber" name="L322" href="#L322">322</a> <em class="jxr_javadoccomment">	 * @author in4mates</em>
-<a class="jxr_linenumber" name="L323" href="#L323">323</a> <em class="jxr_javadoccomment">	 * @version 1.0</em>
-<a class="jxr_linenumber" name="L324" href="#L324">324</a> <em class="jxr_javadoccomment">	 */</em>
-<a class="jxr_linenumber" name="L325" href="#L325">325</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">class</strong> BtnAsignarActionListener <strong class="jxr_keyword">implements</strong> ActionListener {
-<a class="jxr_linenumber" name="L326" href="#L326">326</a> 		<em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L327" href="#L327">327</a> <em class="jxr_javadoccomment">		 * Método actionPerformed.</em>
-<a class="jxr_linenumber" name="L328" href="#L328">328</a> <em class="jxr_javadoccomment">		 *</em>
-<a class="jxr_linenumber" name="L329" href="#L329">329</a> <em class="jxr_javadoccomment">		 * @param e .</em>
-<a class="jxr_linenumber" name="L330" href="#L330">330</a> <em class="jxr_javadoccomment">		 **/</em>
-<a class="jxr_linenumber" name="L331" href="#L331">331</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> actionPerformed(ActionEvent e) {
-<a class="jxr_linenumber" name="L332" href="#L332">332</a> 
-<a class="jxr_linenumber" name="L333" href="#L333">333</a> 			Reserva res = <strong class="jxr_keyword">new</strong> <a name="Reserva" href="../../../org/ReservaMesas/Dominio/Reserva.html#Reserva">Reserva</a>();
-<a class="jxr_linenumber" name="L334" href="#L334">334</a> 			res.asignarIDUltimo();
-<a class="jxr_linenumber" name="L335" href="#L335">335</a> 			<strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L336" href="#L336">336</a> 				Mesa m = <strong class="jxr_keyword">new</strong> <a name="Mesa" href="../../../org/ReservaMesas/Dominio/Mesa.html#Mesa">Mesa</a>();
-<a class="jxr_linenumber" name="L337" href="#L337">337</a> 				m.setIdMesa(Integer
-<a class="jxr_linenumber" name="L338" href="#L338">338</a> 						.parseInt(cmbMesas
-<a class="jxr_linenumber" name="L339" href="#L339">339</a> 						.getSelectedItem().toString()));
-<a class="jxr_linenumber" name="L340" href="#L340">340</a> 				m.leer();
-<a class="jxr_linenumber" name="L341" href="#L341">341</a> 				res.setMesa(m);
-<a class="jxr_linenumber" name="L342" href="#L342">342</a> 				res.setNombreCliente(txtNombreCliente
-<a class="jxr_linenumber" name="L343" href="#L343">343</a> 						.getText());
-<a class="jxr_linenumber" name="L344" href="#L344">344</a> 				res.setComensales(
-<a class="jxr_linenumber" name="L345" href="#L345">345</a> 						Integer.parseInt(spnComensales
-<a class="jxr_linenumber" name="L346" href="#L346">346</a> 						.getValue().toString()));
-<a class="jxr_linenumber" name="L347" href="#L347">347</a> 				res.setTurnoComCen(rdbtnComida.isSelected() ? <span class="jxr_string">"comida"</span> : <span class="jxr_string">"cena"</span>);
-<a class="jxr_linenumber" name="L348" href="#L348">348</a> 				res.setTurno(Integer
-<a class="jxr_linenumber" name="L349" href="#L349">349</a> 						.parseInt(cmbTurnos
-<a class="jxr_linenumber" name="L350" href="#L350">350</a> 						.getSelectedItem()
-<a class="jxr_linenumber" name="L351" href="#L351">351</a> 						.toString()));
-<a class="jxr_linenumber" name="L352" href="#L352">352</a> 				m.setEstado(Estados.RESERVADA);
-<a class="jxr_linenumber" name="L353" href="#L353">353</a> 				Timestamp timestamp = <strong class="jxr_keyword">new</strong> Timestamp(
-<a class="jxr_linenumber" name="L354" href="#L354">354</a> 						System.currentTimeMillis());
-<a class="jxr_linenumber" name="L355" href="#L355">355</a> 				m.setHoraEstado(sdf.format(timestamp));
-<a class="jxr_linenumber" name="L356" href="#L356">356</a> 				<strong class="jxr_keyword">if</strong> (!res.insertar()) {
-<a class="jxr_linenumber" name="L357" href="#L357">357</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Error "</span>
-<a class="jxr_linenumber" name="L358" href="#L358">358</a> 						+ <span class="jxr_string">"al insertar la reserva"</span>);
-<a class="jxr_linenumber" name="L359" href="#L359">359</a> 				}
-<a class="jxr_linenumber" name="L360" href="#L360">360</a> 
-<a class="jxr_linenumber" name="L361" href="#L361">361</a> 				<strong class="jxr_keyword">if</strong> (!m.modificar()) {
-<a class="jxr_linenumber" name="L362" href="#L362">362</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(
-<a class="jxr_linenumber" name="L363" href="#L363">363</a> 						<span class="jxr_string">"Error al modificar "</span>
-<a class="jxr_linenumber" name="L364" href="#L364">364</a> 						+ <span class="jxr_string">"el estado de la mesa"</span>);
-<a class="jxr_linenumber" name="L365" href="#L365">365</a> 				}
-<a class="jxr_linenumber" name="L366" href="#L366">366</a> 				reservas.recargarReservas();
-<a class="jxr_linenumber" name="L367" href="#L367">367</a> 
-<a class="jxr_linenumber" name="L368" href="#L368">368</a> 			} <strong class="jxr_keyword">catch</strong> (Exception arg0) {
-<a class="jxr_linenumber" name="L369" href="#L369">369</a> 				JOptionPane.showMessageDialog(<strong class="jxr_keyword">null</strong>,
-<a class="jxr_linenumber" name="L370" href="#L370">370</a> 						arg0.getMessage(), <span class="jxr_string">"Error"</span>,
-<a class="jxr_linenumber" name="L371" href="#L371">371</a> 						JOptionPane.ERROR_MESSAGE);
-<a class="jxr_linenumber" name="L372" href="#L372">372</a> 			}
-<a class="jxr_linenumber" name="L373" href="#L373">373</a> 
+<a class="jxr_linenumber" name="L113" href="#L113">113</a> <em class="jxr_javadoccomment">	 * @param reservas .</em>
+<a class="jxr_linenumber" name="L114" href="#L114">114</a> <em class="jxr_javadoccomment">	 **/</em>
+<a class="jxr_linenumber" name="L115" href="#L115">115</a> 	<strong class="jxr_keyword">public</strong> <a name="IU_AsigMesa" href="../../../org/ReservaMesas/Presentacion/IU_AsigMesa.html#IU_AsigMesa">IU_AsigMesa</a>(<a name="IU_VerReservas" href="../../../org/ReservaMesas/Presentacion/IU_VerReservas.html#IU_VerReservas">IU_VerReservas</a> reservas) {
+<a class="jxr_linenumber" name="L116" href="#L116">116</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L117" href="#L117">117</a> <em class="jxr_javadoccomment">		 * número cinco.</em>
+<a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L119" href="#L119">119</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> cinco = 5;
+<a class="jxr_linenumber" name="L120" href="#L120">120</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L121" href="#L121">121</a> <em class="jxr_javadoccomment">		 * número siete.</em>
+<a class="jxr_linenumber" name="L122" href="#L122">122</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L123" href="#L123">123</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> siete = 7;
+<a class="jxr_linenumber" name="L124" href="#L124">124</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L125" href="#L125">125</a> <em class="jxr_javadoccomment">		 * número cuatro.</em>
+<a class="jxr_linenumber" name="L126" href="#L126">126</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L127" href="#L127">127</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> cuatro = 4;
+<a class="jxr_linenumber" name="L128" href="#L128">128</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L129" href="#L129">129</a> <em class="jxr_javadoccomment">		 * número seis.</em>
+<a class="jxr_linenumber" name="L130" href="#L130">130</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L131" href="#L131">131</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> seis = 6;
+<a class="jxr_linenumber" name="L132" href="#L132">132</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> <em class="jxr_javadoccomment">		 * número tres.</em>
+<a class="jxr_linenumber" name="L134" href="#L134">134</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L135" href="#L135">135</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> tres = 3;
+<a class="jxr_linenumber" name="L136" href="#L136">136</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L137" href="#L137">137</a> <em class="jxr_javadoccomment">		 * número diez.</em>
+<a class="jxr_linenumber" name="L138" href="#L138">138</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L139" href="#L139">139</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> diez = 10;
+<a class="jxr_linenumber" name="L140" href="#L140">140</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">		 * número treintaYTres.</em>
+<a class="jxr_linenumber" name="L142" href="#L142">142</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L143" href="#L143">143</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> treintaYTres = 33;
+<a class="jxr_linenumber" name="L144" href="#L144">144</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L145" href="#L145">145</a> <em class="jxr_javadoccomment">		 * número treintaYCuatro.</em>
+<a class="jxr_linenumber" name="L146" href="#L146">146</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L147" href="#L147">147</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> treintaYCuatro = 34;
+<a class="jxr_linenumber" name="L148" href="#L148">148</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L149" href="#L149">149</a> <em class="jxr_javadoccomment">		 * número treintaYCinco.</em>
+<a class="jxr_linenumber" name="L150" href="#L150">150</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L151" href="#L151">151</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> treintaYCinco = 35;
+<a class="jxr_linenumber" name="L152" href="#L152">152</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L153" href="#L153">153</a> <em class="jxr_javadoccomment">		 * número treintaYSeis.</em>
+<a class="jxr_linenumber" name="L154" href="#L154">154</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L155" href="#L155">155</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> treintaYSeis = 36;
+<a class="jxr_linenumber" name="L156" href="#L156">156</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L157" href="#L157">157</a> <em class="jxr_javadoccomment">		 * número cientoCincuentaYSeis.</em>
+<a class="jxr_linenumber" name="L158" href="#L158">158</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L159" href="#L159">159</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> cientoCincuentaYSeis = 156;
+<a class="jxr_linenumber" name="L160" href="#L160">160</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L161" href="#L161">161</a> <em class="jxr_javadoccomment">		 * número cientoUno.</em>
+<a class="jxr_linenumber" name="L162" href="#L162">162</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L163" href="#L163">163</a> 		<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> cientoUno = 101;
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> 		<strong class="jxr_keyword">this</strong>.reservas = reservas;
+<a class="jxr_linenumber" name="L165" href="#L165">165</a> 		setBorder(<strong class="jxr_keyword">new</strong> TitledBorder(
+<a class="jxr_linenumber" name="L166" href="#L166">166</a> 				<strong class="jxr_keyword">null</strong>, <span class="jxr_string">"Asignar mesa"</span>, TitledBorder.LEADING,
+<a class="jxr_linenumber" name="L167" href="#L167">167</a> 				TitledBorder.TOP, <strong class="jxr_keyword">null</strong>, <strong class="jxr_keyword">null</strong>));
+<a class="jxr_linenumber" name="L168" href="#L168">168</a> 		GridBagLayout gridBagLayout = <strong class="jxr_keyword">new</strong> GridBagLayout();
+<a class="jxr_linenumber" name="L169" href="#L169">169</a> 		gridBagLayout.columnWidths =
+<a class="jxr_linenumber" name="L170" href="#L170">170</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0, 0,
+<a class="jxr_linenumber" name="L171" href="#L171">171</a> 						cientoCincuentaYSeis,
+<a class="jxr_linenumber" name="L172" href="#L172">172</a> 						cientoUno,
+<a class="jxr_linenumber" name="L173" href="#L173">173</a> 						0, 0 };
+<a class="jxr_linenumber" name="L174" href="#L174">174</a> 		gridBagLayout.rowHeights =
+<a class="jxr_linenumber" name="L175" href="#L175">175</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[] {0, treintaYCuatro,
+<a class="jxr_linenumber" name="L176" href="#L176">176</a> 						treintaYCinco,
+<a class="jxr_linenumber" name="L177" href="#L177">177</a> 						treintaYTres,
+<a class="jxr_linenumber" name="L178" href="#L178">178</a> 						treintaYCuatro,
+<a class="jxr_linenumber" name="L179" href="#L179">179</a> 						treintaYSeis,
+<a class="jxr_linenumber" name="L180" href="#L180">180</a> 						0, 0,
+<a class="jxr_linenumber" name="L181" href="#L181">181</a> 				0 };
+<a class="jxr_linenumber" name="L182" href="#L182">182</a> 		gridBagLayout.columnWeights =
+<a class="jxr_linenumber" name="L183" href="#L183">183</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[] {0.0, 0.0, 0.0, 0.0, 0.0,
+<a class="jxr_linenumber" name="L184" href="#L184">184</a> 				Double.MIN_VALUE };
+<a class="jxr_linenumber" name="L185" href="#L185">185</a> 		gridBagLayout.rowWeights =
+<a class="jxr_linenumber" name="L186" href="#L186">186</a> 				<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[] {0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+<a class="jxr_linenumber" name="L187" href="#L187">187</a> 				0.0, 0.0, Double.MIN_VALUE };
+<a class="jxr_linenumber" name="L188" href="#L188">188</a> 		setLayout(gridBagLayout);
+<a class="jxr_linenumber" name="L189" href="#L189">189</a> 		{
+<a class="jxr_linenumber" name="L190" href="#L190">190</a> 			lblNombreCliente = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Nombre Cliente"</span>);
+<a class="jxr_linenumber" name="L191" href="#L191">191</a> 			GridBagConstraints gbc_lblNombreCliente =
+<a class="jxr_linenumber" name="L192" href="#L192">192</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L193" href="#L193">193</a> 			gbc_lblNombreCliente.anchor = GridBagConstraints.WEST;
+<a class="jxr_linenumber" name="L194" href="#L194">194</a> 			gbc_lblNombreCliente.insets =
+<a class="jxr_linenumber" name="L195" href="#L195">195</a> 					<strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L196" href="#L196">196</a> 			gbc_lblNombreCliente.gridx = 1;
+<a class="jxr_linenumber" name="L197" href="#L197">197</a> 			gbc_lblNombreCliente.gridy = 1;
+<a class="jxr_linenumber" name="L198" href="#L198">198</a> 			add(lblNombreCliente, gbc_lblNombreCliente);
+<a class="jxr_linenumber" name="L199" href="#L199">199</a> 		}
+<a class="jxr_linenumber" name="L200" href="#L200">200</a> 		{
+<a class="jxr_linenumber" name="L201" href="#L201">201</a> 			txtNombreCliente = <strong class="jxr_keyword">new</strong> JTextField();
+<a class="jxr_linenumber" name="L202" href="#L202">202</a> 			txtNombreCliente.addFocusListener(
+<a class="jxr_linenumber" name="L203" href="#L203">203</a> 					<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L204" href="#L204">204</a> 
+<a class="jxr_linenumber" name="L205" href="#L205">205</a> 			GridBagConstraints gbc_textField =
+<a class="jxr_linenumber" name="L206" href="#L206">206</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L207" href="#L207">207</a> 			gbc_textField.gridwidth = 2;
+<a class="jxr_linenumber" name="L208" href="#L208">208</a> 			gbc_textField.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L209" href="#L209">209</a> 			gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+<a class="jxr_linenumber" name="L210" href="#L210">210</a> 			gbc_textField.gridx = 2;
+<a class="jxr_linenumber" name="L211" href="#L211">211</a> 			gbc_textField.gridy = 1;
+<a class="jxr_linenumber" name="L212" href="#L212">212</a> 			add(txtNombreCliente, gbc_textField);
+<a class="jxr_linenumber" name="L213" href="#L213">213</a> 			txtNombreCliente.setColumns(diez);
+<a class="jxr_linenumber" name="L214" href="#L214">214</a> 		}
+<a class="jxr_linenumber" name="L215" href="#L215">215</a> 		{
+<a class="jxr_linenumber" name="L216" href="#L216">216</a> 			lblMesa = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Mesa"</span>);
+<a class="jxr_linenumber" name="L217" href="#L217">217</a> 			GridBagConstraints gbc_lblMesa =
+<a class="jxr_linenumber" name="L218" href="#L218">218</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L219" href="#L219">219</a> 			gbc_lblMesa.anchor = GridBagConstraints.WEST;
+<a class="jxr_linenumber" name="L220" href="#L220">220</a> 			gbc_lblMesa.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L221" href="#L221">221</a> 			gbc_lblMesa.gridx = 1;
+<a class="jxr_linenumber" name="L222" href="#L222">222</a> 			gbc_lblMesa.gridy = 2;
+<a class="jxr_linenumber" name="L223" href="#L223">223</a> 			add(lblMesa, gbc_lblMesa);
+<a class="jxr_linenumber" name="L224" href="#L224">224</a> 		}
+<a class="jxr_linenumber" name="L225" href="#L225">225</a> 		{
+<a class="jxr_linenumber" name="L226" href="#L226">226</a> 			cmbMesas = <strong class="jxr_keyword">new</strong> JComboBox();
+<a class="jxr_linenumber" name="L227" href="#L227">227</a> 			cmbMesas.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L228" href="#L228">228</a> 			Mesa m = <strong class="jxr_keyword">new</strong> <a name="Mesa" href="../../../org/ReservaMesas/Dominio/Mesa.html#Mesa">Mesa</a>();
+<a class="jxr_linenumber" name="L229" href="#L229">229</a> 			m.leerTodo();
+<a class="jxr_linenumber" name="L230" href="#L230">230</a> 			ArrayList&lt;String&gt; listaIdMesas =
+<a class="jxr_linenumber" name="L231" href="#L231">231</a> 					<strong class="jxr_keyword">new</strong> ArrayList&lt;String&gt;();
+<a class="jxr_linenumber" name="L232" href="#L232">232</a> 
+<a class="jxr_linenumber" name="L233" href="#L233">233</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; m.getGestorMesa().getListaMesas()
+<a class="jxr_linenumber" name="L234" href="#L234">234</a> 					.size(); i++) {
+<a class="jxr_linenumber" name="L235" href="#L235">235</a> 				String id = Integer.toString(
+<a class="jxr_linenumber" name="L236" href="#L236">236</a> 						m.getGestorMesa()
+<a class="jxr_linenumber" name="L237" href="#L237">237</a> 						.getListaMesas()
+<a class="jxr_linenumber" name="L238" href="#L238">238</a> 						.get(i).getIdMesa());
+<a class="jxr_linenumber" name="L239" href="#L239">239</a> 				listaIdMesas.add(id);
+<a class="jxr_linenumber" name="L240" href="#L240">240</a> 			}
+<a class="jxr_linenumber" name="L241" href="#L241">241</a> 
+<a class="jxr_linenumber" name="L242" href="#L242">242</a> 			cmbMesas.setModel(
+<a class="jxr_linenumber" name="L243" href="#L243">243</a> 					<strong class="jxr_keyword">new</strong> DefaultComboBoxModel(
+<a class="jxr_linenumber" name="L244" href="#L244">244</a> 						listaIdMesas.toArray()));
+<a class="jxr_linenumber" name="L245" href="#L245">245</a> 			GridBagConstraints gbc_comboBox =
+<a class="jxr_linenumber" name="L246" href="#L246">246</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L247" href="#L247">247</a> 			gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+<a class="jxr_linenumber" name="L248" href="#L248">248</a> 			gbc_comboBox.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L249" href="#L249">249</a> 			gbc_comboBox.gridx = 2;
+<a class="jxr_linenumber" name="L250" href="#L250">250</a> 			gbc_comboBox.gridy = 2;
+<a class="jxr_linenumber" name="L251" href="#L251">251</a> 			add(cmbMesas, gbc_comboBox);
+<a class="jxr_linenumber" name="L252" href="#L252">252</a> 		}
+<a class="jxr_linenumber" name="L253" href="#L253">253</a> 		{
+<a class="jxr_linenumber" name="L254" href="#L254">254</a> 			lblComensales = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Comensales"</span>);
+<a class="jxr_linenumber" name="L255" href="#L255">255</a> 			GridBagConstraints gbc_lblComensales =
+<a class="jxr_linenumber" name="L256" href="#L256">256</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L257" href="#L257">257</a> 			gbc_lblComensales.anchor = GridBagConstraints.WEST;
+<a class="jxr_linenumber" name="L258" href="#L258">258</a> 			gbc_lblComensales.insets =
+<a class="jxr_linenumber" name="L259" href="#L259">259</a> 					<strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L260" href="#L260">260</a> 			gbc_lblComensales.gridx = 1;
+<a class="jxr_linenumber" name="L261" href="#L261">261</a> 			gbc_lblComensales.gridy = tres;
+<a class="jxr_linenumber" name="L262" href="#L262">262</a> 			add(lblComensales, gbc_lblComensales);
+<a class="jxr_linenumber" name="L263" href="#L263">263</a> 		}
+<a class="jxr_linenumber" name="L264" href="#L264">264</a> 		{
+<a class="jxr_linenumber" name="L265" href="#L265">265</a> 			spnComensales = <strong class="jxr_keyword">new</strong> JSpinner();
+<a class="jxr_linenumber" name="L266" href="#L266">266</a> 			spnComensales.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L267" href="#L267">267</a> 			spnComensales.setModel(
+<a class="jxr_linenumber" name="L268" href="#L268">268</a> 					<strong class="jxr_keyword">new</strong> SpinnerNumberModel(1, 1, seis, 1));
+<a class="jxr_linenumber" name="L269" href="#L269">269</a> 			GridBagConstraints gbc_spinner =
+<a class="jxr_linenumber" name="L270" href="#L270">270</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L271" href="#L271">271</a> 			gbc_spinner.anchor = GridBagConstraints.WEST;
+<a class="jxr_linenumber" name="L272" href="#L272">272</a> 			gbc_spinner.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L273" href="#L273">273</a> 			gbc_spinner.gridx = 2;
+<a class="jxr_linenumber" name="L274" href="#L274">274</a> 			gbc_spinner.gridy = tres;
+<a class="jxr_linenumber" name="L275" href="#L275">275</a> 			add(spnComensales, gbc_spinner);
+<a class="jxr_linenumber" name="L276" href="#L276">276</a> 		}
+<a class="jxr_linenumber" name="L277" href="#L277">277</a> 		{
+<a class="jxr_linenumber" name="L278" href="#L278">278</a> 			lblTurnoComCen = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Turno Co/Ce"</span>);
+<a class="jxr_linenumber" name="L279" href="#L279">279</a> 			GridBagConstraints gbc_lblTurnoComCen =
+<a class="jxr_linenumber" name="L280" href="#L280">280</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L281" href="#L281">281</a> 			gbc_lblTurnoComCen.anchor = GridBagConstraints.WEST;
+<a class="jxr_linenumber" name="L282" href="#L282">282</a> 			gbc_lblTurnoComCen.insets =
+<a class="jxr_linenumber" name="L283" href="#L283">283</a> 					<strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L284" href="#L284">284</a> 			gbc_lblTurnoComCen.gridx = 1;
+<a class="jxr_linenumber" name="L285" href="#L285">285</a> 			gbc_lblTurnoComCen.gridy = cuatro;
+<a class="jxr_linenumber" name="L286" href="#L286">286</a> 			add(lblTurnoComCen, gbc_lblTurnoComCen);
+<a class="jxr_linenumber" name="L287" href="#L287">287</a> 		}
+<a class="jxr_linenumber" name="L288" href="#L288">288</a> 		{
+<a class="jxr_linenumber" name="L289" href="#L289">289</a> 			rdbtnComida = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Comida"</span>);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a> 			rdbtnComida.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L291" href="#L291">291</a> 			buttonGroup.add(rdbtnComida);
+<a class="jxr_linenumber" name="L292" href="#L292">292</a> 			GridBagConstraints gbc_rdbtnComida =
+<a class="jxr_linenumber" name="L293" href="#L293">293</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L294" href="#L294">294</a> 			gbc_rdbtnComida.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> 			gbc_rdbtnComida.gridx = 2;
+<a class="jxr_linenumber" name="L296" href="#L296">296</a> 			gbc_rdbtnComida.gridy = cuatro;
+<a class="jxr_linenumber" name="L297" href="#L297">297</a> 			add(rdbtnComida, gbc_rdbtnComida);
+<a class="jxr_linenumber" name="L298" href="#L298">298</a> 		}
+<a class="jxr_linenumber" name="L299" href="#L299">299</a> 		{
+<a class="jxr_linenumber" name="L300" href="#L300">300</a> 			rdbtnCena = <strong class="jxr_keyword">new</strong> JRadioButton(<span class="jxr_string">"Cena"</span>);
+<a class="jxr_linenumber" name="L301" href="#L301">301</a> 			rdbtnCena.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L302" href="#L302">302</a> 			buttonGroup.add(rdbtnCena);
+<a class="jxr_linenumber" name="L303" href="#L303">303</a> 			GridBagConstraints gbc_rdbtnCena =
+<a class="jxr_linenumber" name="L304" href="#L304">304</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L305" href="#L305">305</a> 			gbc_rdbtnCena.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L306" href="#L306">306</a> 			gbc_rdbtnCena.gridx = tres;
+<a class="jxr_linenumber" name="L307" href="#L307">307</a> 			gbc_rdbtnCena.gridy = cuatro;
+<a class="jxr_linenumber" name="L308" href="#L308">308</a> 			add(rdbtnCena, gbc_rdbtnCena);
+<a class="jxr_linenumber" name="L309" href="#L309">309</a> 		}
+<a class="jxr_linenumber" name="L310" href="#L310">310</a> 		{
+<a class="jxr_linenumber" name="L311" href="#L311">311</a> 			lblTurno = <strong class="jxr_keyword">new</strong> JLabel(<span class="jxr_string">"Turno "</span>);
+<a class="jxr_linenumber" name="L312" href="#L312">312</a> 			GridBagConstraints gbc_lblTurno =
+<a class="jxr_linenumber" name="L313" href="#L313">313</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L314" href="#L314">314</a> 			gbc_lblTurno.anchor = GridBagConstraints.EAST;
+<a class="jxr_linenumber" name="L315" href="#L315">315</a> 			gbc_lblTurno.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L316" href="#L316">316</a> 			gbc_lblTurno.gridx = 1;
+<a class="jxr_linenumber" name="L317" href="#L317">317</a> 			gbc_lblTurno.gridy = cinco;
+<a class="jxr_linenumber" name="L318" href="#L318">318</a> 			add(lblTurno, gbc_lblTurno);
+<a class="jxr_linenumber" name="L319" href="#L319">319</a> 		}
+<a class="jxr_linenumber" name="L320" href="#L320">320</a> 		{
+<a class="jxr_linenumber" name="L321" href="#L321">321</a> 			cmbTurnos = <strong class="jxr_keyword">new</strong> JComboBox();
+<a class="jxr_linenumber" name="L322" href="#L322">322</a> 			cmbTurnos.addFocusListener(<strong class="jxr_keyword">new</strong> ColorKeyListener());
+<a class="jxr_linenumber" name="L323" href="#L323">323</a> 			cmbTurnos.setModel(
+<a class="jxr_linenumber" name="L324" href="#L324">324</a> 					<strong class="jxr_keyword">new</strong> DefaultComboBoxModel(
+<a class="jxr_linenumber" name="L325" href="#L325">325</a> 					<strong class="jxr_keyword">new</strong> String[] {<span class="jxr_string">"1"</span>, <span class="jxr_string">"2"</span>, <span class="jxr_string">"3"</span> }));
+<a class="jxr_linenumber" name="L326" href="#L326">326</a> 			GridBagConstraints gbc_comboBox_1 =
+<a class="jxr_linenumber" name="L327" href="#L327">327</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L328" href="#L328">328</a> 			gbc_comboBox_1.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, cinco, cinco);
+<a class="jxr_linenumber" name="L329" href="#L329">329</a> 			gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
+<a class="jxr_linenumber" name="L330" href="#L330">330</a> 			gbc_comboBox_1.gridx = 2;
+<a class="jxr_linenumber" name="L331" href="#L331">331</a> 			gbc_comboBox_1.gridy = cinco;
+<a class="jxr_linenumber" name="L332" href="#L332">332</a> 			add(cmbTurnos, gbc_comboBox_1);
+<a class="jxr_linenumber" name="L333" href="#L333">333</a> 		}
+<a class="jxr_linenumber" name="L334" href="#L334">334</a> 		{
+<a class="jxr_linenumber" name="L335" href="#L335">335</a> 			btnAsignar = <strong class="jxr_keyword">new</strong> JButton(<span class="jxr_string">"Asignar"</span>);
+<a class="jxr_linenumber" name="L336" href="#L336">336</a> 			btnAsignar.addActionListener(
+<a class="jxr_linenumber" name="L337" href="#L337">337</a> 					<strong class="jxr_keyword">new</strong> BtnAsignarActionListener());
+<a class="jxr_linenumber" name="L338" href="#L338">338</a> 			GridBagConstraints gbc_btnAsignar =
+<a class="jxr_linenumber" name="L339" href="#L339">339</a> 					<strong class="jxr_keyword">new</strong> GridBagConstraints();
+<a class="jxr_linenumber" name="L340" href="#L340">340</a> 			gbc_btnAsignar.insets = <strong class="jxr_keyword">new</strong> Insets(0, 0, 0, cinco);
+<a class="jxr_linenumber" name="L341" href="#L341">341</a> 			gbc_btnAsignar.gridx = 2;
+<a class="jxr_linenumber" name="L342" href="#L342">342</a> 			gbc_btnAsignar.gridy = siete;
+<a class="jxr_linenumber" name="L343" href="#L343">343</a> 			add(btnAsignar, gbc_btnAsignar);
+<a class="jxr_linenumber" name="L344" href="#L344">344</a> 		}
+<a class="jxr_linenumber" name="L345" href="#L345">345</a> 
+<a class="jxr_linenumber" name="L346" href="#L346">346</a> 	}
+<a class="jxr_linenumber" name="L347" href="#L347">347</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L348" href="#L348">348</a> <em class="jxr_javadoccomment">	 * Clase ColorKeyListener.</em>
+<a class="jxr_linenumber" name="L349" href="#L349">349</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L350" href="#L350">350</a> <em class="jxr_javadoccomment">	 * @author in4mates</em>
+<a class="jxr_linenumber" name="L351" href="#L351">351</a> <em class="jxr_javadoccomment">	 * @version 1.0</em>
+<a class="jxr_linenumber" name="L352" href="#L352">352</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L353" href="#L353">353</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">class</strong> ColorKeyListener <strong class="jxr_keyword">extends</strong> FocusAdapter {
+<a class="jxr_linenumber" name="L354" href="#L354">354</a> 		@Override
+<a class="jxr_linenumber" name="L355" href="#L355">355</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L356" href="#L356">356</a> <em class="jxr_javadoccomment">		 * método FocusGained que cambia el color del backgroud al de</em>
+<a class="jxr_linenumber" name="L357" href="#L357">357</a> <em class="jxr_javadoccomment">		 * selección.</em>
+<a class="jxr_linenumber" name="L358" href="#L358">358</a> <em class="jxr_javadoccomment">		 *</em>
+<a class="jxr_linenumber" name="L359" href="#L359">359</a> <em class="jxr_javadoccomment">		 * @param e.</em>
+<a class="jxr_linenumber" name="L360" href="#L360">360</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L361" href="#L361">361</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> focusGained(FocusEvent e) {
+<a class="jxr_linenumber" name="L362" href="#L362">362</a> 			<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L363" href="#L363">363</a> <em class="jxr_javadoccomment">			 * número doscientos cincuenta.</em>
+<a class="jxr_linenumber" name="L364" href="#L364">364</a> <em class="jxr_javadoccomment">			 **/</em>
+<a class="jxr_linenumber" name="L365" href="#L365">365</a> 			<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> doscientosCincuenta = 250;
+<a class="jxr_linenumber" name="L366" href="#L366">366</a> 			<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L367" href="#L367">367</a> <em class="jxr_javadoccomment">			 * número doscientos diez.</em>
+<a class="jxr_linenumber" name="L368" href="#L368">368</a> <em class="jxr_javadoccomment">			 **/</em>
+<a class="jxr_linenumber" name="L369" href="#L369">369</a> 			<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> doscientosDiez = 210;
+<a class="jxr_linenumber" name="L370" href="#L370">370</a> 			colorOriginal = e.getComponent().getBackground();
+<a class="jxr_linenumber" name="L371" href="#L371">371</a> 			e.getComponent()
+<a class="jxr_linenumber" name="L372" href="#L372">372</a> 			.setBackground(<strong class="jxr_keyword">new</strong> Color(doscientosCincuenta,
+<a class="jxr_linenumber" name="L373" href="#L373">373</a> 					doscientosCincuenta, doscientosDiez));
 <a class="jxr_linenumber" name="L374" href="#L374">374</a> 		}
-<a class="jxr_linenumber" name="L375" href="#L375">375</a> 	}
-<a class="jxr_linenumber" name="L376" href="#L376">376</a> }
+<a class="jxr_linenumber" name="L375" href="#L375">375</a> 
+<a class="jxr_linenumber" name="L376" href="#L376">376</a> 		@Override
+<a class="jxr_linenumber" name="L377" href="#L377">377</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L378" href="#L378">378</a> <em class="jxr_javadoccomment">		 * Método focusLosto que cambia el color del background</em>
+<a class="jxr_linenumber" name="L379" href="#L379">379</a> <em class="jxr_javadoccomment">		 * al original.</em>
+<a class="jxr_linenumber" name="L380" href="#L380">380</a> <em class="jxr_javadoccomment">		 *</em>
+<a class="jxr_linenumber" name="L381" href="#L381">381</a> <em class="jxr_javadoccomment">		 * @param e.</em>
+<a class="jxr_linenumber" name="L382" href="#L382">382</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L383" href="#L383">383</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> focusLost(FocusEvent e) {
+<a class="jxr_linenumber" name="L384" href="#L384">384</a> 			e.getComponent().setBackground(colorOriginal);
+<a class="jxr_linenumber" name="L385" href="#L385">385</a> 		}
+<a class="jxr_linenumber" name="L386" href="#L386">386</a> 	}
+<a class="jxr_linenumber" name="L387" href="#L387">387</a> 	<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L388" href="#L388">388</a> <em class="jxr_javadoccomment">	 * Clase BtnAsignarActionListener.</em>
+<a class="jxr_linenumber" name="L389" href="#L389">389</a> <em class="jxr_javadoccomment">	 *</em>
+<a class="jxr_linenumber" name="L390" href="#L390">390</a> <em class="jxr_javadoccomment">	 * @author in4mates</em>
+<a class="jxr_linenumber" name="L391" href="#L391">391</a> <em class="jxr_javadoccomment">	 * @version 1.0</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a> <em class="jxr_javadoccomment">	 */</em>
+<a class="jxr_linenumber" name="L393" href="#L393">393</a> 	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">class</strong> BtnAsignarActionListener <strong class="jxr_keyword">implements</strong> ActionListener {
+<a class="jxr_linenumber" name="L394" href="#L394">394</a> 		<em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L395" href="#L395">395</a> <em class="jxr_javadoccomment">		 * Método actionPerformed.</em>
+<a class="jxr_linenumber" name="L396" href="#L396">396</a> <em class="jxr_javadoccomment">		 *</em>
+<a class="jxr_linenumber" name="L397" href="#L397">397</a> <em class="jxr_javadoccomment">		 * @param e .</em>
+<a class="jxr_linenumber" name="L398" href="#L398">398</a> <em class="jxr_javadoccomment">		 **/</em>
+<a class="jxr_linenumber" name="L399" href="#L399">399</a> 		<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> actionPerformed(ActionEvent e) {
+<a class="jxr_linenumber" name="L400" href="#L400">400</a> 
+<a class="jxr_linenumber" name="L401" href="#L401">401</a> 			Reserva res = <strong class="jxr_keyword">new</strong> <a name="Reserva" href="../../../org/ReservaMesas/Dominio/Reserva.html#Reserva">Reserva</a>();
+<a class="jxr_linenumber" name="L402" href="#L402">402</a> 			res.asignarIDUltimo();
+<a class="jxr_linenumber" name="L403" href="#L403">403</a> 			<strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L404" href="#L404">404</a> 				Mesa m = <strong class="jxr_keyword">new</strong> <a name="Mesa" href="../../../org/ReservaMesas/Dominio/Mesa.html#Mesa">Mesa</a>();
+<a class="jxr_linenumber" name="L405" href="#L405">405</a> 				m.setIdMesa(Integer
+<a class="jxr_linenumber" name="L406" href="#L406">406</a> 						.parseInt(cmbMesas
+<a class="jxr_linenumber" name="L407" href="#L407">407</a> 						.getSelectedItem().toString()));
+<a class="jxr_linenumber" name="L408" href="#L408">408</a> 				m.leer();
+<a class="jxr_linenumber" name="L409" href="#L409">409</a> 				res.setMesa(m);
+<a class="jxr_linenumber" name="L410" href="#L410">410</a> 				res.setNombreCliente(txtNombreCliente
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> 						.getText());
+<a class="jxr_linenumber" name="L412" href="#L412">412</a> 				res.setComensales(
+<a class="jxr_linenumber" name="L413" href="#L413">413</a> 						Integer.parseInt(spnComensales
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 						.getValue().toString()));
+<a class="jxr_linenumber" name="L415" href="#L415">415</a> 				res.setTurnoComCen(rdbtnComida.isSelected() ? <span class="jxr_string">"comida"</span> : <span class="jxr_string">"cena"</span>);
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> 				res.setTurno(Integer
+<a class="jxr_linenumber" name="L417" href="#L417">417</a> 						.parseInt(cmbTurnos
+<a class="jxr_linenumber" name="L418" href="#L418">418</a> 						.getSelectedItem()
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> 						.toString()));
+<a class="jxr_linenumber" name="L420" href="#L420">420</a> 				m.setEstado(Estados.RESERVADA);
+<a class="jxr_linenumber" name="L421" href="#L421">421</a> 				Timestamp timestamp = <strong class="jxr_keyword">new</strong> Timestamp(
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 						System.currentTimeMillis());
+<a class="jxr_linenumber" name="L423" href="#L423">423</a> 				m.setHoraEstado(sdf.format(timestamp));
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> 				<strong class="jxr_keyword">if</strong> (!res.insertar()) {
+<a class="jxr_linenumber" name="L425" href="#L425">425</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(<span class="jxr_string">"Error "</span>
+<a class="jxr_linenumber" name="L426" href="#L426">426</a> 						+ <span class="jxr_string">"al insertar la reserva"</span>);
+<a class="jxr_linenumber" name="L427" href="#L427">427</a> 				}
+<a class="jxr_linenumber" name="L428" href="#L428">428</a> 
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 				<strong class="jxr_keyword">if</strong> (!m.modificar()) {
+<a class="jxr_linenumber" name="L430" href="#L430">430</a> 					<strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> Exception(
+<a class="jxr_linenumber" name="L431" href="#L431">431</a> 						<span class="jxr_string">"Error al modificar "</span>
+<a class="jxr_linenumber" name="L432" href="#L432">432</a> 						+ <span class="jxr_string">"el estado de la mesa"</span>);
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> 				}
+<a class="jxr_linenumber" name="L434" href="#L434">434</a> 				reservas.recargarReservas();
+<a class="jxr_linenumber" name="L435" href="#L435">435</a> 
+<a class="jxr_linenumber" name="L436" href="#L436">436</a> 			} <strong class="jxr_keyword">catch</strong> (Exception arg0) {
+<a class="jxr_linenumber" name="L437" href="#L437">437</a> 				JOptionPane.showMessageDialog(<strong class="jxr_keyword">null</strong>,
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> 						arg0.getMessage(), <span class="jxr_string">"Error"</span>,
+<a class="jxr_linenumber" name="L439" href="#L439">439</a> 						JOptionPane.ERROR_MESSAGE);
+<a class="jxr_linenumber" name="L440" href="#L440">440</a> 			}
+<a class="jxr_linenumber" name="L441" href="#L441">441</a> 
+<a class="jxr_linenumber" name="L442" href="#L442">442</a> 		}
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 	}
+<a class="jxr_linenumber" name="L444" href="#L444">444</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2018. All rights reserved.</div>

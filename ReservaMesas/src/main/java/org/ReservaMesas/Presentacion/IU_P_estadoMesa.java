@@ -64,11 +64,21 @@ public class IU_P_estadoMesa extends JPanel {
 	 * Botón del estado preparación.
 	 **/
 	private JButton btnPreparacion;
-
+	/**
+	 * número dosCientos.
+	 **/
+	final int dosCientos = 200;
+	/**
+	 * número dosCientosCincuenta.
+	 **/
+	final int dosCientosCincuenta = 250;
 	/**
 	 * Color que define la selección de algo.
 	 **/
-	private Color colorSelecionado = new Color(200, 200, 250);
+	private Color colorSelecionado =
+			new Color(dosCientos,
+					dosCientos,
+					dosCientosCincuenta);
 	/**
 	 * Color por defecto.
 	 **/
@@ -94,12 +104,66 @@ public class IU_P_estadoMesa extends JPanel {
 	/**
 	 * Constructor del panel estado mesa con todos
 	 * sus campos y características.
-	 * 
 	 * @param idMesa .
 	 * @throws Exception .
 	 **/
 	public IU_P_estadoMesa(int idMesa) throws Exception {
-
+		/**
+		 * número cinco.
+		 **/
+		final int cinco = 5;
+		/**
+		 * número siete.
+		 **/
+		final int siete = 7;
+		/**
+		 * número ocho.
+		 **/
+		final int ocho = 8;
+		/**
+		 * número seis.
+		 **/
+		final int seis = 6;
+		/**
+		 * número tres.
+		 **/
+		final int tres = 3;
+		/**
+		 * número cuatro.
+		 **/
+		final int cuatro = 4;
+		/**
+		 * número noventaYCuatro.
+		 **/
+		final int noventaYCuatro = 94;
+		/**
+		 * número noventaYTres.
+		 **/
+		final int noventaYTres = 93;
+		/**
+		 * número sesentaYNueve.
+		 **/
+		final int sesentaYNueve = 69;
+		/**
+		 * número cientoCinco.
+		 **/
+		final int cientoCinco = 105;
+		/**
+		 * número cientoCincuentaYCuatro.
+		 **/
+		final int cientoCincuentaYCuatro = 154;
+		/**
+		 * número cientoTreintaYUno.
+		 **/
+		final int cientoTreintaYUno = 131;
+		/**
+		 * número cientoDiezYSeis.
+		 **/
+		final int cientoDiezYSeis = 116;
+		/**
+		 * número veintiCinco.
+		 **/
+		final int veintiCinco = 25;
 		if (idMesa < 1) {
 			throw new Exception("Id de mesa no posible");
 		}
@@ -110,9 +174,17 @@ public class IU_P_estadoMesa extends JPanel {
 		GridBagLayout gridBagLayout =
 				new GridBagLayout();
 		gridBagLayout.columnWidths =
-				new int[] {69, 105, 94, 94, 154, 93, 131,
-				94, 116, 0 };
-		gridBagLayout.rowHeights = new int[] {0, 25, 0, 0 };
+				new int[] {sesentaYNueve,
+						cientoCinco,
+						noventaYCuatro,
+						noventaYCuatro,
+						cientoCincuentaYCuatro,
+						noventaYTres,
+						cientoTreintaYUno,
+						noventaYCuatro,
+						cientoDiezYSeis,
+						0 };
+		gridBagLayout.rowHeights = new int[] {0, veintiCinco, 0, 0 };
 		gridBagLayout.columnWeights =
 				new double[] {0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
@@ -125,7 +197,7 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnLibre =
 					new GridBagConstraints();
 			gbc_btnLibre.anchor = GridBagConstraints.WEST;
-			gbc_btnLibre.insets = new Insets(0, 0, 5, 5);
+			gbc_btnLibre.insets = new Insets(0, 0, cinco, cinco);
 			gbc_btnLibre.gridx = 0;
 			gbc_btnLibre.gridy = 1;
 			add(btnLibre, gbc_btnLibre);
@@ -137,7 +209,8 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnReservada =
 					new GridBagConstraints();
 			gbc_btnReservada.anchor = GridBagConstraints.WEST;
-			gbc_btnReservada.insets = new Insets(0, 0, 5, 5);
+			gbc_btnReservada.insets =
+					new Insets(0, 0, cinco, cinco);
 			gbc_btnReservada.gridx = 1;
 			gbc_btnReservada.gridy = 1;
 			add(btnReservada, gbc_btnReservada);
@@ -148,7 +221,7 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnOcupada =
 					new GridBagConstraints();
 			gbc_btnOcupada.anchor = GridBagConstraints.WEST;
-			gbc_btnOcupada.insets = new Insets(0, 0, 5, 5);
+			gbc_btnOcupada.insets = new Insets(0, 0, cinco, cinco);
 			gbc_btnOcupada.gridx = 2;
 			gbc_btnOcupada.gridy = 1;
 			add(btnOcupada, gbc_btnOcupada);
@@ -159,8 +232,8 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnPidiendo =
 					new GridBagConstraints();
 			gbc_btnPidiendo.anchor = GridBagConstraints.WEST;
-			gbc_btnPidiendo.insets = new Insets(0, 0, 5, 5);
-			gbc_btnPidiendo.gridx = 3;
+			gbc_btnPidiendo.insets = new Insets(0, 0, cinco, cinco);
+			gbc_btnPidiendo.gridx = tres;
 			gbc_btnPidiendo.gridy = 1;
 			add(btnPidiendo, gbc_btnPidiendo);
 		}
@@ -171,8 +244,9 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnEsperaDeComida =
 					new GridBagConstraints();
 			gbc_btnEsperaDeComida.anchor = GridBagConstraints.WEST;
-			gbc_btnEsperaDeComida.insets = new Insets(0, 0, 5, 5);
-			gbc_btnEsperaDeComida.gridx = 4;
+			gbc_btnEsperaDeComida.insets =
+					new Insets(0, 0, cinco, cinco);
+			gbc_btnEsperaDeComida.gridx = cuatro;
 			gbc_btnEsperaDeComida.gridy = 1;
 			add(btnEsperaDeComida, gbc_btnEsperaDeComida);
 		}
@@ -182,8 +256,8 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnServidos =
 					new GridBagConstraints();
 			gbc_btnServidos.anchor = GridBagConstraints.WEST;
-			gbc_btnServidos.insets = new Insets(0, 0, 5, 5);
-			gbc_btnServidos.gridx = 5;
+			gbc_btnServidos.insets = new Insets(0, 0, cinco, cinco);
+			gbc_btnServidos.gridx = cinco;
 			gbc_btnServidos.gridy = 1;
 			add(btnServidos, gbc_btnServidos);
 		}
@@ -194,8 +268,9 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnEsperaCuenta =
 					new GridBagConstraints();
 			gbc_btnEsperaCuenta.anchor = GridBagConstraints.WEST;
-			gbc_btnEsperaCuenta.insets = new Insets(0, 0, 5, 5);
-			gbc_btnEsperaCuenta.gridx = 6;
+			gbc_btnEsperaCuenta.insets =
+					new Insets(0, 0, cinco, cinco);
+			gbc_btnEsperaCuenta.gridx = seis;
 			gbc_btnEsperaCuenta.gridy = 1;
 			add(btnEsperaCuenta, gbc_btnEsperaCuenta);
 		}
@@ -205,8 +280,8 @@ public class IU_P_estadoMesa extends JPanel {
 			GridBagConstraints gbc_btnPagando =
 					new GridBagConstraints();
 			gbc_btnPagando.anchor = GridBagConstraints.WEST;
-			gbc_btnPagando.insets = new Insets(0, 0, 5, 5);
-			gbc_btnPagando.gridx = 7;
+			gbc_btnPagando.insets = new Insets(0, 0, cinco, cinco);
+			gbc_btnPagando.gridx = siete;
 			gbc_btnPagando.gridy = 1;
 			add(btnPagando, gbc_btnPagando);
 		}
@@ -216,9 +291,9 @@ public class IU_P_estadoMesa extends JPanel {
 					new BtnActionListener());
 			GridBagConstraints gbc_btnPreparacion =
 					new GridBagConstraints();
-			gbc_btnPreparacion.insets = new Insets(0, 0, 5, 0);
+			gbc_btnPreparacion.insets = new Insets(0, 0, cinco, 0);
 			gbc_btnPreparacion.anchor = GridBagConstraints.WEST;
-			gbc_btnPreparacion.gridx = 8;
+			gbc_btnPreparacion.gridx = ocho;
 			gbc_btnPreparacion.gridy = 1;
 			add(btnPreparacion, gbc_btnPreparacion);
 		}
@@ -380,7 +455,7 @@ public class IU_P_estadoMesa extends JPanel {
 		return this.idMesa;
 	}
 	/**
-	 * Clase BtnActionListener
+	 * Clase BtnActionListener.
 	 *
 	 * @author in4mates
 	 * @version 1.0
