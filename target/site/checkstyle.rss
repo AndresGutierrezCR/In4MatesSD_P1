@@ -26,7 +26,11 @@ under the License.
     <copyright>&#169;2018</copyright>
     <item>
       <title>File: 15,
+<<<<<<< HEAD
              Errors: 1349,
+=======
+             Errors: 625,
+>>>>>>> refs/remotes/origin/Mantenimiento_ReservaMesas
              Warnings: 0,
              Infos: 0
       </title>
@@ -55,7 +59,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  167
+                  35
                 </td>
               </tr>
                           <tr>
@@ -97,7 +101,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  60
+                  19
                 </td>
               </tr>
                           <tr>
@@ -111,7 +115,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  139
+                  14
                 </td>
               </tr>
                           <tr>
@@ -139,7 +143,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  89
+                  31
                 </td>
               </tr>
                           <tr>
@@ -153,7 +157,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  63
+                  10
                 </td>
               </tr>
                           <tr>
@@ -167,7 +171,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  13
+                  1
                 </td>
               </tr>
                           <tr>
@@ -181,7 +185,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  187
+                  38
                 </td>
               </tr>
                           <tr>
@@ -195,7 +199,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  159
+                  17
                 </td>
               </tr>
                           <tr>
@@ -209,7 +213,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  132
+                  34
                 </td>
               </tr>
                           <tr>
@@ -223,7 +227,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  131
+                  45
                 </td>
               </tr>
                           <tr>
@@ -251,7 +255,7 @@ under the License.
                   0
                 </td>
                 <td>
-                  55
+                  7
                 </td>
               </tr>
                       </tbody>
