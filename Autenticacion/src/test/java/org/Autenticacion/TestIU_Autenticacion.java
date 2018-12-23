@@ -11,7 +11,7 @@ public class TestIU_Autenticacion {
 	private IU_Autenticacion interfaz;
 	
 	@Test
-	public void test1() {
+	public void testConstructor() {
 		try {
 			interfaz = new IU_Autenticacion();
 		}catch(Exception e) {

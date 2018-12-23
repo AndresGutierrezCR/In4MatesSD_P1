@@ -18,7 +18,6 @@ import java.awt.Insets;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -37,11 +36,11 @@ public class IU_Autenticacion extends JPanel {
 	/**
 	 * número 250.
 	 **/
-	final int doscientosCincuenta = 250;
+	final static int doscientosCincuenta = 250;
 	/**
 	 * número 200.
 	 **/
-	final int doscientos = 200;
+	final static int doscientos = 200;
 	/**
 	 * label que indica donde colocar el nombre.
 	 **/
@@ -79,10 +78,6 @@ public class IU_Autenticacion extends JPanel {
 			new Color(doscientosCincuenta,
 					doscientosCincuenta,
 					doscientos);
-	/**
-	 * Jframe.
-	 **/
-	private JFrame frame;
 
 	/**
 	 * Genera la interfaz de autenticación con todos sus campos y
@@ -179,14 +174,6 @@ public class IU_Autenticacion extends JPanel {
 
 	}
 
-	/**
-	 * Setter del frame.
-	 *
-	 * @param frame .
-	 */
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
 
 	/**
 	 * Getter autenticado.

@@ -67,11 +67,11 @@ public class IU_P_estadoMesa extends JPanel {
 	/**
 	 * número dosCientos.
 	 **/
-	final int dosCientos = 200;
+	final static int dosCientos = 200;
 	/**
 	 * número dosCientosCincuenta.
 	 **/
-	final int dosCientosCincuenta = 250;
+	final static int dosCientosCincuenta = 250;
 	/**
 	 * Color que define la selección de algo.
 	 **/

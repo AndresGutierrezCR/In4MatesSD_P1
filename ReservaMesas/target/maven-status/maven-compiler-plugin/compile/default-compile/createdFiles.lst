@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-org/ReservaMesas/Presentacion/IU_P_estadoMesa$1.class
-org/ReservaMesas/Presentacion/IU_AsigMesa$1.class
-=======
 org/ReservaMesas/Presentacion/Ventana_Principal$TabbedPaneMouseListener.class
 org/ReservaMesas/Presentacion/IU_AsigMesa$ColorKeyListener.class
 org/ReservaMesas/Persistencia/GestorMesa.class
@@ -25,4 +21,3 @@ org/ReservaMesas/Presentacion/IU_AsigMesa$BtnAsignarActionListener.class
 org/ReservaMesas/Presentacion/IU_VerReservas$BtnCancelarActionListener.class
 org/ReservaMesas/Presentacion/IU_VerReservas$1.class
 org/ReservaMesas/Dominio/Estados.class
->>>>>>> refs/remotes/origin/Mantenimiento_ReservaMesas

@@ -8,109 +8,139 @@ import org.ReservaMesas.Dominio.Mesa;
 import org.junit.Test;
 
 public class TestMesa {
+
 	private Mesa m;
-
-
+	
+	/* test constructor */
+	@Test(expected = Exception.class)
+	public void test1()throws Exception {
+		m=new Mesa(-5,-3,Estados.RESERVADA,"27/11/2018  23:41:30");
+	}
+	@Test(expected = Exception.class)
+	public void test2()throws Exception {
+		m=new Mesa(32,7,Estados.RESERVADA,"-5/13/19 23:41:01");
+	}
+	@Test(expected = Exception.class)
+	public void test3()throws Exception {
+		m=new Mesa(0,0,Estados.RESERVADA,"27/12/19 40:41:03 ");
+	}
+	@Test(expected = Exception.class)
+	public void test4()throws Exception {
+		m=new Mesa(-5,7,Estados.RESERVADA,"-5/13/19 23:41:61");
+	}
+	@Test(expected = Exception.class)
+	public void test5()throws Exception {
+		m=new Mesa(32,0,Estados.RESERVADA,"27/11/2018  23:41:30");
+	}
+	@Test(expected = Exception.class)
+	public void test6()throws Exception {
+		m=new Mesa(0,-3,Estados.RESERVADA,"-5/13/19 23:41:01");
+	}
+	@Test(expected = Exception.class)
+	public void test7()throws Exception {
+		m=new Mesa(0,7,Estados.RESERVADA,"27/12/19 40:41:03 ");
+	}
+	@Test(expected = Exception.class)
+	public void test8()throws Exception {
+		m=new Mesa(32,-3,Estados.RESERVADA,"-5/13/19 23:41:61");
+	}
+	@Test(expected = Exception.class)
+	public void test9()throws Exception {
+		m=new Mesa(-5,0,Estados.RESERVADA,"27/11/2018  23:41:30");
+	}
 	@Test
-	public void testCase1() {
-
+	public void test10()throws Exception {
 		try {
-			m = new Mesa(32, 7, Estados.RESERVADA, "27/11/18 23:41:03");
-		} catch (Exception e) {
+		m=new Mesa(32,7,Estados.RESERVADA,"27/11/2018  23:41:30");
+		}catch(Exception e) {
 			assumeNoException(e);
 		}
-
 	}
-
-	@Test(expected = Exception.class)
-	public void testCase2() throws Exception {
-
-		m = new Mesa(-5, 7, Estados.RESERVADA, "27/11/18 23:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase3() throws Exception {
-
-		m = new Mesa(0, 7, Estados.RESERVADA, "27/11/18 23:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase4() throws Exception {
-
-		m = new Mesa(32, -3, Estados.RESERVADA, "27/11/18 23:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase5() throws Exception {
-
-		m = new Mesa(32, 0, Estados.RESERVADA, "27/11/18 23:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase6() throws Exception {
-
-		m = new Mesa(1, 7, Estados.RESERVADA, "31/02/18 23:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase7() throws Exception {
-
-		m = new Mesa(4,2, Estados.RESERVADA, "27/12/19 40:41:03");
-
-	}
-
-	@Test(expected = Exception.class)
-	public void testCase8() throws Exception {
-
-		m = new Mesa(4,2, Estados.RESERVADA, "-5/13/19 23:41:61");
-
-	}
+	
+	/* set horaEstado*/
 	
 	@Test
-	public void getters_SettersTest() throws Exception{
+	public void testSetHoraEstado1()throws Exception {
 		m=new Mesa();
-		m.setIdMesa(5);
-		assertEquals(m.getIdMesa(),5);
-		
-		m.setEstado(Estados.RESERVADA);
-		assertEquals(m.getEstado(),Estados.RESERVADA);
-		
-		m.setHoraEstado("23/12/19 23:30:30");
-		assertEquals(m.getHoraEstado(),"23/12/19 23:30:30");
-		
-		m.setComensales(3);
-		assertEquals(m.getComensales(),3);
+		try {
+		m.setHoraEstado("27/11/2018  23:41:03");
+		}catch(Exception e) {
+			assumeNoException(e);
+		}
+		assertEquals("27/11/2018  23:41:03",m.getHoraEstado());
 	}
 	
 	@Test(expected = Exception.class)
-	public void testCase10() throws Exception {
-
+	public void testSetHoraEstado2()throws Exception {
+		m=new Mesa();
+		m.setHoraEstado("-5/13/19 23:41:01");
+	}
+	@Test(expected = Exception.class)
+	public void testSetHoraEstado3()throws Exception {
+		m=new Mesa();
+		m.setHoraEstado("27/12/19 40:41:03");
+	}
+	@Test(expected = Exception.class)
+	public void testSetHoraEstado4()throws Exception {
+		m=new Mesa();
+		m.setHoraEstado("-5/13/19 23:41:61");
+	}
+	
+	/* set idMesa */
+	
+	@Test(expected = Exception.class)
+	public void testSetIdMesa1()throws Exception {
 		m=new Mesa();
 		m.setIdMesa(-5);
-
 	}
-
 	@Test(expected = Exception.class)
-	public void testCase11() throws Exception {
-
+	public void testSetIdMesa2()throws Exception {
 		m=new Mesa();
-		m.setComensales(-5);
-
+		m.setIdMesa(0);
+	}
+	@Test
+	public void testSetIdMesa3()throws Exception {
+		m=new Mesa();
+		try {
+		m.setIdMesa(32);
+		}catch(Exception e) {
+			assumeNoException(e);
+		}
+		assertEquals(32,m.getIdMesa());
+		
 	}
 	
+	/* set comensales */
 	@Test(expected = Exception.class)
-	public void testCase12() throws Exception {
-
+	public void testSetComensales1()throws Exception {
 		m=new Mesa();
-		m.setHoraEstado("40/05/-8 25:61:70");
-
+		m.setComensales(-3);
+	}
+	@Test(expected = Exception.class)
+	public void testSetComensales2()throws Exception {
+		m=new Mesa();
+		m.setComensales(0);
+	}
+	@Test
+	public void testSetComensales3()throws Exception {
+		m=new Mesa();
+		try {
+		m.setComensales(7);
+		}catch(Exception e) {
+			assumeNoException(e);
+		}
+		assertEquals(7,m.getComensales());
 	}
 	
+	/* test get set estado*/
+	@Test
+	public void testSetGetEstado()throws Exception {
+		m=new Mesa();
+		m.setEstado(Estados.OCUPADA);
+		assertEquals(Estados.OCUPADA,m.getEstado());
+	}
+	
+	/* Tests operaciones CRUD*/
 	@Test
 	public void testInsertarYborrar() throws Exception {
 		m = new Mesa(10, 7, Estados.RESERVADA, "10/02/18 23:41:03");
@@ -164,5 +194,4 @@ public class TestMesa {
 	}
 	
 	
-
 }
